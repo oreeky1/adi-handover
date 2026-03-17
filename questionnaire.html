@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שאלון חפיפה — עדי</title>
+
+<style>
+  :root {
+    --bg: #F7F4EF;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE6;
+    --accent: #C4824A;
+    --accent-light: #F2E4D4;
+    --accent-dark: #8B5A2B;
+    --text: #2C2416;
+    --text-muted: #7A6E60;
+    --border: #DDD5C8;
+    --green: #4A7C59;
+    --green-light: #D4EAD8;
+    --red: #C0392B;
+    --red-light: #FAD7D3;
+    --yellow: #E8A020;
+    --yellow-light: #FEF3DB;
+    --section1: #C4824A;
+    --section2: #4A7C59;
+    --section3: #5B6FA8;
+    --section4: #A0527A;
+    --section5: #7B6E3E;
+    --section6: #3A8A8A;
+    --section7: #8A4A4A;
+    --shadow: 0 2px 12px rgba(44,36,22,0.08);
+    --shadow-lg: 0 8px 32px rgba(44,36,22,0.14);
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ===== HEADER ===== */
+  .hero {
+    background: linear-gradient(135deg, #2C2416 0%, #5C3D1E 50%, #8B5A2B 100%);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(196,130,74,0.3);
+    border: 1px solid rgba(196,130,74,0.5);
+    color: #F2C98A;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 5vw, 44px);
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    max-width: 560px;
+    margin: 0 auto 28px;
+    font-weight: 300;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-meta span {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-meta span::before { content: '◆'; color: var(--accent); font-size: 8px; }
+
+  /* ===== INSTRUCTIONS ===== */
+  .instructions {
+    max-width: 860px;
+    margin: 40px auto 0;
+    padding: 0 24px;
+  }
+  .instructions-box {
+    background: var(--yellow-light);
+    border: 1.5px solid #F0C060;
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    display: flex;
+    gap: 16px;
+  }
+  .instructions-icon { font-size: 28px; flex-shrink: 0; line-height: 1; }
+  .instructions-text h3 { font-size: 15px; font-weight: 700; color: #7A5000; margin-bottom: 8px; }
+  .instructions-text p { font-size: 14px; color: #7A5000; opacity: 0.85; }
+
+  /* ===== NAV ===== */
+  .nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(44,36,22,0.06);
+  }
+  .nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .nav-btn {
+    padding: 14px 18px;
+    border: none;
+    background: none;
+    font-family: -apple-system, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-btn:hover { color: var(--text); }
+  .nav-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 700; }
+  .nav-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.4;
+  }
+
+  /* ===== PROGRESS ===== */
+  .progress-wrap {
+    max-width: 860px;
+    margin: 32px auto 0;
+    padding: 0 24px;
+  }
+  .progress-bar-bg {
+    background: var(--border);
+    border-radius: 20px;
+    height: 6px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+    border-radius: 20px;
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  /* ===== MAIN ===== */
+  .main {
+    max-width: 860px;
+    margin: 32px auto 100px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .section-header {
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .section-header:hover { background: var(--surface2); }
+  .section-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .section-title-wrap { flex: 1; }
+  .section-title { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+  .section-subtitle { font-size: 13px; color: var(--text-muted); }
+  .section-chevron {
+    color: var(--text-muted);
+    font-size: 18px;
+    transition: transform 0.3s;
+  }
+  .section.open .section-chevron { transform: rotate(180deg); }
+  .section-counter {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .section-counter.has-answers {
+    background: var(--green-light);
+    border-color: var(--green);
+    color: var(--green);
+  }
+  .section-body {
+    display: none;
+    padding: 12px 28px 32px;
+    border-top: 1px solid var(--border);
+  }
+  .section.open .section-body { display: block; }
+
+  /* color themes */
+  .s1 .section-icon { background: #FBE8D4; color: var(--section1); }
+  .s1 .section-title { color: var(--section1); }
+  .s2 .section-icon { background: #D4EAD8; color: var(--section2); }
+  .s2 .section-title { color: var(--section2); }
+  .s3 .section-icon { background: #D8DEF4; color: var(--section3); }
+  .s3 .section-title { color: var(--section3); }
+  .s4 .section-icon { background: #EDD4E4; color: var(--section4); }
+  .s4 .section-title { color: var(--section4); }
+  .s5 .section-icon { background: #EDE8D0; color: var(--section5); }
+  .s5 .section-title { color: var(--section5); }
+  .s6 .section-icon { background: #D0ECEC; color: var(--section6); }
+  .s6 .section-title { color: var(--section6); }
+  .s7 .section-icon { background: #EDD0D0; color: var(--section7); }
+  .s7 .section-title { color: var(--section7); }
+
+  /* ===== QUESTIONS ===== */
+  .q-group { margin-top: 24px; }
+  .q-group-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .q-item { margin-bottom: 20px; }
+  .q-item:last-child { margin-bottom: 0; }
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  label .q-num {
+    display: inline-block;
+    width: 22px; height: 22px;
+    background: var(--surface2);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 8px;
+    flex-shrink: 0;
+  }
+  label .q-hint {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 3px;
+    font-style: italic;
+  }
+  label .required { color: var(--red); margin-right: 2px; }
+
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: -apple-system, Arial, sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--bg);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    resize: vertical;
+    direction: rtl;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(196,130,74,0.15);
+    background: #fff;
+  }
+  input.filled, textarea.filled { border-color: var(--green); background: #FAFFF9; }
+  textarea { min-height: 110px; }
+  textarea.tall { min-height: 160px; }
+
+  /* radio / checkbox group */
+  .radio-group, .check-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .radio-group label, .check-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .radio-group label:hover, .check-group label:hover { border-color: var(--accent); background: var(--accent-light); }
+  .radio-group input, .check-group input { accent-color: var(--accent); }
+
+  /* supplier card */
+  .supplier-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .supplier-card-title {
+    font-weight: 700;
+    color: var(--accent-dark);
+    margin-bottom: 14px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .supplier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 600px) { .supplier-grid { grid-template-columns: 1fr; } }
+  .supplier-grid .full { grid-column: 1 / -1; }
+
+  /* criticality selector */
+  .criticality-wrap { display: flex; gap: 6px; }
+  .crit-btn {
+    flex: 1;
+    padding: 8px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface2);
+    font-family: -apple-system, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+  }
+  .crit-btn:hover { border-color: var(--accent); }
+  .crit-btn.selected-low { background: var(--green-light); border-color: var(--green); color: var(--green); }
+  .crit-btn.selected-mid { background: var(--yellow-light); border-color: var(--yellow); color: var(--yellow); }
+  .crit-btn.selected-high { background: var(--red-light); border-color: var(--red); color: var(--red); }
+
+  /* ===== CALENDAR GRID ===== */
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+  }
+  @media (max-width: 500px) { .cal-grid { grid-template-columns: repeat(3, 1fr); } }
+  .cal-month {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .cal-month-header {
+    background: var(--surface2);
+    padding: 6px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .cal-month-body { padding: 6px; }
+  .cal-month textarea {
+    min-height: 80px;
+    font-size: 12px;
+    padding: 6px 8px;
+    border-color: transparent;
+    background: transparent;
+    resize: none;
+  }
+  .cal-month textarea:focus { background: #fff; border-color: var(--accent); }
+
+  /* ===== SAVE BAR ===== */
+  .save-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0; right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+    box-shadow: 0 -4px 20px rgba(44,36,22,0.1);
+    z-index: 200;
+    flex-wrap: wrap;
+  }
+  .save-info {
+    font-size: 13px;
+    color: var(--text-muted);
+    flex: 1;
+    text-align: center;
+  }
+  .btn {
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+    font-family: -apple-system, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(196,130,74,0.4); }
+  .btn-secondary { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { background: var(--border); }
+  .btn-print { background: #2C2416; color: white; }
+  .btn-print:hover { background: #1a1510; }
+
+  /* ===== TOAST ===== */
+  .toast {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-80px);
+    background: #2C2416;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    z-index: 300;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .nav-sticky, .save-bar, .hero-badge, .instructions-box, .progress-wrap { display: none !important; }
+    .section { box-shadow: none; page-break-inside: avoid; }
+    .section-body { display: block !important; }
+    .section-chevron { display: none; }
+    body { background: white; }
+    .main { margin-bottom: 0; }
+    input, textarea { border-bottom: 1px solid #ccc !important; background: none !important; border-top: none !important; border-left: none !important; border-right: none !important; border-radius: 0 !important; }
+  }
+
+  /* ===== UTILS ===== */
+  .separator {
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0;
+  }
+  .tip-box {
+    background: #EEF7FF;
+    border: 1px solid #BDD9F0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #2A5A8A;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+  }
+  .tip-box::before { content: '💡'; flex-shrink: 0; }
+
+  .missing-badge {
+    display: inline-block;
+    background: var(--yellow-light);
+    border: 1px solid var(--yellow);
+    color: #7A5000;
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">📋 שאלון חפיפה — סודי ופנימי</div>
+  <h1>מה שאת יודעת — שיישמר</h1>
+  <p>שאלון זה נועד להנגיש את הידע שצברת ב-4 שנים לתוך תיק חפיפה מקצועי שיעזור למחליפה שלך להצליח</p>
+  <div class="hero-meta">
+    <span>7 נושאים</span>
+    <span>~60 שאלות</span>
+    <span>נשמר אוטומטית</span>
+    <span>ניתן להדפסה</span>
+  </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-label">
+    <span>התקדמות מילוי השאלון</span>
+    <span id="progress-text">0 מתוך 0 שדות</span>
+  </div>
+  <div class="progress-bar-bg">
+    <div class="progress-bar-fill" id="progress-fill"></div>
+  </div>
+</div>
+
+<div class="instructions">
+  <div class="instructions-box" style="background:#FFF3CD;border-color:#F0C060">
+    <div class="instructions-icon">💾</div>
+    <div class="instructions-text">
+      <h3>💾 השמירה אוטומטית!</h3>
+      <p>הנתונים נשמרים אוטומטית בדפדפן שלך בכל הקלדה. לחצי <strong>"שמור"</strong> לאישור ידני. לגיבוי הנתונים למחשב — לחצי <strong>"גיבוי JSON"</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-sticky">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="var e=document.getElementById('s1');if(e){e.classList.add('open');e.scrollIntoView();}"><span class="nav-dot"></span>רווחה</button>
+    <button class="nav-btn" onclick="var e=document.getElementById('s2');if(e){e.classList.add('open');e.scrollIntoView();}"><span class="nav-dot"></span>פיתוח ארגוני</button>
+    <button class="nav-btn" onclick="var e=document.getElementById('s3');if(e){e.classList.add('open');e.scrollIntoView();}"><span class="nav-dot"></span>כללי</button>
+    <button class="nav-btn" onclick="var e=document.getElementById('s4');if(e){e.classList.add('open');e.scrollIntoView();}"><span class="nav-dot"></span>ספקים</button>
+    <button class="nav-btn" onclick="var e=document.getElementById('s5');if(e){e.classList.add('open');e.scrollIntoView();}"><span class="nav-dot"></span>לוח שנה</button>
+    <button class="nav-btn" onclick="var e=document.getElementById('s6');if(e){e.classList.add('open');e.scrollIntoView();}"><span class="nav-dot"></span>ממשקים</button>
+    <button class="nav-btn" onclick="var e=document.getElementById('s7');if(e){e.classList.add('open');e.scrollIntoView();}"><span class="nav-dot"></span>תחום האפור</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- ===== SECTION 1: רווחה ===== -->
+  <div class="section s1 open" id="s1">
+    <div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="section-icon">🎉</div>
+      <div class="section-title-wrap">
+        <div class="section-title">אירועים ורווחה</div>
+        <div class="section-subtitle">אירועי חברה, מתנות, נסיעות, הטבות</div>
+      </div>
+      <span class="section-counter" id="cnt-s1">0/12 שדות</span>
+      <span class="section-chevron">▼</span>
+    </div>
+    <div class="section-body">
+
+      <div class="tip-box">הנתונים הבסיסיים כבר ידועים — השאלות כאן מתמקדות במה שלא כתוב בשום מקום.</div>
+
+      <div class="q-group">
+        <div class="q-group-title">🎒 אירוע כיתה א׳</div>
+        <div class="q-item">
+          <label><span class="q-num">1</span> מתי בשנה מתרחש האירוע? באיזה חודש מתחילים להכין?
+            <span class="q-hint">לדוגמה: ספטמבר, הכנה מאוגוסט</span>
+          </label>
+          <input type="text" id="q1" placeholder="חודש האירוע + חודש תחילת ההכנות...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">2</span> מה הצעדים הראשונים שצריך לעשות מיד עם תחילת ההכנה?
+            <span class="q-hint">מה ה-checklist הראשוני שאת עובדת לפיו?</span>
+          </label>
+          <textarea id="q2" placeholder="1. תיאום תאריך...&#10;2. פניה לספקים...&#10;3."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">3</span> מה הדברים שנפלו בעבר / מלכודות שחשוב להכיר?
+            <span class="q-hint">זה אחד הדברים החשובים ביותר לתעד!</span>
+          </label>
+          <textarea id="q3" class="tall" placeholder="לדוגמה: בלתמים הוזמנו מאוחר מדי, ספק תיקים נגמר מהמלאי..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">4</span> כמה ילדים בממוצע? מי אחראי על רשימת הילדים?</label>
+          <input type="text" id="q4" placeholder="מספר ילדים + מי מספק את הרשימה...">
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title">🏖️ נופש חברה</div>
+        <div class="q-item">
+          <label><span class="q-num">5</span> מתי פותחים בחירת ספק? כמה זמן לוקח תהליך המכרז לנופש?</label>
+          <input type="text" id="q5" placeholder="לדוגמה: ינואר עד מרץ, נופש בספטמבר...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">6</span> מה הקריטריונים שאת מסתכלת עליהם בבחירת ספק/מלון?
+            <span class="q-hint">מה עשה הבדל בין טוב לבין מצוין?</span>
+          </label>
+          <textarea id="q6" class="tall" placeholder="לדוגמה: נגישות, סגנון אוכל, איכות אמנים, מחיר לראש..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">7</span> איך מנהלים את בקשות האילוצים של עובדים (חדר נגיש, צרכים תזונתיים וכו׳)?</label>
+          <textarea id="q7" placeholder="דרך מה? מי מרכז? מה עושים עם הבקשות?"></textarea>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title">🎁 מתנות ו-BUYME</div>
+        <div class="q-item">
+          <label><span class="q-num">8</span> מהי מדיניות ה-BUYME? אילו אירועים מקבלים מתנה? מה הסכומים?</label>
+          <textarea id="q8" placeholder="לידה: X ש״ח, חגים: Y ש״ח, תמריץ: Z ש״ח..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">9</span> מה תהליך הקמת/גריעת משתמש ב-BUYME? שים לב: לין טיפלה — האם יש שינוי?
+            <span class="q-hint">שלב-אחר-שלב כולל מי מאשר</span>
+          </label>
+          <textarea id="q9" placeholder="1. עובד מצטרף...&#10;2.&#10;3. בסיום העסקה..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">10</span> מתנות פסח/ראש השנה — מה לוח הזמנים המדויק? מה הזכאות לפי וותק?</label>
+          <textarea id="q10" placeholder="וותק 0-1 שנה: X ש״ח&#10;וותק 1-3 שנים: Y ש״ח&#10;..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">11</span> ספקית קורקט — מי איש הקשר? כיצד מתנהל הממשק השוטף?</label>
+          <input type="text" id="q11" placeholder="שם + טלפון + מייל + מה התדירות...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">12</span> יש תהליכים ברווחה שמישהי אחרת (לין?) מכירה שכדאי לתאם איתה?</label>
+          <textarea id="q12">לין מנהלת הדלקת נרות חנוכה בליווי עדי. לין מכירה מערכת BUYME.</textarea>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title">🕎 הדלקת נרות חנוכה</div>
+        <div class="tip-box">הנושא תועד — אשרי/הוסיפי פרטים חסרים בלבד.</div>
+        <div class="q-item">
+          <label><span class="q-num">47</span> מי אנשי הקשר במזכירות מרחב חיפה ות"א?</label>
+          <input type="text" id="q47" placeholder="שם + מייל + טלפון לכל מרחב...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">48</span> כמה זמן מראש מתחילים להתארגן? מה הצעד הראשון?</label>
+          <input type="text" id="q48" placeholder="כמה שבועות לפני? מה פותח את התהליך?">
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title">🎒 קייטנת ילדי עובדים</div>
+        <div class="tip-box">תועד בסיסית — נדרש פירוט.</div>
+        <div class="q-item">
+          <label><span class="q-num">49</span> פרטי איש קשר — אבן נייר ומספריים?</label>
+          <input type="text" id="q49" placeholder="שם + טלפון + מייל...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">50</span> דרך איזו חברת הפקה הם מועסקים? יש מכרז פעיל?</label>
+          <input type="text" id="q50" placeholder="שם חברת ההפקה + סטטוס מכרז...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">51</span> מה תהליך הסקר לעובדים? דרך מה שולחים?</label>
+          <textarea id="q51" placeholder="דרך מה? מה כולל?"></textarea>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title">📋 תוכנית רווחה שנתית</div>
+        <div class="q-item">
+          <label><span class="q-num">52</span> מתי בשנה בונים את תוכנית הרווחה השנתית?</label>
+          <input type="text" id="q52" placeholder="חודש? האם זה מקביל לתקציב?">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">53</span> איך מציגים את התוכנית למנכ"לית? פורמט? ערוץ?</label>
+          <textarea id="q53" placeholder="פגישה? מצגת? מייל?"></textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: פיתוח ארגוני ===== -->
+  <div class="section s2" id="s2">
+    <div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="section-icon">📚</div>
+      <div class="section-title-wrap">
+        <div class="section-title">פיתוח ארגוני והדרכה</div>
+        <div class="section-subtitle">LMS, קורסים, לומדות, תוכנית שנתית</div>
+      </div>
+      <span class="section-counter" id="cnt-s2">0/10 שדות</span>
+      <span class="section-chevron">▼</span>
+    </div>
+    <div class="section-body">
+
+      <div class="q-group">
+        <div class="q-group-title">🖥️ מערכת LMS</div>
+        <div class="q-item">
+          <label><span class="q-num">13</span> מה שם מערכת ה-LMS? איך נכנסים אליה? <span class="required">*</span>
+            <span class="q-hint">שם + לינק + פרטי גישה (באיזה משתמש?)</span>
+          </label>
+          <input type="text" id="q13" placeholder="שם המערכת + URL גישה...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">14</span> מה הפעולות הנפוצות ביותר שעושים ב-LMS? (בסדר עדיפות)</label>
+          <textarea id="q14" placeholder="1. פתיחת קורס חדש...&#10;2. הוספת משתתפים...&#10;3. הפצת לומדה...&#10;4."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">15</span> יש נהלים/מדריכים למשתמש שכתוב? איפה הם?</label>
+          <input type="text" id="q15" placeholder="Drive / תיקייה / מסמך ספציפי...">
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title">🎓 קורסי פיתוח מנהלים</div>
+        <div class="q-item">
+          <label><span class="q-num">16</span> מי המנחה הנוכחית? מה מבנה הקורס הנוכחי?</label>
+          <input type="text" id="q16" placeholder="שם המנחה + מספר מפגשים + תדירות...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">17</span> כיצד מנהלים את קבוצת הוואטסאפ? מה הציפייה מהמחליפה בניהול הקהילה?</label>
+          <textarea id="q17" placeholder="מה מפרסמים? מתי? מי מחליט על תכנים?"></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">18</span> מה לוח הזמנים של הקורס הנוכחי? מה כבר מתואם ל-2026?</label>
+          <input type="text" id="q18" placeholder="תאריכים / חודשים שנקבעו...">
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title">📦 לומדות ובקשות פרטניות</div>
+        <div class="q-item">
+          <label><span class="q-num">19</span> אילו לומדות פעילות כרגע? מה הגאנט השנתי שלהן?</label>
+          <textarea id="q19" placeholder="שם לומדה → חודש מועדף להפצה..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">20</span> בקשות פרטניות (קורסים/לימודים) — מה קריטריון האישור? מי מחליט?
+            <span class="q-hint">זה ידע קריטי שלא בטוח שכתוב במקום אחר</span>
+          </label>
+          <textarea id="q20" class="tall" placeholder="מה מאשרים? מה לא? מה הסכום מקסימלי? מי חתימה אחרונה?"></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">21</span> מה הדוח שמשלחים מנהלים לאישור — מאיפה מפיקים אותו?</label>
+          <input type="text" id="q21" placeholder="מערכת + איך מפיקים + מה כולל הדוח...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">22</span> תוכנית לימודה שנתית — מתי בונים אותה? מה תהליך האיתור?</label>
+          <textarea id="q22" placeholder="מתי מתחילים? סקר לעובדים? פגישות עם מנהלים?"></textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: כללי ===== -->
+  <div class="section s3" id="s3">
+    <div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="section-icon">⚙️</div>
+      <div class="section-title-wrap">
+        <div class="section-title">תהליכים כלליים</div>
+        <div class="section-subtitle">לשכה, חוזים, מערכות, תקציב</div>
+      </div>
+      <span class="section-counter" id="cnt-s3">0/8 שדות</span>
+      <span class="section-chevron">▼</span>
+    </div>
+    <div class="section-body">
+
+      <div class="q-group">
+        <div class="q-group-title">📅 תיאום מול לשכה</div>
+        <div class="q-item">
+          <label><span class="q-num">23</span> מי בלשכה? מה הפרוטוקול המדויק לתיאום פעילויות? <span class="required">*</span></label>
+          <input type="text" id="q23" placeholder="שם + תפקיד + דרך תיאום...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">24</span> מה ה-"כללים" הלא כתובים בתיאום עם הלשכה? מה לא לעשות?
+            <span class="q-hint">זה ידע שבעל פה קריטי</span>
+          </label>
+          <textarea id="q24" class="tall" placeholder="לדוגמה: לא לתאם יותר מ-X אירועים בחודש, לפנות תמיד ל-Y ולא ל-Z..."></textarea>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title">📑 חוזים והתקשרויות</div>
+        <div class="q-item">
+          <label><span class="q-num">25</span> שיר אקשטיין — איך עובדים איתה? מה צריך לעשות לפני שפונים אליה?</label>
+          <textarea id="q25" placeholder="מה מכינים מראש? מה הסדר הנכון לפניה?"></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">26</span> אילו חוזים/מכרזים עתידים להתחדש ב-12 החודשים הקרובים?</label>
+          <textarea id="q26" placeholder="קורקט — פברואר 2027&#10;ספק נופש — ?&#10;..."></textarea>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title">💰 תקציב וסמכויות</div>
+        <div class="q-item">
+          <label><span class="q-num">27</span> מה תקציב הרווחה השנתי? מה תקציב ההדרכה? מי מאשר חריגות?
+            <span class="q-hint">אם אי אפשר לכתוב — לפחות כיתבי את מנגנון האישור</span>
+          </label>
+          <textarea id="q27" placeholder="תקציב רווחה: ...&#10;תקציב הדרכה: ...&#10;חריגה מעל X: דורשת אישור..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">28</span> מה הכלי שבו עוקבים אחר התקציב? מי עוד רואה אותו?</label>
+          <input type="text" id="q28" placeholder="Excel? SAP? אחר? מיקום הקובץ...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">29</span> מהי סמכות ההוצאה שלך ללא אישור? מתי צריך לעלות קומה?</label>
+          <textarea id="q29" placeholder="עד X ש״ח: עצמאית&#10;X-Y ש״ח: אישור...&#10;מעל Y: CEO/מנהל משאבי אנוש..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">30</span> אילו מערכות נוספות את עובדת עליהן יומיומית (מעבר ל-LMS)?</label>
+          <textarea id="q30" placeholder="שם מערכת — מה עושים בה — איפה הגישה...">אפליקציית קונקטים — הפצת תקשורים לעובדים</textarea>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title">📢 הפצת תקשורים וסטודיו שילובים</div>
+        <div class="tip-box">מידע ידוע: שולמית — shulamit@shiluvimcr.co.il. לבקשות מיוחדות: לערב דוברות.</div>
+        <div class="q-item">
+          <label><span class="q-num">54</span> איך מזמינים עבודה מסטודיו שילובים? מה לוחות הזמנים המקובלים?
+            <span class="q-hint">כמה ימי הכנה נדרשים בממוצע?</span>
+          </label>
+          <textarea id="q54" placeholder="תהליך הזמנה + לוח זמנים מקובל..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">55</span> מה תוכן תפוצת המייל "עובדי חברת נתיבי איילון"? מי מנהל אותה?</label>
+          <input type="text" id="q55" placeholder="מי שולח? דרך מה? יש אישור נדרש?">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: ספקים ===== -->
+  <div class="section s4" id="s4">
+    <div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="section-icon">🤝</div>
+      <div class="section-title-wrap">
+        <div class="section-title">ספקים ואנשי קשר</div>
+        <div class="section-subtitle">פרטי ספקים, ממשקים, חוזים</div>
+      </div>
+      <span class="section-counter" id="cnt-s4">0/20 שדות</span>
+      <span class="section-chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="tip-box">מלאי כרטיסייה לכל ספק עיקרי. שדות אדומים = קריטיים במיוחד. מה שחסר — סמני "לא יודעת" ונמצא ביחד.</div>
+
+      <!-- Supplier cards -->
+      <div id="suppliers-container">
+        <!-- ניו ארא -->
+        <div class="supplier-card">
+          <div class="supplier-card-title">🏢 ניו ארא — יועצים ארגוניים</div>
+          <div class="supplier-grid">
+            <div class="q-item">
+              <label>איש/אשת קשר <span class="required">*</span></label>
+              <input type="text" id="sup1_contact" placeholder="שם + טלפון + מייל">
+            </div>
+            <div class="q-item">
+              <label>סוג שירות</label>
+              <input type="text" id="sup1_service" placeholder="מה בדיוק הם עושים?">
+            </div>
+            <div class="q-item">
+              <label>סטטוס חוזה / מכרז</label>
+              <input type="text" id="sup1_contract" placeholder="מס׳ מכרז / תאריך התחלה">
+            </div>
+            <div class="q-item">
+              <label>תאריך פקיעה</label>
+              <input type="text" id="sup1_expiry" placeholder="חודש/שנה">
+            </div>
+            <div class="q-item full">
+              <label>הערות ניהוליות — מה צריך לדעת?</label>
+              <textarea id="sup1_notes" placeholder="טיפים לעבודה איתם, מה עבד, מה לא..."></textarea>
+            </div>
+            <div class="q-item">
+              <label>רמת קריטיות</label>
+              <div class="criticality-wrap">
+                <button class="crit-btn" onclick="setCrit('sup1','low')">נמוכה</button>
+                <button class="crit-btn" onclick="setCrit('sup1','mid')">בינונית</button>
+                <button class="crit-btn" onclick="setCrit('sup1','high')">גבוהה</button>
+              </div>
+              <input type="hidden" id="sup1_crit" value="">
+            </div>
+          </div>
+        </div>
+
+        <!-- כרמית הדס -->
+        <div class="supplier-card">
+          <div class="supplier-card-title">🏢 כרמית הדס — יועצת ארגונית</div>
+          <div class="supplier-grid">
+            <div class="q-item">
+              <label>איש/אשת קשר <span class="required">*</span></label>
+              <input type="text" id="sup2_contact" placeholder="שם + טלפון + מייל">
+            </div>
+            <div class="q-item">
+              <label>סוג שירות</label>
+              <input type="text" id="sup2_service" placeholder="מה בדיוק היא עושה?">
+            </div>
+            <div class="q-item">
+              <label>סטטוס חוזה / מכרז</label>
+              <input type="text" id="sup2_contract" placeholder="מס׳ מכרז / תאריך התחלה">
+            </div>
+            <div class="q-item">
+              <label>תאריך פקיעה</label>
+              <input type="text" id="sup2_expiry" placeholder="חודש/שנה">
+            </div>
+            <div class="q-item full">
+              <label>הערות ניהוליות</label>
+              <textarea id="sup2_notes" placeholder="טיפים לעבודה איתה..."></textarea>
+            </div>
+            <div class="q-item">
+              <label>רמת קריטיות</label>
+              <div class="criticality-wrap">
+                <button class="crit-btn" onclick="setCrit('sup2','low')">נמוכה</button>
+                <button class="crit-btn" onclick="setCrit('sup2','mid')">בינונית</button>
+                <button class="crit-btn" onclick="setCrit('sup2','high')">גבוהה</button>
+              </div>
+              <input type="hidden" id="sup2_crit" value="">
+            </div>
+          </div>
+        </div>
+
+        <!-- שטרר הפקות -->
+        <div class="supplier-card">
+          <div class="supplier-card-title">🎭 שטרר הפקות — ספק רווחה</div>
+          <div class="supplier-grid">
+            <div class="q-item">
+              <label>איש/אשת קשר <span class="required">*</span></label>
+              <input type="text" id="sup3_contact" placeholder="שם + טלפון + מייל">
+            </div>
+            <div class="q-item">
+              <label>סוג שירות</label>
+              <input type="text" id="sup3_service" placeholder="אירועים? הפקות? פעילויות?">
+            </div>
+            <div class="q-item">
+              <label>סטטוס חוזה / מכרז</label>
+              <input type="text" id="sup3_contract" placeholder="מס׳ מכרז / תאריך התחלה">
+            </div>
+            <div class="q-item">
+              <label>תאריך פקיעה</label>
+              <input type="text" id="sup3_expiry" placeholder="חודש/שנה">
+            </div>
+            <div class="q-item full">
+              <label>הערות ניהוליות</label>
+              <textarea id="sup3_notes" placeholder="מה עבד, מה לא, טיפים..."></textarea>
+            </div>
+            <div class="q-item">
+              <label>רמת קריטיות</label>
+              <div class="criticality-wrap">
+                <button class="crit-btn" onclick="setCrit('sup3','low')">נמוכה</button>
+                <button class="crit-btn" onclick="setCrit('sup3','mid')">בינונית</button>
+                <button class="crit-btn" onclick="setCrit('sup3','high')">גבוהה</button>
+              </div>
+              <input type="hidden" id="sup3_crit" value="">
+            </div>
+          </div>
+        </div>
+
+        <!-- אימפרוב איט -->
+        <div class="supplier-card">
+          <div class="supplier-card-title">💻 אימפרוב איט — ספק למידה</div>
+          <div class="supplier-grid">
+            <div class="q-item">
+              <label>איש/אשת קשר <span class="required">*</span></label>
+              <input type="text" id="sup4_contact" placeholder="שם + טלפון + מייל">
+            </div>
+            <div class="q-item">
+              <label>סוג שירות</label>
+              <input type="text" id="sup4_service" placeholder="LMS? לומדות? הדרכות?">
+            </div>
+            <div class="q-item">
+              <label>סטטוס חוזה / מכרז</label>
+              <input type="text" id="sup4_contract" placeholder="מס׳ מכרז / תאריך התחלה">
+            </div>
+            <div class="q-item">
+              <label>תאריך פקיעה</label>
+              <input type="text" id="sup4_expiry" placeholder="חודש/שנה">
+            </div>
+            <div class="q-item full">
+              <label>הערות ניהוליות</label>
+              <textarea id="sup4_notes" placeholder="מה הם מספקים? מה לא בחוזה?..."></textarea>
+            </div>
+            <div class="q-item">
+              <label>רמת קריטיות</label>
+              <div class="criticality-wrap">
+                <button class="crit-btn" onclick="setCrit('sup4','low')">נמוכה</button>
+                <button class="crit-btn" onclick="setCrit('sup4','mid')">בינונית</button>
+                <button class="crit-btn" onclick="setCrit('sup4','high')">גבוהה</button>
+              </div>
+              <input type="hidden" id="sup4_crit" value="">
+            </div>
+          </div>
+        </div>
+
+        <!-- ספק נופש -->
+        <div class="supplier-card">
+          <div class="supplier-card-title">🏨 ספק נופש — (מתחלף שנתית)</div>
+          <div class="supplier-grid">
+            <div class="q-item">
+              <label>ספק נוכחי לנופש הקרוב</label>
+              <input type="text" id="sup5_contact" placeholder="שם החברה + איש קשר">
+            </div>
+            <div class="q-item">
+              <label>מה כבר תואם?</label>
+              <input type="text" id="sup5_service" placeholder="מה סוכם? מה בהמתנה?">
+            </div>
+            <div class="q-item full">
+              <label>מה המחליפה צריכה לדעת על מצב הנופש הקרוב?</label>
+              <textarea id="sup5_notes" placeholder="שלב הכנה נוכחי, מה עוד פתוח..."></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-item" style="margin-top:16px">
+        <label><span class="q-num">31</span> יש ספקים נוספים שלא ציינתי? מלאי כאן:</label>
+        <textarea id="q31" class="tall" placeholder="שם ספק — שירות — איש קשר — מס׳ טלפון..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: לוח שנה ===== -->
+  <div class="section s5" id="s5">
+    <div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="section-icon">📅</div>
+      <div class="section-title-wrap">
+        <div class="section-title">לוח שנה שנתי</div>
+        <div class="section-subtitle">אילו פעילויות מתרחשות מתי?</div>
+      </div>
+      <span class="section-counter" id="cnt-s5">0/12 שדות</span>
+      <span class="section-chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="tip-box">מלאי לכל חודש את הפעילויות/המשימות המרכזיות. יכול להיות גם הכנה לקראת — לא רק האירוע עצמו.</div>
+      <div class="cal-grid">
+        <div class="cal-month">
+          <div class="cal-month-header">ינואר</div>
+          <div class="cal-month-body"><textarea id="cal1" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">פברואר</div>
+          <div class="cal-month-body"><textarea id="cal2" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">מרץ</div>
+          <div class="cal-month-body"><textarea id="cal3" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">אפריל</div>
+          <div class="cal-month-body"><textarea id="cal4" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">מאי</div>
+          <div class="cal-month-body"><textarea id="cal5" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">יוני</div>
+          <div class="cal-month-body"><textarea id="cal6" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">יולי</div>
+          <div class="cal-month-body"><textarea id="cal7" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">אוגוסט</div>
+          <div class="cal-month-body"><textarea id="cal8" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">ספטמבר</div>
+          <div class="cal-month-body"><textarea id="cal9" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">אוקטובר</div>
+          <div class="cal-month-body"><textarea id="cal10" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">נובמבר</div>
+          <div class="cal-month-body"><textarea id="cal11" placeholder="מה קורה?"></textarea></div>
+        </div>
+        <div class="cal-month">
+          <div class="cal-month-header">דצמבר</div>
+          <div class="cal-month-body"><textarea id="cal12" placeholder="מה קורה?"></textarea></div>
+        </div>
+      </div>
+      <div class="q-item" style="margin-top:20px">
+        <label><span class="q-num">32</span> יש פעילויות שמתרחשות כל שבוע / כל חודש? פרטי:</label>
+        <textarea id="q32" placeholder="כל שבוע: ...&#10;כל חודש: ...&#10;כל רבעון: ..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: ממשקים ===== -->
+  <div class="section s6" id="s6">
+    <div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="section-icon">🔗</div>
+      <div class="section-title-wrap">
+        <div class="section-title">ממשקים ורשת קשרים פנימית</div>
+        <div class="section-subtitle">עם מי עובדים? איך? מה הרגישויות?</div>
+      </div>
+      <span class="section-counter" id="cnt-s6">0/6 שדות</span>
+      <span class="section-chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="q-group">
+        <div class="q-item">
+          <label><span class="q-num">33</span> מול מי עובדת בצמוד? (שם, תפקיד, מה הממשק) <span class="required">*</span></label>
+          <textarea id="q33" class="tall" placeholder="שם — תפקיד — על מה עובדים יחד — תדירות&#10;לדוגמה: שיר אקשטיין — חוזים — כל התקשרות חדשה — לפי צורך"></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">34</span> מי המנהל/ת הישיר/ה שלך? מה הדינמיקה? על מה מדווחים?</label>
+          <textarea id="q34" placeholder="שם + מה מדווחים + בתדירות + מה לא לפספס..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">35</span> אילו בעלי תפקידים בארגון חשוב להכיר ולשמור על קשר טוב?
+            <span class="q-hint">לא רק ממשקים פורמליים — גם "ממשק האמת"</span>
+          </label>
+          <textarea id="q35" class="tall" placeholder="שם — תפקיד — למה חשוב — איך הכי נכון לגשת אליהם..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">36</span> יש מישהו בארגון שהמחליפה צריכה לפנות אליו כשיש ספק?</label>
+          <input type="text" id="q36" placeholder="שם + למה אליו/אליה ספציפית...">
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">37</span> אילו פגישות קבועות (recurring) יש לך? מה חשיבותן?</label>
+          <textarea id="q37" placeholder="יום + שעה + שם פגישה + מה חשוב להגיע מוכנה..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">38</span> יש ועדות/פורומים שאת חברה בהם?</label>
+          <textarea id="q38" placeholder="שם הוועדה — תפקידך — תדירות — מה כולל..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 7: תחום האפור ===== -->
+  <div class="section s7" id="s7">
+    <div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="section-icon">🧠</div>
+      <div class="section-title-wrap">
+        <div class="section-title">הידע הבלתי כתוב — תחום האפור</div>
+        <div class="section-subtitle">שיקול דעת, מיומנויות רכות, הגיון בריא</div>
+      </div>
+      <span class="section-counter" id="cnt-s7">0/8 שדות</span>
+      <span class="section-chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="tip-box">זה החלק הכי חשוב בכל המסמך — הדברים שאת יודעת אינטואיטיבית ושמחליפה לא תוכל לדעת בלעדייך.</div>
+
+      <div class="q-group">
+        <div class="q-item">
+          <label><span class="q-num">39</span> מה הדברים שלמדת מניסיון שלא כתובים בשום נוהל?
+            <span class="q-hint">"את שנה הראשונה טעיתי ב-X, ואחר כך הבנתי ש-Y"</span>
+          </label>
+          <textarea id="q39" class="tall" placeholder="כתבי בחופשיות, בגוף ראשון, כאילו את מספרת לחברה..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">40</span> מה הטעויות הנפוצות שמחליפה צריכה להימנע מהן?</label>
+          <textarea id="q40" class="tall" placeholder="1. לא לשלוח הודעה לכלל העובדים בלי אישור...&#10;2. לא להתחיל מכרז בלי לוודא...&#10;3."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">41</span> אילו בקשות / מצבים חוזרים שגורמים לך לצאת מ"הגדרת התפקיד"?</label>
+          <textarea id="q41" class="tall" placeholder="לדוגמה: מנהלים פונים אלי גם ל... / עובדים מבקשים ממני..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">42</span> מה הדרך הנכונה לקבל החלטות כשהמדיניות לא ברורה?</label>
+          <textarea id="q42" placeholder="איך את מכריעה? למי פונה? מה הלוגיקה?"></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">43</span> אילו מצבים דורשים רגישות גבוהה מיוחדת?
+            <span class="q-hint">עובד שפנה בצרות, מנהל קשה, מצב לאחר פיטורין ועוד...</span>
+          </label>
+          <textarea id="q43" class="tall" placeholder="סוג מצב — איך נכון לטפל — מה לא לעשות..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">44</span> מה ״צביון התפקיד״ — איך צריכה המחליפה להרגיש/להתנהג בתפקיד?</label>
+          <textarea id="q44" class="tall" placeholder="הקשבה? יוזמה? שמירה על גבולות? זמינות? כיצד מאזנים?"></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">45</span> מה הדבר שהכי חשוב לך שהמחליפה תדע? (חופשי לגמרי)</label>
+          <textarea id="q45" class="tall" placeholder="כתבי הכל — זה המקום לכל דבר שלא מצא בית בשאלות הקודמות..."></textarea>
+        </div>
+        <div class="q-item">
+          <label><span class="q-num">46</span> יש משהו שבנית/יצרת בתפקיד שחשוב להמשיך ולטפח?</label>
+          <textarea id="q46" placeholder="תהליך, קשר, מסורת, כלי שעבד מעולה..."></textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<div class="save-bar">
+  <span class="save-info" id="progress-text-bar">✅ הנתונים נשמרים אוטומטית בדפדפן</span>
+  <button class="btn btn-secondary" onclick="exportData()">📁 גיבוי JSON</button>
+  <button class="btn btn-print" onclick="doPrint()">🖨️ הדפסה</button>
+  <button class="btn btn-primary" onclick="saveForm()">💾 שמור</button>
+</div>
+
+<div class="toast" id="toast">✅ נשמר בהצלחה!</div>
+
+<script>
+var STORAGE_KEY = 'adi_questionnaire_v1';
+
+// ── TOGGLE ──
+function toggleSection(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.toggle('open');
+}
+
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.add('open');
+  setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+}
+
+// ── CRITICALITY ──
+function setCrit(sup, level) {
+  var ci = document.getElementById(sup + '_crit');
+  if (!ci) return;
+  ci.value = level;
+  var item = ci.parentElement;
+  while (item && !item.classList.contains('q-item')) item = item.parentElement;
+  if (!item) return;
+  var cw = item.querySelector('.criticality-wrap');
+  if (!cw) return;
+  var btns = cw.querySelectorAll('.crit-btn');
+  for (var i = 0; i < btns.length; i++) btns[i].className = 'crit-btn';
+  var idx = level === 'low' ? 0 : level === 'mid' ? 1 : 2;
+  if (btns[idx]) btns[idx].classList.add('selected-' + level);
+  autoSave();
+}
+
+// ── GATHER ──
+function gatherData() {
+  var data = {};
+  var els = document.querySelectorAll('input[type="text"], input[type="email"], input[type="hidden"], textarea, select');
+  for (var i = 0; i < els.length; i++) {
+    if (els[i].id) data[els[i].id] = els[i].value;
+  }
+  return data;
+}
+
+// ── SAVE — localStorage (עובד מצוין ב-GitHub Pages) ──
+function saveForm() {
+  var data = gatherData();
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    showToast('✅ נשמר! הנתונים שמורים בדפדפן זה');
+    updateProgress();
+  } catch(e) {
+    showToast('⚠️ שמירה נכשלה — נסי לייצא JSON');
+  }
+}
+
+// ── AUTO-SAVE ──
+var _timer = null;
+function autoSave() {
+  clearTimeout(_timer);
+  _timer = setTimeout(function() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(gatherData())); } catch(e) {}
+    updateProgress();
+  }, 700);
+}
+
+// ── LOAD ──
+function loadForm() {
+  var data = null;
+  try {
+    var raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) data = JSON.parse(raw);
+  } catch(e) {}
+  if (!data) return;
+
+  var keys = Object.keys(data);
+  for (var i = 0; i < keys.length; i++) {
+    var el = document.getElementById(keys[i]);
+    if (el && data[keys[i]]) el.value = data[keys[i]];
+  }
+  // Restore criticality buttons
+  var sups = ['sup1','sup2','sup3','sup4'];
+  for (var s = 0; s < sups.length; s++) {
+    var ci = document.getElementById(sups[s] + '_crit');
+    if (!ci || !ci.value) continue;
+    var level = ci.value;
+    var item = ci.parentElement;
+    while (item && !item.classList.contains('q-item')) item = item.parentElement;
+    if (!item) continue;
+    var cw = item.querySelector('.criticality-wrap');
+    if (!cw) continue;
+    var btns = cw.querySelectorAll('.crit-btn');
+    var idx = level === 'low' ? 0 : level === 'mid' ? 1 : 2;
+    if (btns[idx]) btns[idx].classList.add('selected-' + level);
+  }
+}
+
+// ── EXPORT JSON (לגיבוי / להעברה) ──
+function exportData() {
+  var data = gatherData();
+  var json = JSON.stringify(data, null, 2);
+  var a = document.createElement('a');
+  a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(json);
+  a.download = 'גיבוי_שאלון_חפיפה.json';
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  showToast('📁 קובץ גיבוי JSON הורד');
+}
+
+// ── PRINT ──
+function doPrint() {
+  var sections = document.querySelectorAll('.section');
+  for (var i = 0; i < sections.length; i++) sections[i].classList.add('open');
+  setTimeout(function() { window.print(); }, 300);
+}
+
+// ── PROGRESS ──
+function updateProgress() {
+  var all = document.querySelectorAll('input[type="text"], textarea');
+  var filled = 0;
+  for (var i = 0; i < all.length; i++) {
+    var f = all[i].value.trim().length > 0;
+    all[i].classList.toggle('filled', f);
+    if (f) filled++;
+  }
+  var total = all.length;
+  var pct = total ? Math.round(filled / total * 100) : 0;
+  var bar = document.getElementById('progress-fill');
+  var txt = document.getElementById('progress-text');
+  if (bar) bar.style.width = pct + '%';
+  if (txt) txt.textContent = filled + ' מתוך ' + total + ' שדות (' + pct + '%)';
+
+  updateCounter('s1', ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q47','q48','q49','q50','q51','q52','q53'], 19);
+  updateCounter('s2', ['q13','q14','q15','q16','q17','q18','q19','q20','q21','q22'], 10);
+  updateCounter('s3', ['q23','q24','q25','q26','q27','q28','q29','q30','q54','q55'], 10);
+  updateCounter('s5', ['cal1','cal2','cal3','cal4','cal5','cal6','cal7','cal8','cal9','cal10','cal11','cal12'], 12);
+  updateCounter('s6', ['q33','q34','q35','q36','q37','q38'], 6);
+  updateCounter('s7', ['q39','q40','q41','q42','q43','q44','q45','q46'], 8);
+}
+
+function updateCounter(sid, ids, total) {
+  var filled = 0;
+  for (var i = 0; i < ids.length; i++) {
+    var el = document.getElementById(ids[i]);
+    if (el && el.value.trim().length > 0) filled++;
+  }
+  var el = document.getElementById('cnt-' + sid);
+  if (!el) return;
+  el.textContent = filled + '/' + total + ' שדות';
+  el.className = 'section-counter' + (filled > 0 ? ' has-answers' : '');
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 3000);
+}
+
+// ── INIT ──
+(function() {
+  loadForm();
+  updateProgress();
+  var inputs = document.querySelectorAll('input[type="text"], textarea, input[type="hidden"]');
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener('input', autoSave);
+  }
+})();
+</script>
+</body>
+</html>

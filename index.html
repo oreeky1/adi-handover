@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="תיק חפיפה — עדי | נתיבי איילון">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>תיק חפיפה — עדי | נתיבי איילון</title>
+
+<style>
+:root {
+  --bg:       #F5F2EC;
+  --surface:  #FFFFFF;
+  --surf2:    #EDE9E0;
+  --surf3:    #F9F7F3;
+  --accent:   #B87333;
+  --accent2:  #8B5A2B;
+  --accentL:  #F5E6D3;
+  --dark:     #1E1710;
+  --text:     #2C2416;
+  --muted:    #7A6E60;
+  --border:   #DDD5C8;
+  --green:    #3D7A52;
+  --greenL:   #D2EAD8;
+  --red:      #B03030;
+  --redL:     #FAD8D8;
+  --yellow:   #D4900A;
+  --yellowL:  #FEF3D0;
+  --blue:     #3A6090;
+  --blueL:    #D8E8F5;
+  --purple:   #7A4A8A;
+  --purpleL:  #EDD8F5;
+  --teal:     #2A7A7A;
+  --tealL:    #CCE8E8;
+
+  --s1: #B87333; --s1L: #F5E6D3;
+  --s2: #3D7A52; --s2L: #D2EAD8;
+  --s3: #3A6090; --s3L: #D8E8F5;
+  --s4: #7A4A8A; --s4L: #EDD8F5;
+  --s5: #2A7A7A; --s5L: #CCE8E8;
+  --s6: #7A5030; --s6L: #F0E0D0;
+  --s7: #8A4040; --s7L: #F5D8D8;
+
+  --shadow:   0 2px 16px rgba(30,23,16,0.08);
+  --shadowLg: 0 8px 40px rgba(30,23,16,0.14);
+  --r:        14px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body {
+  font-family:'Heebo',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+/* ═══════════════════════════════
+   HERO
+═══════════════════════════════ */
+.hero {
+  background: linear-gradient(145deg, #1E1710 0%, #3D2810 40%, #6B3E18 80%, #8B5A2B 100%);
+  padding: 70px 40px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 120%, rgba(184,115,51,0.25) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(184,115,51,0.2);
+  border:1px solid rgba(184,115,51,0.45);
+  color:#F0C070;
+  padding:6px 20px; border-radius:30px;
+  font-size:13px; font-weight:600; letter-spacing:1px;
+  margin-bottom:24px;
+}
+.hero h1 {
+  font-family:'Frank Ruhl Libre',serif;
+  font-size: clamp(30px,6vw,52px);
+  color:#fff; font-weight:900;
+  margin-bottom:10px; line-height:1.2;
+}
+.hero-sub {
+  font-size:17px; color:rgba(255,255,255,0.65);
+  max-width:520px; margin:0 auto 32px; font-weight:300;
+}
+.hero-pills {
+  display:flex; justify-content:center; flex-wrap:wrap; gap:12px;
+}
+.pill {
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.7);
+  padding:6px 16px; border-radius:20px;
+  font-size:13px; display:flex; align-items:center; gap:6px;
+}
+.pill strong { color:#F0C070; }
+
+/* ═══════════════════════════════
+   STICKY NAV
+═══════════════════════════════ */
+.nav {
+  position:sticky; top:0; z-index:200;
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 10px rgba(30,23,16,0.07);
+}
+.nav-inner {
+  max-width:1100px; margin:0 auto;
+  padding:0 24px;
+  display:flex; gap:0; overflow-x:auto;
+  scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-btn {
+  padding:14px 16px;
+  border:none; background:none;
+  font-family:'Heebo',sans-serif; font-size:13px; font-weight:500;
+  color:var(--muted); cursor:pointer; white-space:nowrap;
+  border-bottom:3px solid transparent;
+  transition:all .2s;
+  display:flex; align-items:center; gap:6px;
+}
+.nav-btn:hover{color:var(--text)}
+.nav-btn.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:700}
+
+/* ═══════════════════════════════
+   LAYOUT
+═══════════════════════════════ */
+.page {max-width:1100px;margin:0 auto;padding:40px 24px 80px}
+
+/* ═══════════════════════════════
+   SECTION CARD
+═══════════════════════════════ */
+.sec-card {
+  background:var(--surface);
+  border-radius:var(--r);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  margin-bottom:28px;
+}
+.sec-header {
+  padding:24px 32px;
+  display:flex; align-items:center; gap:18px;
+  cursor:pointer; user-select:none;
+  transition:background .2s;
+}
+.sec-header:hover{background:var(--surf2)}
+.sec-icon {
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;
+}
+.sec-title-wrap{flex:1}
+.sec-title{font-size:19px;font-weight:800;margin-bottom:2px}
+.sec-desc{font-size:13px;color:var(--muted)}
+.sec-chevron{font-size:18px;color:var(--muted);transition:transform .3s}
+.sec-card.open .sec-chevron{transform:rotate(180deg)}
+.sec-badge {
+  font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;
+  white-space:nowrap;
+}
+.sec-body{display:none;padding:8px 32px 36px;border-top:1px solid var(--border)}
+.sec-card.open .sec-body{display:block}
+
+/* section color themes */
+.t1 .sec-icon{background:var(--s1L);color:var(--s1)} .t1 .sec-title{color:var(--s1)}
+.t2 .sec-icon{background:var(--s2L);color:var(--s2)} .t2 .sec-title{color:var(--s2)}
+.t3 .sec-icon{background:var(--s3L);color:var(--s3)} .t3 .sec-title{color:var(--s3)}
+.t4 .sec-icon{background:var(--s4L);color:var(--s4)} .t4 .sec-title{color:var(--s4)}
+.t5 .sec-icon{background:var(--s5L);color:var(--s5)} .t5 .sec-title{color:var(--s5)}
+.t6 .sec-icon{background:var(--s6L);color:var(--s6)} .t6 .sec-title{color:var(--s6)}
+.t7 .sec-icon{background:var(--s7L);color:var(--s7)} .t7 .sec-title{color:var(--s7)}
+
+/* ═══════════════════════════════
+   ROLE CARDS GRID
+═══════════════════════════════ */
+.role-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
+  gap:16px; margin-top:20px;
+}
+.role-card {
+  background:var(--surf3);
+  border:1.5px solid var(--border);
+  border-radius:12px;
+  padding:20px 22px;
+  transition:box-shadow .2s, transform .2s;
+}
+.role-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.role-card-top {
+  display:flex;align-items:center;gap:12px;margin-bottom:14px;
+}
+.role-card-icon{font-size:24px}
+.role-card-title{font-size:15px;font-weight:700}
+.role-card-sub{font-size:12px;color:var(--muted)}
+
+/* ═══════════════════════════════
+   6-DIM TABLE
+═══════════════════════════════ */
+.dim-table{width:100%;border-collapse:collapse;margin-top:16px}
+.dim-table th {
+  background:var(--surf2);
+  padding:10px 16px;
+  text-align:right;
+  font-size:12px;font-weight:700;
+  color:var(--muted);letter-spacing:.5px;
+  border-bottom:2px solid var(--border);
+}
+.dim-table td {
+  padding:12px 16px;
+  border-bottom:1px solid var(--border);
+  font-size:14px;vertical-align:top;
+}
+.dim-table tr:last-child td{border-bottom:none}
+.dim-table tr:hover td{background:var(--surf3)}
+.dim-label {
+  font-weight:700;color:var(--accent2);
+  font-size:13px;white-space:nowrap;
+  width:90px;
+}
+.dim-icon{margin-left:6px;font-size:14px}
+
+/* ═══════════════════════════════
+   ROLE DETAIL BLOCK
+═══════════════════════════════ */
+.role-detail{margin-bottom:32px}
+.role-detail-header {
+  display:flex;align-items:center;gap:12px;
+  padding:14px 20px;
+  border-radius:10px;
+  margin-bottom:2px;
+  font-size:16px;font-weight:800;
+}
+.tag-missing {
+  display:inline-block;
+  background:var(--yellowL);border:1px solid var(--yellow);
+  color:#7A5000;border-radius:4px;
+  padding:2px 8px;font-size:11px;font-weight:700;
+  margin-right:8px;
+}
+.tag-partial {
+  display:inline-block;
+  background:#FFF3E0;border:1px solid #E8A020;
+  color:#7A4000;border-radius:4px;
+  padding:2px 8px;font-size:11px;font-weight:700;
+  margin-right:8px;
+}
+.tag-complete {
+  display:inline-block;
+  background:var(--greenL);border:1px solid var(--green);
+  color:#1E5030;border-radius:4px;
+  padding:2px 8px;font-size:11px;font-weight:700;
+  margin-right:8px;
+}
+
+/* ═══════════════════════════════
+   INFO BOXES
+═══════════════════════════════ */
+.info-box {
+  border-radius:10px;padding:14px 18px;
+  margin-bottom:12px;font-size:14px;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.info-box-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.info-note  {background:var(--blueL); border:1px solid #90B8D8; color:#1A3A5A}
+.info-warn  {background:var(--yellowL);border:1px solid #D4900A; color:#5A3A00}
+.info-tip   {background:var(--greenL); border:1px solid var(--green); color:#1A4020}
+.info-miss  {background:var(--redL);   border:1px solid #D05050; color:#5A1010}
+
+/* ═══════════════════════════════
+   SUPPLIER CARDS
+═══════════════════════════════ */
+.sup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:20px}
+.sup-card{
+  background:var(--surf3);border:1.5px solid var(--border);
+  border-radius:12px;overflow:hidden;
+  transition:box-shadow .2s;
+}
+.sup-card:hover{box-shadow:var(--shadow)}
+.sup-card-head{
+  padding:14px 18px;
+  font-weight:800;font-size:15px;
+  display:flex;align-items:center;gap:10px;
+}
+.sup-card-body{padding:0 18px 16px}
+.sup-row{
+  display:flex;gap:8px;padding:8px 0;
+  border-bottom:1px dashed var(--border);
+  font-size:13px;
+}
+.sup-row:last-child{border-bottom:none}
+.sup-key{color:var(--muted);font-weight:600;min-width:90px;flex-shrink:0}
+.sup-val{color:var(--text)}
+.crit-high{display:inline-block;background:var(--redL);color:var(--red);border-radius:4px;padding:1px 8px;font-size:11px;font-weight:700}
+.crit-mid {display:inline-block;background:var(--yellowL);color:var(--yellow);border-radius:4px;padding:1px 8px;font-size:11px;font-weight:700}
+.crit-low {display:inline-block;background:var(--greenL);color:var(--green);border-radius:4px;padding:1px 8px;font-size:11px;font-weight:700}
+.missing-val{color:var(--red);font-style:italic;font-size:12px}
+
+/* ═══════════════════════════════
+   CALENDAR
+═══════════════════════════════ */
+.cal-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:10px;margin-top:20px;
+}
+@media(max-width:640px){.cal-grid{grid-template-columns:repeat(3,1fr)}}
+.cal-month{
+  border:1.5px solid var(--border);border-radius:10px;overflow:hidden;
+}
+.cal-month-head{
+  padding:8px 12px;font-size:13px;font-weight:700;
+  text-align:center;
+}
+.cal-month-body{padding:10px 12px;min-height:70px}
+.cal-event{
+  font-size:12px;padding:3px 0;
+  display:flex;align-items:flex-start;gap:6px;
+  border-bottom:1px dotted var(--border);
+}
+.cal-event:last-child{border-bottom:none}
+.cal-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.cal-empty{font-size:12px;color:var(--muted);font-style:italic}
+
+/* ═══════════════════════════════
+   CHECKLIST
+═══════════════════════════════ */
+.checklist-phase{margin-bottom:28px}
+.phase-title{
+  font-size:14px;font-weight:800;letter-spacing:1px;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:12px;
+  padding-bottom:8px;border-bottom:2px dashed var(--border);
+}
+.check-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:10px 14px;border-radius:8px;
+  margin-bottom:6px;cursor:pointer;
+  transition:background .15s;
+  border:1px solid transparent;
+}
+.check-item:hover{background:var(--surf2)}
+.check-item.done{opacity:.55}
+.check-item.done .check-text{text-decoration:line-through;color:var(--muted)}
+.check-box{
+  width:20px;height:20px;border-radius:5px;
+  border:2px solid var(--border);flex-shrink:0;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;background:white;
+}
+.check-item.done .check-box{background:var(--green);border-color:var(--green);color:white}
+.check-text{font-size:14px;line-height:1.5}
+.check-badge{
+  font-size:11px;padding:2px 8px;border-radius:10px;font-weight:700;
+  margin-right:6px;white-space:nowrap;flex-shrink:0;
+}
+.cb-critical{background:var(--redL);color:var(--red)}
+.cb-soon{background:var(--yellowL);color:var(--yellow)}
+.cb-routine{background:var(--blueL);color:var(--blue)}
+
+/* ═══════════════════════════════
+   DIVIDER
+═══════════════════════════════ */
+.divider{height:1px;background:var(--border);margin:24px 0}
+.sub-heading{
+  font-size:13px;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--muted);
+  margin:24px 0 14px;
+  padding-bottom:8px;border-bottom:1px dashed var(--border);
+  display:flex;align-items:center;gap:8px;
+}
+
+/* ═══════════════════════════════
+   CONTACTS TABLE
+═══════════════════════════════ */
+.contacts-table{width:100%;border-collapse:collapse;margin-top:14px}
+.contacts-table th{
+  background:var(--surf2);padding:10px 16px;
+  text-align:right;font-size:12px;font-weight:700;
+  color:var(--muted);border-bottom:2px solid var(--border);
+}
+.contacts-table td{
+  padding:12px 16px;border-bottom:1px solid var(--border);
+  font-size:13px;vertical-align:middle;
+}
+.contacts-table tr:hover td{background:var(--surf3)}
+.contacts-table tr:last-child td{border-bottom:none}
+.freq-badge{
+  display:inline-block;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:10px;
+}
+
+/* ═══════════════════════════════
+   GRAY ZONE
+═══════════════════════════════ */
+.gray-card{
+  background:linear-gradient(135deg,#F9F6F0,#F0EBE0);
+  border:1.5px solid #DDD0C0;border-radius:12px;
+  padding:22px 26px;margin-bottom:16px;
+}
+.gray-card-title{
+  font-size:15px;font-weight:800;color:var(--accent2);
+  margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.gray-card-body{font-size:14px;line-height:1.8;color:var(--text)}
+.gray-card-body ul{padding-right:20px;margin-top:8px}
+.gray-card-body li{margin-bottom:6px}
+
+/* ═══════════════════════════════
+   PRINT BAR
+═══════════════════════════════ */
+.print-bar{
+  position:fixed;bottom:0;left:0;right:0;
+  background:var(--surface);border-top:1px solid var(--border);
+  padding:14px 24px;
+  display:flex;justify-content:center;align-items:center;gap:12px;
+  box-shadow:0 -4px 20px rgba(30,23,16,0.1);
+  z-index:300;flex-wrap:wrap;
+}
+.print-info{font-size:13px;color:var(--muted);flex:1;text-align:center}
+.btn{
+  padding:10px 22px;border-radius:8px;border:none;
+  font-family:'Heebo',sans-serif;font-size:14px;font-weight:700;
+  cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:8px;
+}
+.btn-primary{background:var(--accent);color:white}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 4px 12px rgba(184,115,51,.4)}
+.btn-dark{background:var(--dark);color:white}
+.btn-dark:hover{background:#0a0806}
+.btn-ghost{background:var(--surf2);color:var(--text);border:1px solid var(--border)}
+.btn-ghost:hover{background:var(--border)}
+
+/* ═══════════════════════════════
+   TOAST
+═══════════════════════════════ */
+.toast{
+  position:fixed;top:24px;left:50%;
+  transform:translateX(-50%) translateY(-80px);
+  background:var(--dark);color:white;
+  padding:12px 24px;border-radius:30px;
+  font-size:14px;font-weight:600;
+  box-shadow:var(--shadowLg);z-index:400;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ═══════════════════════════════
+   PRINT
+═══════════════════════════════ */
+@media print{
+  .nav,.print-bar,.toast{display:none!important}
+  .sec-body{display:block!important}
+  .sec-chevron{display:none}
+  .sec-card{box-shadow:none;page-break-inside:avoid}
+  body{background:white}
+  .page{padding:20px}
+}
+
+/* ═══════════════════════════════
+   MISC
+═══════════════════════════════ */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+.stat-box{
+  background:var(--surf3);border:1px solid var(--border);
+  border-radius:10px;padding:16px 20px;
+  display:flex;align-items:center;gap:14px;
+}
+.stat-num{font-size:28px;font-weight:900;color:var(--accent)}
+.stat-lbl{font-size:13px;color:var(--muted);font-weight:600}
+
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+strong{font-weight:700}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<div class="hero">
+  <div class="hero-tag">📋 תיק חפיפה רשמי — סודי ופנימי</div>
+  <h1>תיק חפיפה — עדי</h1>
+  <p class="hero-sub">מדריך מקיף לכניסה לתפקיד | רווחה · פיתוח ארגוני · הדרכה · ליווי מנהלים</p>
+  <div class="hero-pills">
+    <div class="pill">🏢 נתיבי איילון</div>
+    <div class="pill">⏱️ <strong>4 שנות</strong> ניסיון</div>
+    <div class="pill">📅 עדכון אחרון: <strong>2026</strong></div>
+    <div class="pill">📌 <strong>7</strong> תחומי אחריות</div>
+  </div>
+</div>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="goTo('overview')">🗺️ מפת תפקיד</button>
+    <button class="nav-btn" onclick="goTo('welfare')">🎉 רווחה</button>
+    <button class="nav-btn" onclick="goTo('od')">📚 פיתוח ארגוני</button>
+    <button class="nav-btn" onclick="goTo('general')">⚙️ כללי</button>
+    <button class="nav-btn" onclick="goTo('suppliers')">🤝 ספקים</button>
+    <button class="nav-btn" onclick="goTo('calendar')">📅 לוח שנה</button>
+    <button class="nav-btn" onclick="goTo('contacts')">👥 ממשקים</button>
+    <button class="nav-btn" onclick="goTo('gray')">🧠 תחום אפור</button>
+    <button class="nav-btn" onclick="goTo('checklist')">✅ צ׳קליסט</button>
+  </div>
+</nav>
+
+<div class="page">
+
+<!-- ═══════════════════════════════════════════
+  0. STATS BAR
+═══════════════════════════════════════════ -->
+<div class="two-col" style="margin-bottom:28px">
+  <div class="stat-box">
+    <div class="stat-num">7</div>
+    <div><div class="stat-lbl">תחומי אחריות</div><div style="font-size:12px;color:var(--muted)">רווחה, פיתוח ארגוני, LMS, ספקים ועוד</div></div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-num" style="color:var(--red)">⚠️</div>
+    <div><div class="stat-lbl">חסר מידע בחלקים</div><div style="font-size:12px;color:var(--muted)">סמל 🔴 = חובה להשלים לפני סיום חפיפה</div></div>
+  </div>
+</div>
+<div class="info-box info-warn" style="margin-bottom:28px">
+  <div class="info-box-icon">💡</div>
+  <div>שדות המסומנים ב-🔴 <strong>חסר מידע</strong> הם תחומים שטרם תועדו ויש להשלים אותם עם עדי. שדות ב-🟡 <strong>חלקי</strong> — יש מידע ראשוני אך נדרש פירוט נוסף.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  1. מפת תפקיד
+═══════════════════════════════════════════ -->
+<div class="sec-card t1 open" id="sec-overview">
+  <div class="sec-header" onclick="toggle('overview')">
+    <div class="sec-icon">🗺️</div>
+    <div class="sec-title-wrap">
+      <div class="sec-title">מפת תפקיד — תמונת מלאה</div>
+      <div class="sec-desc">כל תחומי האחריות בראייה רוחבית</div>
+    </div>
+    <span class="sec-badge" style="background:var(--s1L);color:var(--s1)">קרא ראשון</span>
+    <span class="sec-chevron">▼</span>
+  </div>
+  <div class="sec-body" id="body-overview">
+
+    <div class="info-box info-note" style="margin-top:16px">
+      <div class="info-box-icon">📌</div>
+      <div>התפקיד <strong>פותח ונבנה על ידי עדי</strong> ב-4 שנים ללא הגדרת תפקיד מוקדמת. הוא מורכב מ-3 מחלקות עיקריות ותחומי אחריות נוספים שצמחו תוך כדי עבודה.</div>
+    </div>
+
+    <div class="role-grid">
+
+      <div class="role-card" style="border-color:var(--s1);border-right:4px solid var(--s1)">
+        <div class="role-card-top">
+          <div class="role-card-icon">🎉</div>
+          <div>
+            <div class="role-card-title">רווחה ואירועים</div>
+            <div class="role-card-sub">7 תחומי תוכן</div>
+          </div>
+        </div>
+        <ul style="font-size:13px;padding-right:16px;color:var(--muted)">
+          <li>תוכנית רווחה שנתית</li>
+          <li>אירוע כיתה א׳</li>
+          <li>נופש חברה שנתי</li>
+          <li>הדלקת נרות חנוכה</li>
+          <li>קייטנת ילדי עובדים (אוגוסט)</li>
+          <li>מתנות (BUYME + קורקט)</li>
+          <li>ממשק מול לין לרווחה שוטפת</li>
+        </ul>
+      </div>
+
+      <div class="role-card" style="border-color:var(--s2);border-right:4px solid var(--s2)">
+        <div class="role-card-top">
+          <div class="role-card-icon">📚</div>
+          <div>
+            <div class="role-card-title">פיתוח ארגוני והדרכה</div>
+            <div class="role-card-sub">5 תחומי תוכן</div>
+          </div>
+        </div>
+        <ul style="font-size:13px;padding-right:16px;color:var(--muted)">
+          <li>קורסי פיתוח מנהלים</li>
+          <li>לומדות ארגוניות (גאנט)</li>
+          <li>בקשות פרטניות (קורסים/לימודים)</li>
+          <li>מערכת LMS — ניהול קצה לקצה</li>
+          <li>תוכנית למידה שנתית</li>
+        </ul>
+      </div>
+
+      <div class="role-card" style="border-color:var(--s3);border-right:4px solid var(--s3)">
+        <div class="role-card-top">
+          <div class="role-card-icon">⚙️</div>
+          <div>
+            <div class="role-card-title">תהליכים כלליים</div>
+            <div class="role-card-sub">5 תחומי תוכן</div>
+          </div>
+        </div>
+        <ul style="font-size:13px;padding-right:16px;color:var(--muted)">
+          <li>תיאום תאריכים מול הלשכה</li>
+          <li>חוזים והתקשרויות (שיר אקשטיין)</li>
+          <li>ניהול ספקים שוטף</li>
+          <li>הפצת תקשורים — מייל + קונקטים</li>
+          <li>סטודיו שילובים (שולמית)</li>
+        </ul>
+      </div>
+
+      <div class="role-card" style="border-color:var(--s4);border-right:4px solid var(--s4)">
+        <div class="role-card-top">
+          <div class="role-card-icon">🤝</div>
+          <div>
+            <div class="role-card-title">ניהול ספקים</div>
+            <div class="role-card-sub">4 ספקים קבועים + נופש</div>
+          </div>
+        </div>
+        <ul style="font-size:13px;padding-right:16px;color:var(--muted)">
+          <li>ניו ארא — יועצים ארגוניים</li>
+          <li>כרמית הדס — יועצת ארגונית</li>
+          <li>שטרר הפקות — ספק רווחה</li>
+          <li>אימפרוב איט — ספק למידה (LMS)</li>
+        </ul>
+      </div>
+
+      <div class="role-card" style="border-color:var(--s5);border-right:4px solid var(--s5)">
+        <div class="role-card-top">
+          <div class="role-card-icon">🎓</div>
+          <div>
+            <div class="role-card-title">הכשרה בכניסה לתפקיד</div>
+            <div class="role-card-sub">תוכנית Onboarding</div>
+          </div>
+        </div>
+        <ul style="font-size:13px;padding-right:16px;color:var(--muted)">
+          <li>בניית תבנית ויישום ב-LMS</li>
+          <li>התווית מדיניות ותפיסה</li>
+          <li>ייצור תוצרי למידה מחומרים פנימיים</li>
+        </ul>
+      </div>
+
+      <div class="role-card" style="border-right:4px solid var(--muted);border-color:var(--muted)">
+        <div class="role-card-top">
+          <div class="role-card-icon">📡</div>
+          <div>
+            <div class="role-card-title">ממשקים מרכזיים</div>
+            <div class="role-card-sub">שותפויות פנימיות קבועות</div>
+          </div>
+        </div>
+        <ul style="font-size:13px;padding-right:16px;color:var(--muted)">
+          <li>לין — רווחה שוטפת</li>
+          <li>שיר אקשטיין — חוזים</li>
+          <li>הלשכה — תיאום פעילויות</li>
+          <li>מנהלים — אישורים ודוחות</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  2. רווחה
+═══════════════════════════════════════════ -->
+<div class="sec-card t1" id="sec-welfare">
+  <div class="sec-header" onclick="toggle('welfare')">
+    <div class="sec-icon">🎉</div>
+    <div class="sec-title-wrap">
+      <div class="sec-title">אירועים ורווחה</div>
+      <div class="sec-desc">אירוע כיתה א׳ · נופש חברה · BUYME · מתנות קורקט</div>
+    </div>
+    <span class="sec-badge" style="background:var(--s1L);color:var(--s1)">7 תחומים</span>
+    <span class="sec-chevron">▼</span>
+  </div>
+  <div class="sec-body" id="body-welfare">
+
+    <!-- תוכנית רווחה שנתית -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s1L);color:var(--s1)">
+        📋 בניית תוכנית רווחה שנתית
+        <span class="tag-complete">מתועד</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>בכל שנה, במסגרת בניית תוכנית עבודה, בונים תוכנית רווחה שנתית. בוחרים את החגים המרכזיים בהם מתמקדים.<br>
+          <strong>עוגנים קבועים (חייבים להיות בכל תוכנית):</strong>
+          <ul style="padding-right:18px;margin-top:6px">
+            <li>נופש חברה</li>
+            <li>אירוע כיתה א׳</li>
+            <li>הדלקת נרות חנוכה</li>
+          </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>
+            <strong>שלב 1:</strong> בחירת החגים המרכזיים לשנה הקרובה<br>
+            <strong>שלב 2:</strong> גיבוש תוכנית עם כלל פעילויות הרווחה<br>
+            <strong>שלב 3:</strong> אישור התוכנית מול <strong>מנכ"לית החברה</strong>
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>משאבי אנוש — עדי. אישור מנכ"לית.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>אחת לשנה — בתהליך בניית תוכנית העבודה השנתית</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td>
+            <div class="info-box info-tip" style="margin:0">
+              <div class="info-box-icon">💡</div>
+              <div>הכל ניתן לשינוי — זו החלטה משותפת של החטיבה. העוגנים הקבועים הם הבסיס, כל השאר גמיש.</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- הדלקת נרות חנוכה -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s1L);color:var(--s1)">
+        🕎 הדלקת נרות חנוכה
+        <span class="tag-complete">מתועד — פירוט מלא</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>ארגון הדלקת נרות חנוכה קצה לקצה — <strong>3 מרחבים:</strong> ת"א (ראשי), חיפה, ת"א נוסף. המרחבים עולים יחד בטימס.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>
+            <strong>1.</strong> תיאום תאריך מול לשכת מנכ"לית — <strong>לרוב נר ראשון.</strong> לעדכן כלל המרחבים בתאריך ובשעה שנקבעה.<br>
+            <strong>2.</strong> הזמנת סופגניות — וידוא שכלל הסניפים מסודרים: סופגניות וכיבוד. התנהלות מול <strong>מזכירות המרחבים</strong> (חיפה + ת"א).<br>
+            <strong>3.</strong> תקשור לעובדים — הכנת תקשור מול <strong>סטודיו שילובים</strong> עם הפרטים המלאים.<br>
+            <strong>4.</strong> הפצת התקשור — מייל + אפליקציה (קונקטים).<br>
+            <strong>5.</strong> שריון חדר ישיבות <strong>צמוד מטבח בקומה 6</strong> + בידורית + ליווי טכני לטובת טימס משותף עם המרחבים.
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td><strong>לין</strong> מנהלת את הדלקת הנרות בליווי עדי. משאבי אנוש.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>חנוכה — לרוב נר ראשון (לפי תיאום עם לשכת מנכ"לית)</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td>קומה 6, חדר ישיבות צמוד מטבח + חיפה/ת"א בטימס</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td>
+            <div class="info-box info-note" style="margin:0 0 8px 0">
+              <div class="info-box-icon">📌</div>
+              <div>הרמות כוסית לפסח ולראש השנה — <strong>באחריות לשכת מנכ"לית</strong> (לא עדי).</div>
+            </div>
+            <div class="info-box info-tip" style="margin:0">
+              <div class="info-box-icon">💡</div>
+              <div>לרוב הדלקה מתבצעת באותו זמן בכלל המרחבים והם עולים בטימס — לא חובה אבל רצוי.</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- קייטנת ילדי עובדים -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s1L);color:var(--s1)">
+        🎒 קייטנת ילדי עובדים
+        <span class="tag-complete">מתועד — פירוט מלא</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>קייטנה לילדי עובדים, <strong>יומיים</strong>, מדי שנה בחודש אוגוסט. קייטנה מטיילת — הילדים יוצאים לפעילויות מחוץ למשרדים.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>
+            <strong>~חודשיים לפני:</strong> הפצת סקר לעובדים לבחירת תאריכים (2 אופציות)<br>
+            <strong>ספק נוכחי:</strong> <span style="background:var(--greenL);color:var(--green);padding:2px 8px;border-radius:4px;font-weight:700">אבן נייר ומספריים</span> — מועסקים דרך חברות ההפקה במכרז<br>
+            <strong>המלצת עדי:</strong> להמשיך איתם גם השנה (מצוינים)
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>חברת הפקה (ספק) + עדי מתאמת</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td><strong>שבוע אחרון של אוגוסט</strong> (לרוב) — תאריך נקבע לפי סקר עובדים</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td>
+            <div class="info-box info-warn" style="margin:0 0 8px 0">
+              <div class="info-box-icon">⚠️</div>
+              <div><strong>דגשים חשובים לספק:</strong>
+                <ul style="padding-right:18px;margin-top:4px">
+                  <li>פעילויות <strong>ללא מים</strong> (אין בריכה/ים/פארק מים)</li>
+                  <li>החודש חם — פעילויות <strong>ממוזגות</strong> בעדיפות</li>
+                  <li>מזון ושתייה באחריות הספק — <strong>חשובה הקפדה על רמה ואיכות</strong></li>
+                </ul>
+              </div>
+            </div>
+            <div class="info-box info-tip" style="margin:0">
+              <div class="info-box-icon">💡</div>
+              <div>בשנתיים האחרונות — אוכל לא היה ברמה. <strong>הפתרון:</strong> קייטרינג חיצוני בנוסף לספק.</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- אירוע כיתה א' -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s1L);color:var(--s1)">
+        🎒 אירוע כיתה א׳
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>אירוע לילדי עובדים הנכנסים לכיתה א׳. כולל: הזמנת כיבוד, הזמנת תיקים (ספק קרביץ/קל גב), ספק תוכן (לרוב ד"ר מולקולה), הרצאה פנימית — מה עושים בעבודה של אמא ואבא.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>
+            <strong>ספקים מעורבים:</strong> ללא חברת הפקה (עצמאית). קרביץ/קל גב לתיקים.<br>
+            <strong>תכנית:</strong> כיבוד + תיקים + ספק תוכן + הרצאה פנימית.<br>
+            <span class="tag-missing">חסר</span> צ׳קליסט מפורט שלב-אחר-שלב
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td><strong>לין</strong> מרכזת את הפעילות — יש להיות במעקב בעיקר סביב בלתמים והזמנת התיקים. עדי אחראית על הבטחת ביצוע.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td><span class="tag-missing">חסר</span> חודש האירוע + חודש תחילת ההכנות</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td><span class="tag-missing">חסר</span> מיקום האירוע + מערכת לניהול</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td>
+            <div class="info-box info-warn" style="margin:0">
+              <div class="info-box-icon">⚠️</div>
+              <div>נקודת כשל ידועה: <strong>בלתמים והזמנת התיקים</strong> — יש לתת מעקב מיוחד. הוזמנו מאוחר מדי בעבר.</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- נופש חברה -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s1L);color:var(--s1)">
+        🏖️ נופש חברה שנתי
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>ניהול נופש חברה שנתי קצה לקצה: בחירת קונספט, מלון, אמנים, מתנות, פעילויות, רישום, בקשות פרטניות ואילוצי עובדים, ניהול חברת ההפקה, מערך הסעות, תשלום לחברת ההפקה.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>
+            <strong>שלב 1:</strong> מכרז שנתי לבחירת ספק הפקה ומלון<br>
+            <strong>שלב 2:</strong> בחירת קונספט + תיאום עם ספק<br>
+            <strong>שלב 3:</strong> ניהול לוגיסטיקה מלאה — רישום עובדים, הסעות, אילוצים<br>
+            <strong>שלב 4:</strong> ביצוע האירוע + תשלום לספק<br>
+            <span class="tag-missing">חסר</span> תהליך מפורט + לוח זמנים מכרז
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי — אחראית בלעדית. ספק הפקה נבחר בהתאם למכרז שנתי.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td><span class="tag-missing">חסר</span> חודשי ביצוע ולוח זמנים מכרז שנתי</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td>מלון — נבחר מחדש מדי שנה במכרז</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td><span class="tag-missing">חסר</span> קריטריוני בחירת מלון/ספק · ניהול אילוצים ובקשות מיוחדות</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- BUYME -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s1L);color:var(--s1)">
+        🎁 BUYME — מתנות דיגיטליות
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>
+            ניהול משתמשים במערכת BUYME:<br>
+            • הקמת משתמש במעמד הצטרפות לחברה<br>
+            • גריעה מהמערכת בסיום העסקה<br>
+            • שליחת מתנות: לידה, חגים, תמריצים וכד׳
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td><span class="tag-missing">חסר</span> תהליך הקמה/גריעה שלב-אחר-שלב</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי. <strong>לין יכולה לטפל</strong> — מכירה את המערכת. רלוונטי לתיאום בחפיפה.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>שוטף — בכל כניסת/יציאת עובד + לפני חגים</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td>מערכת BUYME — <span class="tag-missing">חסר</span> לינק גישה + פרטי משתמש</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td><span class="tag-missing">חסר</span> מדיניות מתנות: אילו אירועים? מה הסכומים לפי וותק?</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- מתנות קורקט -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s1L);color:var(--s1)">
+        🧧 מתנות פסח/ראש השנה — קורקט
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>
+            ניהול זכאויות עובדים לפי וותק (<strong>נמצא בתוך נוהל רווחה</strong>).<br>
+            תיקוף רשימות בהתאם לעבודה בפועל בערב חג בהתאם למדיניות חברה.<br>
+            אתר מתנות: בחירת עיצוב, תקשור לעובדים, בחירת המתנות, ברכה לעובדים (מתנות פיזיות), ניסוח הודעות SMS.<br>
+            <strong>טיוב וניהול רשימת עובדים</strong> טרם עלייה לאוויר ולאחר הירידה של האתר — טרם שליחת התו לעובד.<br>
+            טיפול בתשלומים: העברת דרישות תשלום ומעקב עד לתשלום בפועל. <strong>שריון תקציב לעובדים חדשים.</strong>
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td><span class="tag-missing">חסר</span> לוח זמנים מדויק + תהליך מפורט</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי — אחראית בלעדית. ספק: קורקט.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>
+            <strong>פסח</strong> — לפני חג הפסח<br>
+            <strong>ראש השנה</strong> — לפני תשרי<br>
+            <div class="info-box info-warn" style="margin-top:8px">
+              <div class="info-box-icon">⚠️</div>
+              <div><strong>מכרז קורקט מסתיים פברואר 2027</strong> — יש לפתוח מכרז חדש לפני כן!</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td>ספק קורקט — <span class="tag-missing">חסר</span> איש קשר + מייל + טלפון</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td><span class="tag-missing">חסר</span> זכאויות לפי וותק (טבלה)</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  3. פיתוח ארגוני
+═══════════════════════════════════════════ -->
+<div class="sec-card t2" id="sec-od">
+  <div class="sec-header" onclick="toggle('od')">
+    <div class="sec-icon">📚</div>
+    <div class="sec-title-wrap">
+      <div class="sec-title">פיתוח ארגוני והדרכה</div>
+      <div class="sec-desc">LMS · קורסי מנהלים · לומדות · בקשות פרטניות · תוכנית שנתית</div>
+    </div>
+    <span class="sec-badge" style="background:var(--s2L);color:var(--s2)">6 תחומים</span>
+    <span class="sec-chevron">▼</span>
+  </div>
+  <div class="sec-body" id="body-od">
+
+    <!-- LMS -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s2L);color:var(--s2)">
+        🖥️ מערכת LMS — ניהול קצה לקצה
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>
+            ניהול מערכת למידה ארגונית קצה לקצה:<br>
+            • פתיחת סביבות למידה, תחזוק וניהול<br>
+            • הנגשת נתונים ודוחות למשתמשים רלוונטיים<br>
+            • הטעמת מערכת בקרב משתמשים (ניהול תהליכים מבפנים — הגשת בקשות ואישורן דרך המערכת)<br>
+            • הדרכת משתמשי קצה<br>
+            • ניהול תוכן: העלאת תכנים, סיווג, הנגשה<br>
+            • ניהול סביבות למידה כולל עדכון זימונים, הודעות, תקשורים
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td><span class="tag-missing">חסר</span> פעולות יומיומיות + מדריך למשתמש</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי — אחראית בלעדית. ספק: <strong>אימפרוב איט</strong>.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>שוטף — יומיומי</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td><span class="tag-missing">חסר</span> שם המערכת + URL + פרטי כניסה</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td><span class="tag-missing">חסר</span> מדריכים כתובים ומיקומם</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- קורסי פיתוח מנהלים -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s2L);color:var(--s2)">
+        🎓 קורסי פיתוח מנהלים
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>
+            • פיתוח התוכנית: נושאים, מפגשים, מבנה המפגשים (בשיתוף עם המנחה)<br>
+            • פתיחת הקורס ב-LMS, תחזוק ועדכון מפגשים, חומרים, הודעות<br>
+            • ניהול קהילה — קבוצת ווטסאפ קבוצתית<br>
+            • מפגשי חוץ (ראשון ואחרון): קביעה, תיאום עם מנחה, לוגיסטיקה, תשלום<br>
+            • מפגש ODT: מציאת ספק, קביעת תכנים (עם מנחה), לוגיסטיקה ותשלום
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td><span class="tag-missing">חסר</span> תהליך מפורט · ניהול קבוצת ווטסאפ</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי + מנחה (בשיתוף). <span class="tag-missing">חסר</span> שם המנחה הנוכחית</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td><span class="tag-missing">חסר</span> לוח זמנים קורס נוכחי + מה מתואם ל-2026</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td>LMS + מפגשי חוץ (מיקומים לפי תיאום)</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td><span class="tag-missing">חסר</span> ניהול קבוצת ווטסאפ — מה מפרסמים? מתי?</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- לומדות ארגוניות -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s2L);color:var(--s2)">
+        📦 לומדות ארגוניות
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>
+            • ניהול הפצת לומדות על גבי גאנט ארגוני — קביעת מועדים בפיזור נכון על גבי השנה<br>
+            • העלאת הלומדה ל-LMS, הקמת תשתית וסביבת עבודה מתאימה<br>
+            • הפצה לעובדי החברה<br>
+            • בניית והנגשת דוחות ביצועי לומדה לבעלי התוכן (בטיחות/נהיגה/סייבר וכד׳)<br>
+            • <strong>אישור הלומדה</strong> מבחינה מקצועית: נראות, חווית משתמש, אורך, שאלות, ענייניות, נחיצות
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>עדי אחראית על <strong>הנגשת התשתית ואישור מקצועי</strong> — לא על ביצועי העובדים בפועל.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי + בעלי תוכן (בטיחות/נהיגה/סייבר וכד׳) בשיתוף.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td><span class="tag-missing">חסר</span> גאנט לומדות — אילו לומדות פעילות ומתי מופצות</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td>מערכת LMS</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td>גבול ברור: <strong>אחריות תשתית ומקצועית</strong> — לא אחריות על ציוני/ביצועי עובדים.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- בקשות פרטניות -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s2L);color:var(--s2)">
+        📝 בקשות פרטניות (קורסים/לימודים)
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>
+            • אישור ובחינה של בקשות: קורסים, כנסים, השתלמויות, לימודים אקדמאיים<br>
+            • מעקב בקשות פתוחות — <strong>אחת לשבועיים</strong> שליחת הבקשות הפתוחות למנהלים הרלוונטיים לאישור
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>
+            מחזור אחת לשבועיים: הפקת דוח מהמערכת → שליחה למנהלים לאישור → מעקב.<br>
+            <span class="tag-missing">חסר</span> קריטריוני האישור: מה כן? מה לא? סכום מקסימלי? מי חותם?
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי — מוציאה לפועל. מנהלים — מאשרים.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>שוטף — אחת לשבועיים מעקב פעיל</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td><span class="tag-missing">חסר</span> מאיפה מפיקים את הדוח לאישור מנהלים</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td><span class="tag-missing">חסר</span> קריטריוני האישור — זה ידע קריטי שלא כתוב בשום נוהל</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- תוכנית למידה שנתית -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s2L);color:var(--s2)">
+        📊 תוכנית למידה שנתית
+        <span class="tag-missing">חסר</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>
+            בניית תוכנית למידה שנתית:<br>
+            • איתור צרכי הדרכה — כלל מנהלי הארגון מדרג רא״ג ומעלה<br>
+            • סקר צרכי הדרכה לעובדים<br>
+            • ביסוס תפיסת למידה ארגונית<br>
+            • בניית התוכנית, אישורה והוצאתה לפועל
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td><span class="tag-missing">חסר</span> תהליך מפורט + כלים</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי — אחראית בלעדית</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td><span class="tag-missing">חסר</span> מתי בשנה בונים את התוכנית השנתית?</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td><span class="tag-missing">חסר</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- הכשרה בכניסה לתפקיד -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s2L);color:var(--s2)">
+        🎓 הכשרה בכניסה לתפקיד (Onboarding)
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>
+            • בניית תבנית Onboarding ויישומה במערכת הלמידה<br>
+            • התווית מדיניות ותפיסה ארגונית לכניסה לתפקיד<br>
+            • ייצור תוצרי למידה מחומרים פנימיים: נהלים, מדריכים למשתמש, חוזים והתקשרויות
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td><span class="tag-missing">חסר</span> תהליך מפורט לבניית תוצרי הלמידה</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td><strong>עדי + אימפרוב איט</strong> — שיתוף פעולה בבניית התשתית הטכנית</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>לפי צורך — עם כניסת עובדים חדשים + עדכונים שוטפים</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td>מערכת LMS — <span class="tag-missing">חסר</span> שם המערכת + נתיב</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td>
+            <div class="info-box info-note" style="margin:0">
+              <div class="info-box-icon">📌</div>
+              <div>המחומרים הפנימיים (נהלים, מדריכים, חוזים) הם הבסיס לתוצרי הלמידה — <span class="tag-missing">חסר</span> מיקום הקבצים הפנימיים הרלוונטיים</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  4. תהליכים כלליים
+═══════════════════════════════════════════ -->
+<div class="sec-card t3" id="sec-general">
+  <div class="sec-header" onclick="toggle('general')">
+    <div class="sec-icon">⚙️</div>
+    <div class="sec-title-wrap">
+      <div class="sec-title">תהליכים כלליים</div>
+      <div class="sec-desc">לשכה · חוזים · ספקים · תקציב</div>
+    </div>
+    <span class="sec-badge" style="background:var(--s3L);color:var(--s3)">5 תחומים</span>
+    <span class="sec-chevron">▼</span>
+  </div>
+  <div class="sec-body" id="body-general">
+
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s3L);color:var(--s3)">
+        🏛️ תיאום תאריכים מול הלשכה
+        <span class="tag-missing">חסר</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>כלל הפעילויות בהסתכלות רוחבית על גבי השנה. וידוא שאין התנגשויות וחפיפות בין מופעים.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>
+            כל פעילות הכוללת את כלל העובדים <strong>חייבת לעבור אישור הלשכה</strong> כדי לוודא נחיצות, עומסים, אוכלוסיות רלוונטיות.<br>
+            <span class="tag-missing">חסר</span> פרוטוקול מדויק + כללים לא-כתובים
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td><span class="tag-missing">חסר</span> שמות אנשי הלשכה + עם מי מתאמים</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td>
+            <div class="info-box info-warn" style="margin:0">
+              <div class="info-box-icon">🔴</div>
+              <div>זהו ידע <strong>קריטי שבעל פה</strong> — הכללים הלא-כתובים בתיאום עם הלשכה הם מהחשובים ביותר להעביר. מה לא לעשות? מה הרגישויות?</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s3L);color:var(--s3)">
+        📑 חוזים והתקשרויות — שיר אקשטיין
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>ניהול מכרזים והתקשרויות: איפיון פנייה לספקים וסוג הפנייה הנדרשת, ניהול ההתקשרות קצה לקצה: פרסום הפנייה, ועדות מכרזים, ממליצים, ראיונות (במידת הצורך), בחירת ספקים.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>
+            <strong>כל</strong> תהליך חוזים והתקשרויות — בצמוד עם <strong>שיר אקשטיין</strong>, מחלקת חוזים והתקשרויות, בליווי מלא.<br>
+            <span class="tag-missing">חסר</span> מה מכינים לפני פנייה לשיר? מה הסדר הנכון?
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td><strong>שיר אקשטיין</strong> — מחלקת חוזים. <span class="tag-missing">חסר</span> מייל + טלפון</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>לפי צורך + מועדי חידוש מכרזים</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td>
+            <div class="info-box info-warn" style="margin:0">
+              <div class="info-box-icon">⚠️</div>
+              <div><strong>מכרז קורקט מסתיים פברואר 2027</strong> — לפתוח תהליך חדש עם שיר לפחות 3 חודשים מראש.</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s3L);color:var(--s3)">
+        🏭 ניהול ספקים שוטף
+        <span class="tag-partial">חלקי</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>
+            ניהול צמוד של כלל הספקים:<br>
+            • יועצים ארגוניים: ניו ארא, כרמית הדס<br>
+            • ספקי רווחה: שטרר הפקות<br>
+            • ספק נופש (מתחלף שנתית)<br>
+            • ספקי למידה: אימפרוב איט
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>מתן משימות ומעקב אחר ביצועים תוך בחינת איכות התוצרים והתאמתם לנתיבי איילון.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי — אחראית לכלל הספקים. ראה פרטים מלאים בלשונית ספקים.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>שוטף — לפי צורך + ישיבות מעקב תקופתיות</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td><span class="tag-missing">חסר</span> תדירות ישיבות + אופן המעקב לכל ספק</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s3L);color:var(--s3)">
+        💰 תקציב וסמכויות
+        <span class="tag-missing">חסר</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>ניהול תקציב רווחה שנתי + תקציב הדרכה שנתי. מעקב אחר ביצוע.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td><span class="tag-missing">חסר</span> כלי המעקב + מיקום הקובץ + מנגנון אישורי חריגות</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td><span class="tag-missing">חסר</span> מי מאשר חריגות? מי רואה את התקציב?</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td><span class="tag-missing">חסר</span> סמכות הוצאה עצמאית (עד כמה?) + מתי צריך אישור</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- הפצת תקשורים -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s3L);color:var(--s3)">
+        📢 הפצת תקשורים לעובדים
+        <span class="tag-complete">מתועד</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>תקשורים לעובדים מופצים ב-<strong>2 פלטפורמות עיקריות:</strong>
+            <ol style="padding-right:20px;margin-top:6px">
+              <li><strong>מייל</strong> — תפוצת עובדים: "עובדי חברת נתיבי איילון"</li>
+              <li><strong>אפליקציה ארגונית — קונקטים</strong></li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>
+            <strong>עיצוב התקשורים:</strong> סטודיו <strong>שילובים</strong> — איש קשר: <strong>שולמית</strong><br>
+            מייל: <a href="mailto:shulamit@shiluvimcr.co.il">shulamit@shiluvimcr.co.il</a><br>
+            <br>
+            <div class="info-box info-warn" style="margin:0">
+              <div class="info-box-icon">⚠️</div>
+              <div>את הסטודיו <strong>מנהלים דוברות וקשרי קהילה</strong>. ניתן לפנות לשולמית ישירות, אך אם יש <strong>לוחות זמנים מסוימים או בקשות מיוחדות — יש לערב את הדוברות</strong> קודם.</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי מכינה את התוכן. שולמית (שילובים) מעצבת. דוברות — לבקשות מיוחדות.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>לפי צורך — לפני כל אירוע/פעילות</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
+          <td>מייל תפוצה + אפליקציית קונקטים</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ספק עיצוב -->
+    <div class="role-detail">
+      <div class="role-detail-header" style="background:var(--s3L);color:var(--s3)">
+        🎨 סטודיו שילובים — ספק עיצוב
+        <span class="tag-complete">מתועד</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>עיצוב כל תקשורי הרווחה וההדרכה לעובדים</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td><strong>שולמית</strong> — <a href="mailto:shulamit@shiluvimcr.co.il">shulamit@shiluvimcr.co.il</a></td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td>הסטודיו מנוהל ע"י דוברות וקשרי קהילה — לתיאומים מורכבים: לערב את הדוברות.</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  5. ספקים
+═══════════════════════════════════════════ -->
+<div class="sec-card t4" id="sec-suppliers">
+  <div class="sec-header" onclick="toggle('suppliers')">
+    <div class="sec-icon">🤝</div>
+    <div class="sec-title-wrap">
+      <div class="sec-title">ספקים ואנשי קשר</div>
+      <div class="sec-desc">כרטיסייה לכל ספק — פרטים, חוזה, קריטיות, הערות</div>
+    </div>
+    <span class="sec-badge" style="background:var(--s4L);color:var(--s4)">7 ספקים</span>
+    <span class="sec-chevron">▼</span>
+  </div>
+  <div class="sec-body" id="body-suppliers">
+
+    <div class="info-box info-warn" style="margin-top:16px">
+      <div class="info-box-icon">⚠️</div>
+      <div>רוב פרטי הספקים <strong>טרם תועדו</strong>. חובה להשלים את שדות איש הקשר, מייל/טלפון וחוזה לפני סיום החפיפה.</div>
+    </div>
+
+    <div class="sup-grid">
+
+      <div class="sup-card" style="border-top:4px solid var(--s3)">
+        <div class="sup-card-head" style="background:var(--s3L);color:var(--s3)">
+          🏢 ניו ארא
+        </div>
+        <div class="sup-card-body">
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">יועצים ארגוניים</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="missing-val">🔴 חסר</span></div>
+        </div>
+      </div>
+
+      <div class="sup-card" style="border-top:4px solid var(--s3)">
+        <div class="sup-card-head" style="background:var(--s3L);color:var(--s3)">
+          👩‍💼 כרמית הדס
+        </div>
+        <div class="sup-card-body">
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">יועצת ארגונית</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="missing-val">🔴 חסר</span></div>
+        </div>
+      </div>
+
+      <div class="sup-card" style="border-top:4px solid var(--s1)">
+        <div class="sup-card-head" style="background:var(--s1L);color:var(--s1)">
+          🎭 שטרר הפקות
+        </div>
+        <div class="sup-card-body">
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">ספק רווחה — הפקות ואירועים</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="missing-val">🔴 חסר</span></div>
+        </div>
+      </div>
+
+      <div class="sup-card" style="border-top:4px solid var(--s2)">
+        <div class="sup-card-head" style="background:var(--s2L);color:var(--s2)">
+          💻 אימפרוב איט
+        </div>
+        <div class="sup-card-body">
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">ספק למידה — LMS</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="missing-val">🔴 חסר</span></div>
+        </div>
+      </div>
+
+      <div class="sup-card" style="border-top:4px solid var(--yellow)">
+        <div class="sup-card-head" style="background:var(--yellowL);color:var(--yellow)">
+          🧧 קורקט — מתנות
+        </div>
+        <div class="sup-card-body">
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">מתנות פסח / ראש השנה</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="sup-val">⚠️ פוקע <strong>פברואר 2027</strong></span></div>
+          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="sup-val" style="color:var(--red);font-weight:700">פברואר 2027</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-high">גבוהה</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="missing-val">🔴 חסר</span></div>
+        </div>
+      </div>
+
+      <div class="sup-card" style="border-top:4px solid var(--teal)">
+        <div class="sup-card-head" style="background:var(--tealL);color:var(--teal)">
+          🎁 BUYME
+        </div>
+        <div class="sup-card-body">
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">מתנות דיגיטליות — ניהול משתמשים</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">לין מכירה את המערכת — לתאם עימה</span></div>
+        </div>
+      </div>
+
+      <div class="sup-card" style="border-top:4px solid var(--purple)">
+        <div class="sup-card-head" style="background:var(--purpleL);color:var(--purple)">
+          🎨 סטודיו שילובים
+        </div>
+        <div class="sup-card-body">
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">עיצוב גרפי לכל תקשורי הרווחה וההדרכה</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="sup-val"><strong>שולמית</strong></span></div>
+          <div class="sup-row"><span class="sup-key">מייל</span><span class="sup-val"><a href="mailto:shulamit@shiluvimcr.co.il">shulamit@shiluvimcr.co.il</a></span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-mid">בינונית</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">⚠️ הסטודיו מנוהל ע"י דוברות — לבקשות מיוחדות/לו"ז צפוף: לערב דוברות קודם</span></div>
+        </div>
+      </div>
+
+      <div class="sup-card" style="border-top:4px solid var(--s2)">
+        <div class="sup-card-head" style="background:var(--s2L);color:var(--s2)">
+          🎒 אבן נייר ומספריים — קייטנה
+        </div>
+        <div class="sup-card-body">
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">קייטנת ילדי עובדים (אוגוסט)</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">מסגרת</span><span class="sup-val">מועסקים דרך חברות הפקה — במכרז</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-mid">בינונית</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">✅ מצוינים — המלצת עדי להמשיך איתם. לדאוג לקייטרינג חיצוני (האוכל שלהם לא ברמה)</span></div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  6. לוח שנה
+═══════════════════════════════════════════ -->
+<div class="sec-card t5" id="sec-calendar">
+  <div class="sec-header" onclick="toggle('calendar')">
+    <div class="sec-icon">📅</div>
+    <div class="sec-title-wrap">
+      <div class="sec-title">לוח שנה שנתי</div>
+      <div class="sec-desc">פעילויות ומשימות לפי חודשים</div>
+    </div>
+    <span class="sec-badge" style="background:var(--s5L);color:var(--s5)">12 חודשים</span>
+    <span class="sec-chevron">▼</span>
+  </div>
+  <div class="sec-body" id="body-calendar">
+
+    <div class="info-box info-warn" style="margin-top:16px">
+      <div class="info-box-icon">⚠️</div>
+      <div>לוח השנה <strong>חלקי בלבד</strong> — מבוסס על מה שידוע כרגע. יש להשלים עם עדי את כל הפעילויות הקבועות לפי חודשים.</div>
+    </div>
+
+    <div class="cal-grid">
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--s3L);color:var(--s3)">ינואר</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s3)"></div>פתיחת מכרז נופש (לפי לו"ז)</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s2)"></div>בניית תוכנית רווחה + למידה שנתית</div>
+        </div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--s3L);color:var(--s3)">פברואר</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--red)"></div><span style="color:var(--red);font-weight:700">תזכורת: מכרז קורקט (2027)</span></div>
+        </div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">מרץ</div>
+        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--yellowL);color:var(--yellow)">אפריל</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--yellow)"></div>מתנות פסח (הכנה מראש)</div>
+        </div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">מאי</div>
+        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">יוני</div>
+        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">יולי</div>
+        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--s1L);color:var(--s1)">אוגוסט</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>הכנות לאירוע כיתה א׳</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--yellow)"></div>הכנות מתנות ר"ה</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s2)"></div><strong>קייטנת ילדי עובדים</strong> (שבוע אחרון)</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--muted)"></div>סקר קייטנה (~חודשיים מראש)</div>
+        </div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--s1L);color:var(--s1)">ספטמבר</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>אירוע כיתה א׳ (לפי לו"ז)</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--yellow)"></div>מתנות ראש השנה</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s3)"></div>נופש חברה (לפי לו"ז)</div>
+        </div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">אוקטובר</div>
+        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">נובמבר</div>
+        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-head" style="background:var(--s2L);color:var(--s2)">דצמבר</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s2)"></div>תוכנית למידה שנתית (לפי לו"ז)</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--yellow)"></div>🕎 הדלקת נרות חנוכה (לרוב נר ראשון)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-heading" style="margin-top:28px">🔄 פעילויות שוטפות קבועות</div>
+    <table class="contacts-table">
+      <tr>
+        <th>תדירות</th><th>פעילות</th><th>הערות</th>
+      </tr>
+      <tr>
+        <td><span class="freq-badge" style="background:var(--redL);color:var(--red)">דו-שבועי</span></td>
+        <td>מעקב בקשות פרטניות פתוחות</td>
+        <td>שליחה למנהלים לאישור</td>
+      </tr>
+      <tr>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">שוטף</span></td>
+        <td>ניהול משתמשים BUYME</td>
+        <td>הקמה/גריעה בכל כניסה/יציאה</td>
+      </tr>
+      <tr>
+        <td><span class="missing-val">🔴 חסר</span></td>
+        <td>פגישות קבועות (recurring)</td>
+        <td>יש להשלים עם עדי</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  7. ממשקים
+═══════════════════════════════════════════ -->
+<div class="sec-card t5" id="sec-contacts">
+  <div class="sec-header" onclick="toggle('contacts')">
+    <div class="sec-icon">👥</div>
+    <div class="sec-title-wrap">
+      <div class="sec-title">ממשקים ורשת קשרים</div>
+      <div class="sec-desc">עם מי עובדים? איך? מה הרגישויות?</div>
+    </div>
+    <span class="sec-badge" style="background:var(--s5L);color:var(--s5)">ממשקים</span>
+    <span class="sec-chevron">▼</span>
+  </div>
+  <div class="sec-body" id="body-contacts">
+
+    <div class="info-box info-note" style="margin-top:16px">
+      <div class="info-box-icon">📌</div>
+      <div>מספר ממשקים עודכנו מהאקסל — שדות ב-🔴 עדיין ממתינים להשלמה עם עדי.</div>
+    </div>
+
+    <table class="contacts-table">
+      <tr>
+        <th>שם</th><th>תפקיד</th><th>ממשק</th><th>תדירות</th><th>הערות</th>
+      </tr>
+      <tr>
+        <td><strong>לין</strong></td>
+        <td>רווחה שוטפת</td>
+        <td>BUYME, אירוע כיתה א׳, הדלקת נרות, רווחה שוטפת</td>
+        <td><span class="freq-badge" style="background:var(--greenL);color:var(--green)">שוטף</span></td>
+        <td>מכירה מערכת BUYME — לתאם עימה בחפיפה. מנהלת הדלקת נרות בליווי עדי.</td>
+      </tr>
+      <tr>
+        <td><strong>שיר אקשטיין</strong></td>
+        <td>חוזים והתקשרויות</td>
+        <td>כל מכרז/חוזה חדש</td>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">לפי צורך</span></td>
+        <td>ליווי מלא בכל תהליך התקשרות. ⚠️ מכרז קורקט פוקע פברואר 2027.</td>
+      </tr>
+      <tr>
+        <td><strong>שולמית</strong></td>
+        <td>סטודיו שילובים — עיצוב</td>
+        <td>עיצוב כל תקשורי הרווחה וההדרכה</td>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">לפי אירוע</span></td>
+        <td><a href="mailto:shulamit@shiluvimcr.co.il">shulamit@shiluvimcr.co.il</a> — לבקשות מיוחדות: לערב דוברות קודם</td>
+      </tr>
+      <tr>
+        <td><strong>דוברות וקשרי קהילה</strong></td>
+        <td>ניהול סטודיו שילובים</td>
+        <td>לוחות זמנים מסוימים / בקשות מיוחדות לעיצוב</td>
+        <td><span class="freq-badge" style="background:var(--yellowL);color:var(--yellow)">לפי צורך</span></td>
+        <td>לא לעקוף — לערב בכל בקשה חריגה לסטודיו</td>
+      </tr>
+      <tr>
+        <td><strong>הלשכה</strong></td>
+        <td>תיאום ארגוני — מנכ"לית</td>
+        <td>אישור כל פעילות כלל-ארגונית + אישור תוכנית רווחה שנתית</td>
+        <td><span class="freq-badge" style="background:var(--yellowL);color:var(--yellow)">לפני כל אירוע</span></td>
+        <td>🔴 יש כללים לא-כתובים — חובה להשלים!</td>
+      </tr>
+      <tr>
+        <td><strong>מזכירות המרחבים</strong></td>
+        <td>חיפה + ת"א</td>
+        <td>תיאום הדלקת נרות + הזמנת סופגניות/כיבוד</td>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">חנוכה</span></td>
+        <td>לתאם מראש — הן אחראיות על הלוגיסטיקה במרחבים</td>
+      </tr>
+      <tr>
+        <td><span class="missing-val">🔴 חסר</span></td>
+        <td>מנהל/ת ישיר/ה</td>
+        <td>דיווח שוטף</td>
+        <td><span class="missing-val">חסר</span></td>
+        <td>מה מדווחים? בתדירות?</td>
+      </tr>
+      <tr>
+        <td><span class="missing-val">🔴 חסר</span></td>
+        <td>בעלי תוכן לומדות</td>
+        <td>בטיחות/נהיגה/סייבר</td>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">לפי גאנט</span></td>
+        <td>לפי מחזור הפצת הלומדות</td>
+      </tr>
+    </table>
+
+    <div class="sub-heading">📋 פגישות קבועות</div>
+    <div class="info-box info-miss">
+      <div class="info-box-icon">🔴</div>
+      <div>פרטי הפגישות הקבועות <strong>טרם תועדו</strong> — יש לשאול עדי: אילו פגישות recurring יש? יום/שעה/מה להגיע מוכנה?</div>
+    </div>
+
+    <div class="sub-heading">🏛️ ועדות ופורומים</div>
+    <div class="info-box info-miss">
+      <div class="info-box-icon">🔴</div>
+      <div>פרטי ועדות ופורומים <strong>טרם תועדו</strong> — האם יש ועדות מכרזים? פורומים ארגוניים?</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  8. תחום אפור
+═══════════════════════════════════════════ -->
+<div class="sec-card t7" id="sec-gray">
+  <div class="sec-header" onclick="toggle('gray')">
+    <div class="sec-icon">🧠</div>
+    <div class="sec-title-wrap">
+      <div class="sec-title">הידע הבלתי כתוב — תחום האפור</div>
+      <div class="sec-desc">שיקול דעת · מיומנויות רכות · הגיון בריא</div>
+    </div>
+    <span class="sec-badge" style="background:var(--s7L);color:var(--s7)">קריטי!</span>
+    <span class="sec-chevron">▼</span>
+  </div>
+  <div class="sec-body" id="body-gray">
+
+    <div class="info-box info-miss" style="margin-top:16px">
+      <div class="info-box-icon">🔴</div>
+      <div>זהו <strong>החלק הקריטי ביותר</strong> בתיק החפיפה — ידע שאי אפשר לדעת בלי עדי. יש להשלים ממענה על השאלון.</div>
+    </div>
+
+    <div class="gray-card">
+      <div class="gray-card-title">💡 מה ידוע עד כה — ניהול ספקים</div>
+      <div class="gray-card-body">
+        ניהול ספקים הוא <strong>צמוד ואקטיבי</strong> — לא פסיבי. עדי מתפקדת כמנהלת פרויקט מול כל ספק: מתן משימות, מעקב ביצועים, בחינת איכות התוצרים והתאמתם לנתיבי איילון.
+      </div>
+    </div>
+
+    <div class="gray-card">
+      <div class="gray-card-title">⚠️ נקודות כשל ידועות</div>
+      <div class="gray-card-body">
+        <ul>
+          <li><strong>אירוע כיתה א׳:</strong> בלתמים והזמנת תיקים — נוטים להיות מאוחרים. צריך מעקב אקטיבי.</li>
+          <li><strong>חוזה קורקט:</strong> פוקע פברואר 2027 — יש להתחיל תהליך מכרז מוקדם.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="gray-card" style="border:2px dashed var(--s7);background:var(--s7L)">
+      <div class="gray-card-title" style="color:var(--s7)">🔴 ממתין להשלמה — שאלות פתוחות קריטיות</div>
+      <div class="gray-card-body">
+        <ul>
+          <li>מה למדת מניסיון שלא כתוב בשום נוהל?</li>
+          <li>הטעויות הנפוצות שמחליפה צריכה להימנע מהן</li>
+          <li>הכללים הלא-כתובים בתיאום עם הלשכה</li>
+          <li>איך מקבלים החלטות כשהמדיניות לא ברורה?</li>
+          <li>מצבים הדורשים רגישות מיוחדת</li>
+          <li>מה ״צביון התפקיד״?</li>
+          <li>מה הדבר הכי חשוב שהמחליפה צריכה לדעת?</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  9. צ'קליסט חפיפה
+═══════════════════════════════════════════ -->
+<div class="sec-card t2" id="sec-checklist">
+  <div class="sec-header" onclick="toggle('checklist')">
+    <div class="sec-icon">✅</div>
+    <div class="sec-title-wrap">
+      <div class="sec-title">צ׳קליסט חפיפה — מחליפה</div>
+      <div class="sec-desc">מה לעשות ומתי — ממועד כניסה עד עצמאות מלאה</div>
+    </div>
+    <span class="sec-badge" id="checklist-progress" style="background:var(--s2L);color:var(--s2)">0% הושלם</span>
+    <span class="sec-chevron">▼</span>
+  </div>
+  <div class="sec-body" id="body-checklist">
+
+    <div class="checklist-phase">
+      <div class="phase-title">📅 שבוע 1 — כניסה וסקירה</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text"><span class="check-badge cb-critical">קריטי</span>קרא/י את תיק החפיפה המלא מהתחלה לסוף</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text"><span class="check-badge cb-critical">קריטי</span>פגישת היכרות עם עדי — סקירת כל תחומי האחריות</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text"><span class="check-badge cb-critical">קריטי</span>קבלת גישה למערכת LMS + הדרכה ראשונית</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text"><span class="check-badge cb-critical">קריטי</span>היכרות עם לין (רווחה) + BUYME</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text"><span class="check-badge cb-critical">קריטי</span>היכרות עם שיר אקשטיין (חוזים)</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">סקירת כל חוזי הספקים הקיימים + תאריכי פקיעה</div>
+      </div>
+    </div>
+
+    <div class="checklist-phase">
+      <div class="phase-title">📅 שבוע 2 — העמקה בתחומים</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text"><span class="check-badge cb-critical">קריטי</span>ישיבת העמקה — תחום האפור עם עדי (שאלות 39-46)</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">הבנת תהליך בקשות פרטניות + קריטריוני אישור</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">היכרות עם כל ספקי LMS + מערכת הלמידה</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">הבנת פרוטוקול תיאום עם הלשכה (כולל כללים לא-כתובים)</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">מיפוי כל הפגישות הקבועות + הוספה ליומן</div>
+      </div>
+    </div>
+
+    <div class="checklist-phase">
+      <div class="phase-title">📅 חודש 1 — תפיסת תפקיד</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text"><span class="check-badge cb-soon">בקרוב</span>ביצוע עצמאי ראשון של מעקב בקשות פרטניות (דו-שבועי)</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">ניהול עצמאי של LMS — פתיחת/עדכון סביבת למידה</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">הכרת מחזור לוח השנה השנתי + מיפוי הפעילויות הקרובות</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text"><span class="check-badge cb-critical">קריטי</span>השלמת כל שדות ה-🔴 בתיק החפיפה</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">פגישה עם כל ספק עיקרי — היכרות ישירה</div>
+      </div>
+    </div>
+
+    <div class="checklist-phase">
+      <div class="phase-title">📅 חודש 2-3 — עצמאות מלאה</div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">ניהול עצמאי של כל תחומי האחריות</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">התחלת תהליך בניית תוכנית למידה שנתית (אם הגיע הזמן)</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text"><span class="check-badge cb-soon">לבדוק</span>סטטוס מכרז קורקט — האם יש צורך לפתוח תהליך?</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end .page -->
+
+<!-- PRINT BAR -->
+<div class="print-bar">
+  <span class="print-info" id="check-count">לחצ/י על משימה לסימון כ-✓ שהושלמה</span>
+  <button class="btn btn-ghost" onclick="resetChecks()">↺ אפס צ׳קליסט</button>
+  <button class="btn btn-dark" onclick="window.print()">🖨️ הדפסה</button>
+  <button class="btn btn-primary" onclick="saveState()">💾 שמור מצב</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══ TOGGLE SECTION ═══
+function toggle(id) {
+  var card = document.getElementById('sec-' + id);
+  if (!card) return;
+  card.classList.toggle('open');
+  updateNav();
+}
+
+function goTo(id) {
+  var card = document.getElementById('sec-' + id);
+  if (!card) return;
+  card.classList.add('open');
+  updateNav();
+  setTimeout(function() { card.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+}
+
+function updateNav() {
+  document.querySelectorAll('.nav-btn').forEach((btn, i) => {
+    btn.classList.remove('active');
+  });
+}
+
+// ═══ CHECKLIST ═══
+function toggleCheck(el) {
+  if (!el) return;
+  el.classList.toggle('done');
+  saveState();
+  updateChecklistProgress();
+}
+
+function updateChecklistProgress() {
+  const all   = document.querySelectorAll('.check-item');
+  const done  = document.querySelectorAll('.check-item.done');
+  const pct   = all.length ? Math.round(done.length / all.length * 100) : 0;
+  const badge = document.getElementById('checklist-progress');
+  if (badge) {
+    badge.textContent = `${pct}% הושלם`;
+    badge.style.background = pct === 100 ? 'var(--greenL)' : pct > 50 ? 'var(--yellowL)' : 'var(--s2L)';
+    badge.style.color = pct === 100 ? 'var(--green)' : pct > 50 ? 'var(--yellow)' : 'var(--s2)';
+  }
+  const counter = document.getElementById('check-count');
+  if (counter) counter.textContent = `הושלמו ${done.length} מתוך ${all.length} משימות (${pct}%)`;
+}
+
+function resetChecks() {
+  document.querySelectorAll('.check-item').forEach(el => el.classList.remove('done'));
+  saveState();
+  updateChecklistProgress();
+}
+
+// ═══ SAVE/LOAD ═══
+const KEY = 'adi_handover_main';
+
+function saveState() {
+  var checks = [];
+  document.querySelectorAll('.check-item').forEach(function(el) {
+    checks.push(el.classList.contains('done'));
+  });
+  var openSections = [];
+  document.querySelectorAll('.sec-card').forEach(function(el) {
+    openSections.push(el.classList.contains('open'));
+  });
+  try {
+    localStorage.setItem(KEY, JSON.stringify({ checks: checks, openSections: openSections }));
+    showToast('✅ נשמר!');
+  } catch(e) {
+    showToast('⚠️ שמירה נכשלה');
+  }
+}
+
+function loadState() {
+  try {
+    var raw = localStorage.getItem(KEY);
+    if (!raw) return;
+    var state = JSON.parse(raw);
+    if (state.checks) {
+      var items = document.querySelectorAll('.check-item');
+      items.forEach(function(el, i) {
+        if (state.checks[i]) el.classList.add('done');
+      });
+    }
+    if (state.openSections) {
+      var cards = document.querySelectorAll('.sec-card');
+      cards.forEach(function(el, i) {
+        if (state.openSections[i]) el.classList.add('open');
+        else el.classList.remove('open');
+      });
+    }
+  } catch(e) {}
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2500);
+}
+
+// ═══ INIT ═══
+(function init() {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      loadState();
+      updateChecklistProgress();
+    });
+  } else {
+    loadState();
+    updateChecklistProgress();
+  }
+})();
+</script>
+</body>
+</html>

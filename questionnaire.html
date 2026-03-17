@@ -546,88 +546,47 @@
 <body>
 <!-- PW-START -->
 <style>
-#pw-overlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(145deg,#1E1710,#6B3E18);display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif}
-#pw-box{background:#fff;border-radius:16px;padding:48px 40px;text-align:center;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-#pw-box h2{font-size:22px;color:#2C2416;margin-bottom:8px}
-#pw-box p{font-size:14px;color:#7A6E60;margin-bottom:28px}
-#pw-form{margin:0;padding:0}
-#pw-input{width:100%;padding:13px 16px;font-size:18px;border:2px solid #DDD5C8;border-radius:10px;text-align:center;direction:ltr;outline:none;margin-bottom:14px;box-sizing:border-box}
-#pw-input:focus{border-color:#B87333}
-#pw-btn{width:100%;padding:13px;font-size:16px;font-weight:700;background:#B87333;color:#fff;border:none;border-radius:10px;cursor:pointer}
-#pw-err{color:#C0392B;font-size:13px;margin-top:12px;display:none}
+#pwo{position:fixed;inset:0;z-index:9999;background:linear-gradient(145deg,#1E1710,#6B3E18);display:flex;align-items:center;justify-content:center}
+#pwb{background:#fff;border-radius:16px;padding:48px 40px;text-align:center;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.4);font-family:Arial,sans-serif}
+#pwb h2{font-size:22px;color:#2C2416;margin:0 0 8px}
+#pwb p{font-size:14px;color:#7A6E60;margin:0 0 28px}
+#pwf{margin:0;padding:0}
+#pwu{display:none}
+#pwi{width:100%;padding:13px;font-size:18px;border:2px solid #DDD5C8;border-radius:10px;text-align:center;outline:none;margin-bottom:14px;box-sizing:border-box;font-family:Arial}
+#pwi:focus{border-color:#B87333}
+#pwok{width:100%;padding:13px;font-size:16px;font-weight:700;background:#B87333;color:#fff;border:none;border-radius:10px;cursor:pointer;font-family:Arial}
+#pwe{color:#C0392B;font-size:13px;margin-top:10px;display:none}
 </style>
-<div id="pw-overlay">
-  <div id="pw-box">
+<div id="pwo">
+  <div id="pwb">
     <h2>&#x1F512; &#x05EA;&#x05D9;&#x05E7; &#x05D7;&#x05E4;&#x05D9;&#x05E4;&#x05D4;</h2>
-    <p>&#x05E0;&#x05EA;&#x05D9;&#x05D1;&#x05D9; &#x05D0;&#x05D9;&#x05D9;&#x05DC;&#x05D5;&#x05DF; | &#x05DE;&#x05E1;&#x05DE;&#x05DA; &#x05E4;&#x05E0;&#x05D9;&#x05DE;&#x05D9;</p>
-    <form id="pw-form" onsubmit="return false">
-      <input id="pw-input" type="password" placeholder="Password" autocomplete="current-password">
-      <button id="pw-btn" type="submit">Enter</button>
+    <p>&#x05E0;&#x05EA;&#x05D9;&#x05D1;&#x05D9; &#x05D0;&#x05D9;&#x05D9;&#x05DC;&#x05D5;&#x05DF;</p>
+    <form id="pwf" onsubmit="return pwcheck()">
+      <input id="pwu" type="text" name="username" autocomplete="username" value="adi">
+      <input id="pwi" type="password" name="password" placeholder="Password" autocomplete="current-password">
+      <button id="pwok" type="submit">Enter</button>
     </form>
-    <div id="pw-err">Wrong password</div>
+    <div id="pwe">Wrong password</div>
   </div>
 </div>
 <script>
 (function(){
-  var overlay=document.getElementById('pw-overlay');
-  var form=document.getElementById('pw-form');
-  var inp=document.getElementById('pw-input');
-  var err=document.getElementById('pw-err');
-  try{if(sessionStorage.getItem('adi_ok')==='1'){overlay.style.display='none';return;}}catch(e){}
-  form.onsubmit=function(){
-    if(inp.value==='Ayalon2026'){
-      try{sessionStorage.setItem('adi_ok','1');}catch(e){}
-      overlay.style.display='none';
-    } else {
-      err.style.display='block';
-      inp.value='';
-      inp.focus();
-    }
-    return false;
-  };
+  try{if(sessionStorage.getItem('adi_ok')==='1'){document.getElementById('pwo').style.display='none';return;}}catch(e){}
 })();
+function pwcheck(){
+  var v=document.getElementById('pwi').value;
+  if(v==='Ayalon2026'){
+    try{sessionStorage.setItem('adi_ok','1');}catch(e){}
+    document.getElementById('pwo').style.display='none';
+  } else {
+    document.getElementById('pwe').style.display='block';
+    document.getElementById('pwi').value='';
+    document.getElementById('pwi').focus();
+  }
+  return false;
+}
 </script>
 <!-- PW-END -->
-<div id="pw-gate" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#1E1710,#3D2810);display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;direction:rtl">
-  <div style="background:#fff;border-radius:16px;padding:48px 40px;text-align:center;max-width:360px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.4)">
-    <div style="font-size:40px;margin-bottom:16px">🔒</div>
-    <div style="font-size:20px;font-weight:800;color:#2C2416;margin-bottom:6px">תיק חפיפה — עדי</div>
-    <div style="font-size:13px;color:#7A6E60;margin-bottom:28px">נתיבי איילון | גישה מורשית בלבד</div>
-    <input id="pw-input" type="password" placeholder="הכנס סיסמה" style="width:100%;padding:12px 16px;border:2px solid #DDD5C8;border-radius:8px;font-size:16px;text-align:center;font-family:Arial;margin-bottom:12px;outline:none;box-sizing:border-box;direction:ltr" onkeydown="if(event.key==='Enter')checkPw()"/>
-    <div id="pw-error" style="color:#C0392B;font-size:13px;height:20px;margin-bottom:8px"></div>
-    <button onclick="checkPw()" style="width:100%;padding:13px;background:#B87333;border:none;border-radius:8px;color:white;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial">כניסה →</button>
-  </div>
-</div>
-<script>
-(function(){
-  var K='hw_auth';
-  if(sessionStorage.getItem(K)==='ok'){document.getElementById('pw-gate').style.display='none';return;}
-  setTimeout(function(){var i=document.getElementById('pw-input');if(i)i.focus();},150);
-  function hash(s){
-    var h=0;
-    for(var i=0;i<s.length;i++){h=(Math.imul(31,h)+s.charCodeAt(i))|0;}
-    var u=h>>>0;
-    return u.toString(16);
-  }
-  window.checkPw=function(){
-    var v=document.getElementById('pw-input').value;
-    if(hash(v)==='9d5dab90'){
-      sessionStorage.setItem(K,'ok');
-      document.getElementById('pw-gate').style.display='none';
-    }else{
-      var e=document.getElementById('pw-error');
-      e.textContent='❌ סיסמה שגויה — נסה/י שנית';
-      document.getElementById('pw-input').value='';
-      document.getElementById('pw-input').focus();
-      setTimeout(function(){e.textContent='';},2500);
-    }
-  };
-})();
-</script>
-
-
-
-
 <div class="hero">
   <div class="hero-badge">📋 שאלון חפיפה — סודי ופנימי</div>
   <h1>מה שאת יודעת — שיישמר</h1>

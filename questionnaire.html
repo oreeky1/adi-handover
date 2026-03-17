@@ -598,9 +598,15 @@
 })();
 
 function checkPw(){
-  var v=document.getElementById('pw-input').value;
+  var raw=document.getElementById('pw-input').value;
+  // Strip all invisible/RTL/LTR marks and trim whitespace
+  var v=raw.replace(/[\u200F\u200E\u202A-\u202E\u2066-\u2069\uFEFF]/g,'').trim();
   var _a='Aya', _b='lon2', _c='026';
-  if(v===_a+_b+_c){
+  var expected=_a+_b+_c;
+  // Debug — open browser console to see
+  console.log('entered length:',v.length,'expected length:',expected.length);
+  console.log('match:',v===expected);
+  if(v===expected){
     try{sessionStorage.setItem('adi_ok','yes');}catch(e){}
     document.getElementById('pw-overlay').style.display='none';
   } else {

@@ -1293,7 +1293,7 @@ function pwcheck(){
 </main>
 
 <div class="save-bar">
-  <span class="save-info" id="progress-text-bar">✅ הנתונים נשמרים אוטומטית בדפדפן</span>
+  <span class="save-info" id="progress-text-bar">✅ נשמר אוטומטית | <a href="#" onclick="showTokenDialog();return false" style="color:var(--accent)">🔗 חבר ל-GitHub</a></span>
   <button class="btn btn-secondary" onclick="exportData()">📁 גיבוי JSON</button>
   <button class="btn btn-print" onclick="doPrint()">🖨️ הדפסה</button>
   <button class="btn btn-primary" onclick="saveForm()">💾 שמור</button>
@@ -1345,16 +1345,63 @@ function gatherData() {
   return data;
 }
 
-// ── SAVE — localStorage (עובד מצוין ב-GitHub Pages) ──
+// ── CONFIG — GitHub auto-save ──
+var GH_USER  = 'oreeky1';
+var GH_REPO  = 'adi-handover';
+var GH_FILE  = 'answers.json';
+var GH_TOKEN = ''; // Set by Adi — see instructions below
+
+// ── SAVE — localStorage + optional GitHub commit ──
 function saveForm() {
   var data = gatherData();
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    showToast('✅ נשמר! הנתונים שמורים בדפדפן זה');
-    updateProgress();
-  } catch(e) {
-    showToast('⚠️ שמירה נכשלה — נסי לייצא JSON');
+  // Always save locally first
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+  updateProgress();
+
+  if (GH_TOKEN) {
+    saveToGitHub(data);
+  } else {
+    showToast('✅ נשמר מקומית');
   }
+}
+
+function saveToGitHub(data) {
+  var content_b64 = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+  var url = 'https://api.github.com/repos/' + GH_USER + '/' + GH_REPO + '/contents/' + GH_FILE;
+  
+  // First get current SHA (needed for update)
+  fetch(url, {
+    headers: {
+      'Authorization': 'token ' + GH_TOKEN,
+      'Accept': 'application/vnd.github.v3+json'
+    }
+  })
+  .then(function(r){ return r.ok ? r.json() : null; })
+  .then(function(existing) {
+    var body = {
+      message: 'Update questionnaire answers ' + new Date().toISOString().slice(0,10),
+      content: content_b64
+    };
+    if (existing && existing.sha) body.sha = existing.sha;
+    
+    return fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Authorization': 'token ' + GH_TOKEN,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+  })
+  .then(function(r){
+    if (r && r.ok) {
+      showToast('✅ נשמר ב-GitHub!');
+    } else {
+      showToast('✅ נשמר מקומית (GitHub נכשל)');
+    }
+  })
+  .catch(function(){ showToast('✅ נשמר מקומית'); });
 }
 
 // ── AUTO-SAVE ──
@@ -1398,18 +1445,18 @@ function loadForm() {
   }
 }
 
-// ── EXPORT JSON (לגיבוי / להעברה) ──
+// ── EXPORT JSON ──
 function exportData() {
   var data = gatherData();
   var json = JSON.stringify(data, null, 2);
   var a = document.createElement('a');
   a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(json);
-  a.download = 'גיבוי_שאלון_חפיפה.json';
+  a.download = 'answers.json';
   a.style.display = 'none';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  showToast('📁 קובץ גיבוי JSON הורד');
+  showToast('📁 answers.json הורד — שלחי לנו בצ\'אט');
 }
 
 // ── PRINT ──
@@ -1472,6 +1519,42 @@ function showToast(msg) {
   for (var i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener('input', autoSave);
   }
+})();
+</script>
+
+<!-- GitHub Token Dialog -->
+<div id="gh-dialog" style="display:none;position:fixed;inset:0;z-index:8888;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:16px;padding:32px;max-width:480px;width:90%;font-family:Arial,sans-serif">
+    <h3 style="margin:0 0 12px;color:#2C2416">🔗 חיבור לשמירה אוטומטית ב-GitHub</h3>
+    <p style="font-size:13px;color:#7A6E60;margin-bottom:16px">
+      כדי שהתשובות יישמרו ישירות ב-GitHub:<br>
+      1. לכי ל: <strong>github.com → Settings → Developer Settings → Personal Access Tokens → Tokens (classic)</strong><br>
+      2. צרי Token חדש עם הרשאת <strong>repo</strong> בלבד<br>
+      3. הדביקי כאן:
+    </p>
+    <input id="gh-token-inp" type="password" placeholder="ghp_xxxxxxxxxxxx"
+           style="width:100%;padding:10px;border:2px solid #DDD5C8;border-radius:8px;margin-bottom:12px;font-size:14px;box-sizing:border-box;direction:ltr">
+    <button onclick="setToken()" style="background:#B87333;color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:700">שמור Token</button>
+    <button onclick="document.getElementById('gh-dialog').style.display='none'" style="background:#F0EDE6;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;margin-right:8px">ביטול</button>
+  </div>
+</div>
+<script>
+function showTokenDialog(){
+  var d=document.getElementById('gh-dialog');
+  d.style.display='flex';
+  var t=localStorage.getItem('gh_token')||'';
+  document.getElementById('gh-token-inp').value=t;
+}
+function setToken(){
+  var t=document.getElementById('gh-token-inp').value.trim();
+  GH_TOKEN=t;
+  try{localStorage.setItem('gh_token',t);}catch(e){}
+  document.getElementById('gh-dialog').style.display='none';
+  showToast('✅ Token נשמר — שמירות יעלו ל-GitHub');
+}
+// Load token on startup
+(function(){
+  try{var t=localStorage.getItem('gh_token');if(t)GH_TOKEN=t;}catch(e){}
 })();
 </script>
 </body>

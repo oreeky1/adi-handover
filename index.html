@@ -550,6 +550,7 @@ function pwcheck(){
     <button class="nav-btn" onclick="goTo('calendar')">📅 לוח שנה</button>
     <button class="nav-btn" onclick="goTo('contacts')">👥 ממשקים</button>
     <button class="nav-btn" onclick="goTo('gray')">🧠 תחום אפור</button>
+    <button class="nav-btn" onclick="goTo('grid')">📊 6 GRID</button>
     <button class="nav-btn" onclick="goTo('checklist')">✅ צ׳קליסט</button>
   </div>
 </nav>
@@ -561,17 +562,17 @@ function pwcheck(){
 ═══════════════════════════════════════════ -->
 <div class="two-col" style="margin-bottom:28px">
   <div class="stat-box">
-    <div class="stat-num">7</div>
-    <div><div class="stat-lbl">תחומי אחריות</div><div style="font-size:12px;color:var(--muted)">רווחה, פיתוח ארגוני, LMS, ספקים ועוד</div></div>
+    <div class="stat-num">9</div>
+    <div><div class="stat-lbl">תחומי אחריות</div><div style="font-size:12px;color:var(--muted)">רווחה, פיתוח ארגוני, LMS, פורומים, 6 GRID ועוד</div></div>
   </div>
   <div class="stat-box">
-    <div class="stat-num" style="color:var(--red)">⚠️</div>
-    <div><div class="stat-lbl">חסר מידע בחלקים</div><div style="font-size:12px;color:var(--muted)">סמל 🔴 = חובה להשלים לפני סיום חפיפה</div></div>
+    <div class="stat-num" style="color:var(--green)">✅</div>
+    <div><div class="stat-lbl">רוב המידע תועד</div><div style="font-size:12px;color:var(--muted)">שדות 🟡 = להשלמה, אין 🔴 קריטיים</div></div>
   </div>
 </div>
-<div class="info-box info-warn" style="margin-bottom:28px">
-  <div class="info-box-icon">💡</div>
-  <div>שדות המסומנים ב-🔴 <strong>חסר מידע</strong> הם תחומים שטרם תועדו ויש להשלים אותם עם עדי. שדות ב-🟡 <strong>חלקי</strong> — יש מידע ראשוני אך נדרש פירוט נוסף.</div>
+<div class="info-box info-tip" style="margin-bottom:28px">
+  <div class="info-box-icon">✅</div>
+  <div>תיק החפיפה מעודכן עם תשובות עדי. שדות 🟡 <strong>חלקי</strong> — נדרש פירוט נוסף (ציין בפנייה לעדי). שאר המידע — מלא ומאומת.</div>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -689,10 +690,29 @@ function pwcheck(){
           </div>
         </div>
         <ul style="font-size:13px;padding-right:16px;color:var(--muted)">
-          <li>לין — רווחה שוטפת</li>
+          <li>רוני — סמנכ"לית מש"א + מנהלת ישירה</li>
+          <li>לין — רווחה שוטפת + BUYME</li>
           <li>שיר אקשטיין — חוזים</li>
-          <li>הלשכה — תיאום פעילויות</li>
-          <li>מנהלים — אישורים ודוחות</li>
+          <li>אור צלשר — לשכה</li>
+          <li>מיכל מנור — תקציב</li>
+          <li>הילה מנבר — IT + בלוסום</li>
+          <li>דניאל חסין — ממלאת מקום קורסים</li>
+        </ul>
+      </div>
+
+      <div class="role-card" style="border-color:var(--green);border-right:4px solid var(--green)">
+        <div class="role-card-top">
+          <div class="role-card-icon">📊</div>
+          <div>
+            <div class="role-card-title">פורומים מקצועיים</div>
+            <div class="role-card-sub">3 פורומים + 6 GRID</div>
+          </div>
+        </div>
+        <ul style="font-size:13px;padding-right:16px;color:var(--muted)">
+          <li>מועדון משפטי (רחל חדד + יוליה)</li>
+          <li>מועדון כלכלי (דור + שני סנדרוסי)</li>
+          <li>מועדון הנדסי ⚠️ (ערן דוד — רגיש)</li>
+          <li>6 GRID — מיפוי כישרונות שנתי</li>
         </ul>
       </div>
 
@@ -869,39 +889,31 @@ function pwcheck(){
     <div class="role-detail">
       <div class="role-detail-header" style="background:var(--s1L);color:var(--s1)">
         🎒 אירוע כיתה א׳
-        <span class="tag-partial">חלקי</span>
+        <span class="tag-complete">מתועד</span>
       </div>
       <table class="dim-table">
         <tr>
           <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
-          <td>אירוע לילדי עובדים הנכנסים לכיתה א׳. כולל: הזמנת כיבוד, הזמנת תיקים (ספק קרביץ/קל גב), ספק תוכן (לרוב ד"ר מולקולה), הרצאה פנימית — מה עושים בעבודה של אמא ואבא.</td>
+          <td>אירוע לילדי עובדים הנכנסים לכיתה א׳. כולל: הזמנת כיבוד, הזמנת תיקים (ספק קרביץ/קל גב — "המארז המושלם"), ספק תוכן (לרוב ד"ר מולקולה), הרצאה פנימית — מה עושים בעבודה של אמא ואבא.<br>סביב <strong>30 ילדים</strong> בממוצע (תלוי בשנה). רשימה מדוחות <strong>BI</strong>.</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
-          <td>
-            <strong>ספקים מעורבים:</strong> ללא חברת הפקה (עצמאית). קרביץ/קל גב לתיקים.<br>
-            <strong>תכנית:</strong> כיבוד + תיקים + ספק תוכן + הרצאה פנימית.<br>
-            <span class="tag-missing">חסר</span> צ׳קליסט מפורט שלב-אחר-שלב
-          </td>
+          <td>1.	הפקת רשימת העובדים שילדיהם עולים לכיתה א'<br>2.	פנייה לספק התיקים לטובת קבלת הצעת מחיר לתיקים- עובדים עם קל גב ומזמינים את "המארז המושלם"<br>3.	תיאום תאריך מול הלשכה לגבי מועד האירוע<br>4.	קביעת לוחות הזמנים מול הספק- גזירה אחורה של שבוע וחצי לפני האירוע אספקת התיקים<br>5.	הכנת תקשורים ודפוס: תקשור לעובדים לבחירת התיקים והוראות כיצד לבצע, הזמנה לאירוע, ברכה שתצורף לתיק, מדבקות עם שמות הילדים <br>6.	הפצת קטלוג התיקים והתקשור לעובדים לטובת בחירת התיקים<br>7.	החזרת הרשימות עם הדגמים שנבחרו לספק<br>8.	תוכן האירוע: בחירה של עובד/ת מתוך רשימת העובדים שיעביר פעילות קצרה בנושא "מה עושים בעבודה של אמא ואבא"- סיוע לו בבניית הפעילות במידת הצורך ומעקב שאכן ערוך ומוכן ליום האירוע עם הפעילות. דברי פתיחה- סמנכ"לית מש"א, הופעה של ד"ר מולקולה (ניתן לשנות אם יש רעיון טוב יותר :) )<br>9.	כיבוד: ארוחת בוקר לילדים (מעדנים, קורנפלקס, לחמים, ממרחים וכד') למבוגרים מגשי אירוח. חשוב מאוד להקפיד על בדיקת רגישויות ואלרגיות בקרב הילדים שצפויים להשתתף באירוע<br>10.	ליום האירוע יש להזמין בלונים לקישוט<br>11.	שריון אודיטוריום, ליווי טכני, סידור המטבח ופריסת הכיבוד, בידורית לטובת מוסיקה</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
-          <td><strong>לין</strong> מרכזת את הפעילות — יש להיות במעקב בעיקר סביב בלתמים והזמנת התיקים. עדי אחראית על הבטחת ביצוע.</td>
+          <td><strong>לין</strong> מרכזת את הפעילות — עדי מלווה בלבד. מעקב צמוד על תיקים ובלתמים.</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
-          <td><span class="tag-missing">חסר</span> חודש האירוע + חודש תחילת ההכנות</td>
-        </tr>
-        <tr>
-          <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
-          <td><span class="tag-missing">חסר</span> מיקום האירוע + מערכת לניהול</td>
+          <td>היערכות: <strong>מרץ/אפריל</strong> — האירוע בפועל: <strong>יולי</strong></td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
           <td>
             <div class="info-box info-warn" style="margin:0">
               <div class="info-box-icon">⚠️</div>
-              <div>נקודת כשל ידועה: <strong>בלתמים והזמנת התיקים</strong> — יש לתת מעקב מיוחד. הוזמנו מאוחר מדי בעבר.</div>
+              <div>בעבר הבלת"ם העיקרי היה נושא התיקים. על אף הניסיון לגזור לוחות זמנים אחורה עדיין התיקים היו מגיעים לא בזמן/ברגע האחרון. השנה אנו מנסים לשתף פעולה עם ספק חלופי- קרביץ בתקווה לייעל את לוחות הזמנים<br>חשוב מאוד לשים לב לנושא- לעבור היטב על בחירות העובדים- לדייק מול הספק את לוחות הזמנים ולהיות במעקב צמוד. <br>עובד אשר בחר תיק שלא במלאי יכול או לבחור תיק אחר או להמתין שהתיק יגיע- הכל כמובן בתיאום מול הספק ושקיפות מול העובדים</div>
             </div>
           </td>
         </tr>
@@ -914,7 +926,7 @@ function pwcheck(){
     <div class="role-detail">
       <div class="role-detail-header" style="background:var(--s1L);color:var(--s1)">
         🏖️ נופש חברה שנתי
-        <span class="tag-partial">חלקי</span>
+        <span class="tag-complete">מתועד</span>
       </div>
       <table class="dim-table">
         <tr>
@@ -924,11 +936,13 @@ function pwcheck(){
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
           <td>
-            <strong>שלב 1:</strong> מכרז שנתי לבחירת ספק הפקה ומלון<br>
-            <strong>שלב 2:</strong> בחירת קונספט + תיאום עם ספק<br>
-            <strong>שלב 3:</strong> ניהול לוגיסטיקה מלאה — רישום עובדים, הסעות, אילוצים<br>
-            <strong>שלב 4:</strong> ביצוע האירוע + תשלום לספק<br>
-            <span class="tag-missing">חסר</span> תהליך מפורט + לוח זמנים מכרז
+            <strong>לוח זמנים:</strong> מכרז מתחיל <strong>אוקטובר</strong> (לוקח ~3 חודשים), יציאה לנופש <strong>מאי</strong><br>
+            <strong>שלב 1:</strong> שיח עם אגף תקציבים לגיבוש תקציב → פתיחת מכרז ספק הפקה ומלון<br>
+            <strong>שלב 2:</strong> בחירת קונספט + מלון (דגש: <strong>רמת מלון, אוכל ואלכוהול</strong> — לא פעילויות גיבוש)<br>
+            <strong>שלב 3:</strong> רישום עובדים ע"י חברת ההפקה (אנחנו מתווים את שאלות הרישום)<br>
+            <strong>שלב 4:</strong> בדיקת אילוצים וחריגים | לינה בזוגות, חריגים באישור סמנכ"לית<br>
+            <strong>שלב 5:</strong> ניהול לוגיסטיקה: הסעות, מתנות, אמנים, תשלום<br>
+            <strong>נופש נוכחי:</strong> 12-14/5 כפר גלעדי (ממתינים לתפתחויות המצב הביטחוני)
           </td>
         </tr>
         <tr>
@@ -937,7 +951,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
-          <td><span class="tag-missing">חסר</span> חודשי ביצוע ולוח זמנים מכרז שנתי</td>
+          <td>מכרז: <strong>אוקטובר–ינואר</strong> | נופש: <strong>מאי</strong> | פתיחת מכרז חדש: <strong>ספטמבר</strong></td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
@@ -945,7 +959,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
-          <td><span class="tag-missing">חסר</span> קריטריוני בחירת מלון/ספק · ניהול אילוצים ובקשות מיוחדות</td>
+          <td>הדגש העיקרי בנופש הוא על רמת המלון, האוכל ואלכוהול<br>הנופשים בנתיבי איילון הם חופשות לכל דבר ועניין בנויות בעיקר מבילויים ללא פעילויות גיבוש/טיולים/פעילויות חובה.<br>העובדים רגילים לרמת אוכל, שתייה ומלון גבוהות ולכן אנו מקפידים על זה בנופשים <br>כמו כן, הנופשים הינם אירועים מוקפדים עד לפרטים הקטנים משתדלות לדייק עד כמה שאפשר<br><br><strong>ניהול אילוצים:</strong> את הרישום לנופש בשנתיים האחרונות ביצעו חברות ההפקה <br>אנחנו מתווים את הקו ואת השאלות בטופס הרישום ולאחר מכן עוברים על האילוצים והחריגים בבקשות העובדים<br>הלינה בנופש הינה בזוגות למעט חריגים באישור סמנכ"לית משאבי אנוש בלבד</td>
         </tr>
       </table>
     </div>
@@ -970,7 +984,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
-          <td><span class="tag-missing">חסר</span> תהליך הקמה/גריעה שלב-אחר-שלב</td>
+          <td>1. צירוף של עובד במעמד קליטתו בהתאם לטופס פרטים אישיים שנשלח אלינו ע"י אלה. בהתאם לפרטים מקימים אותו במערכת ידנית. אחת לשנה עושים טעינה של כלל העובדים<br>חשוב לשים לב- מס' עובד נשלח במייל נפרד ע"י כספים (שני סנדרוסי) ככל וקיבלנו מייל עם מספר עובד יש להקפיד לעדכן אותו בטעינה ידנית כדי להקל על מחלקת שכר בהמשך בתהליכים של זקיפת שווי. <br>בטעינה אוטומטית- יש להקפיד שיהיה בטבלה גם מס' עובד וגם ת.ז<br>2. כשעובד מסיים יש לגרוע אותו מהמערכות סמוך למועד העזיבה. עד סיום העסקה כל עובד זכאי לתנאים מלאים ולכן אם נשלחות מתנות הוא זכאי לקבל אותן.</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
@@ -982,11 +996,11 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
-          <td>מערכת BUYME — <span class="tag-missing">חסר</span> לינק גישה + פרטי משתמש</td>
+          <td>מערכת BUYME — <span class="tag-partial">לינק + פרטי כניסה: לקבל מלין</span></td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
-          <td><span class="tag-missing">חסר</span> מדיניות מתנות: אילו אירועים? מה הסכומים לפי וותק?</td>
+          <td>מתנות ביימי מקבלים על האירועים הבאים:<br>יום הולדת- שליחה אוטומטית מהמערכת <br>לידה- מארז פיזי+גיפט כארד- שולחים בהתאם ללידות <br>גיוס- אחת לשנה ביולי לכל המתגייסים<br>בר/בת מצווה- אחת לרבעון בצורה מרוכזת לכלל העובדים להם ילדים בגיל בת/בר מצווה<br>חתונה- שליחה נקודתית<br>חבר מביא חבר- באחריות אביב אברהם, שולחים בהתאם להנחייה שלה לעובדים שזכאים<br>תמריצים- משמש לפרסים, תמריץ ספציפי נקודתי לעובד במידת הצורך- סכום נקבע עפ"י הייעוד</td>
         </tr>
       </table>
     </div>
@@ -1012,7 +1026,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
-          <td><span class="tag-missing">חסר</span> לוח זמנים מדויק + תהליך מפורט</td>
+          <td>זכאות מתנות פסח וראש השנה היא לפי וותק- כתוב בצורה מסודרת בנוהל רווחה</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
@@ -1031,11 +1045,11 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
-          <td>ספק קורקט — <span class="tag-missing">חסר</span> איש קשר + מייל + טלפון</td>
+          <td>מנהל תיק לקוח צור מייל: tzurh@correct-gifts.com טלפון: 052-8841421</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
-          <td><span class="tag-missing">חסר</span> זכאויות לפי וותק (טבלה)</td>
+          <td>זכאויות לפי וותק — <strong>מפורט בנוהל רווחה</strong>. <span class="tag-partial">כדאי לצרף קישור/עותק לנוהל</span></td>
         </tr>
       </table>
     </div>
@@ -1079,7 +1093,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
-          <td><span class="tag-missing">חסר</span> פעולות יומיומיות + מדריך למשתמש</td>
+          <td>1. הפצת לומדות <br>2. פתיחת קורסים/ סביבות למידה במערכת- כלל הקורסים הפנימיים מתבצעים ומנוהלים בתוך מערכת בלוסום <br>3. אישור בקשות פרטניות לכנסים/קורסים/השתלמויות- טופס ייעודי<br>4. אישור בקשות ללימודים אקדמאיים- טופס ייעודי<br>5. בקשה לנסיעה לחו"ל- טרם הוטמע במערכת אך בשלבי עבודה יחד עם מערכות מידע <br>6. רישום לכנס המהנדסים- מרוכז בתוך המערכת <br>7. הכשרה בכניסה לתפקיד- בשלבי בנייה אמור להיכנס בשלמותו למערכת</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
@@ -1091,11 +1105,11 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
-          <td><span class="tag-missing">חסר</span> שם המערכת + URL + פרטי כניסה</td>
+          <td><strong>מערכת בלוסום</strong> — מערכת בלוסום. הוטמעה בארגון לפני שנה ועכשיו נמצאים בשלב של עיבוי ההטמעה והתכנים בתוך המערכת</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
-          <td><span class="tag-missing">חסר</span> מדריכים כתובים ומיקומם</td>
+          <td>אין מדריכים כתובים. יש במערכת הלמידה פורטל תמיכה בו ניתן למצוא מדריכים ולשאול שאלות. בנוסף, ליווי של בלוסום בקריאות שירות ואת הילה מנבר ממערכות מידע שמנהלת את הפרויקט</td>
         </tr>
       </table>
     </div>
@@ -1121,15 +1135,15 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
-          <td><span class="tag-missing">חסר</span> תהליך מפורט · ניהול קבוצת ווטסאפ</td>
+          <td><span class="tag-partial">חלקי</span> — ניהול קבוצת ווטסאפ</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
-          <td>עדי + מנחה (בשיתוף). <span class="tag-missing">חסר</span> שם המנחה הנוכחית</td>
+          <td>קורס ראשי אגפים: <strong>שירי (ניו ארא)</strong> | קורס מנהלי תחומים: <strong>כרמית הדס (בי אפקטיב)</strong> | עדי מרכזת</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
-          <td><span class="tag-missing">חסר</span> לוח זמנים קורס נוכחי + מה מתואם ל-2026</td>
+          <td>קורס מנהלי תחומים התחיל בפברואר 2026 וימשיך אחרי פסח בהתאם למצב הביטחוני, צפוי להסתיים ב 8/7. קורס ראשי אגפים יתחיל אחרי פסח ויסתיים ב 17/6</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
@@ -1137,7 +1151,10 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
-          <td><span class="tag-missing">חסר</span> ניהול קבוצת ווטסאפ — מה מפרסמים? מתי?</td>
+          <td>
+            ניהול קבוצת ווטסאפ לכל קורס — תיאומים, עדכונים, תזכורות למפגשים.<br>
+            <strong>מבנה קורס ראשי אגפים:</strong> 7 מפגשים — 3 ימים מלאים + 4 חצאי ימים. <span class="tag-partial">פירוט מלא של הנושאים: לצרף תוכנית קורס</span>
+          </td>
         </tr>
       </table>
     </div>
@@ -1171,7 +1188,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
-          <td><span class="tag-missing">חסר</span> גאנט לומדות — אילו לומדות פעילות ומתי מופצות</td>
+          <td>לומדות פעילות:<br>קוד אתי<br>הטרדה מינית<br>בטיחות כללית<br>נהיגה נכונה- חורף וקיץ<br>סייבר</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
@@ -1202,10 +1219,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
-          <td>
-            מחזור אחת לשבועיים: הפקת דוח מהמערכת → שליחה למנהלים לאישור → מעקב.<br>
-            <span class="tag-missing">חסר</span> קריטריוני האישור: מה כן? מה לא? סכום מקסימלי? מי חותם?
-          </td>
+          <td>בקשות פרטניות עוברות סבב אישורים במערכת הלמידה<br>בקשות מגיש כל עובד לעצמו- לא ניתן להגיש בקשה בעבור עובד<br>הבקשות עוברות סבב אישורים הכולל את המנהלים של העובד, משאבי אנוש- HRBP, מנהלת למידה ורווחה, סמנכ"לית מש"א מאשרת אחרונה<br>ככלל מימון לימודים/קורסים/כנסים וכד' הוא 5000 ש"ח מעל זה נדרש אישור חריג<br><br>לימודים אקדמאיים: תואר שני בלבד עד 5000 ש"ח לשנה<br>היעדרויות לטובת לימודים- עד חצי יום שבועי ללא אפשרות לפיצול יום לימודים מרוכז<br><br>הגורמים המאשרים מקבלים התראה במייל+ קישור לבקשה הרלוונטית כשיש בקשה שממתינה לאישורם <br>אני כמנהלת מערכת מקבלת מייל אחת לשבוע עם הבקשות הפתוחות והיכן הן "תקועות". אני מפיצה לגורמים המאשרים מייל כדי להזכיר להם להיכנס ולאשר את הבקשות של העובדים שלהם במערכת.<br><br>כמו כן- כל עובד יכול להיכנס למערכת הלמידה ולראות היכן הבקשה שלו נמצאת בלחיצה על השם שלו וכניסה לפרופיל תחת "סטטוס בקשות". חשוב להנחות את העובדים לכמה שיותר עצמאות בתוך המערכת כדי שילמדו לעבוד איתה וההטמעה תושלם.<br><br><strong>ניהול בקשות:</strong> הכל בתוך מערכת הלמידה. המנהלי מקבלים חיווי במייל על בקשות ממתינות. מנהלת מערכת מקבלת אחת לשבוע מייל מרוכז עם הבקשות הפתוחות</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
@@ -1217,11 +1231,11 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
-          <td><span class="tag-missing">חסר</span> מאיפה מפיקים את הדוח לאישור מנהלים</td>
+          <td>מערכת הלמידה <strong>בלוסום</strong> — הכל מנוהל שם, כולל הדוחות.</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
-          <td><span class="tag-missing">חסר</span> קריטריוני האישור — זה ידע קריטי שלא כתוב בשום נוהל</td>
+          <td><span class="tag-partial">כדאי לצרף: נוהל/מסמך עם קריטריוני אישור — סכומים, סוגי קורסים מאושרים, מה לא מאשרים</span></td>
         </tr>
       </table>
     </div>
@@ -1232,7 +1246,7 @@ function pwcheck(){
     <div class="role-detail">
       <div class="role-detail-header" style="background:var(--s2L);color:var(--s2)">
         📊 תוכנית למידה שנתית
-        <span class="tag-missing">חסר</span>
+        <span class="tag-partial">חלקי</span>
       </div>
       <table class="dim-table">
         <tr>
@@ -1247,7 +1261,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
-          <td><span class="tag-missing">חסר</span> תהליך מפורט + כלים</td>
+          <td>איתור צרכים (מאי) → סקר עובדים → ביסוס תפיסה → בניית תוכנית → אישור → ביצוע. <span class="tag-partial">פירוט מלא: לצרף מסמך תוכנית</span></td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
@@ -1255,7 +1269,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
-          <td><span class="tag-missing">חסר</span> מתי בשנה בונים את התוכנית השנתית?</td>
+          <td>בניית תוכנית הלמידה מתבצעת לפי השלבים הבאים:<br>1. סביב חודש מאי מתאמים פגישות איתור צרכים עם כלל המנהלים בחברה מדרג רא"ג ומעלה <br>2. בפגישות מדייקים את היעדים לשנת העבודה הבאה ומהם גוזרים את הצרכים.<br>חשוב לציין- החטיבות והאגפים בנתיבי איילון לא גדולים ולכן לפעמים הצרכים הם ברמה הפרטנית של העובדים ולכן חשוב לקחת את הצרכים ולאבחן מגמות ארגוניות כלליות בהלימה לצרכים ויעדי החברה.<br>בקשות פרטניות מקבלות מענה במהלך השנה ומגישים עבורן בקשות במערכת הלמידה. <br>3. לאחר סבב הפגישות גוזרים תובנות ומגמות. לרוב אני יושבת עם כרמית מבי אפקטיב לפגישה של חשיבה משותפת, בחינה של מגמות בעולם הלמידה באופן כללי. מתוך התובנות והחשיבה אני בונה את תוכנית הלמידה<br>4. אישור מול סמנכ"לית מש"א<br>5. אישור מול מנכ"לית החברה- פגישה ייעודית בה מציגים את התוכנית ומאשרים מולה<br>6. גיבוי תקציבי לתוכנית שאושרה.</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
@@ -1283,7 +1297,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
-          <td><span class="tag-missing">חסר</span> תהליך מפורט לבניית תוצרי הלמידה</td>
+          <td>לרוב אנחנו נותנות לסטודיו מסגרת זמן של כשבוע לעבוד על הבקשה.<br>הכל כמובן תלוי בסוג הבקשה ובלוחות הזמנים של הפרויקט. לפעמים יש בקשות מהיום להיום אבל שוב הכל בתיאום עם הדוברות לגבי חלוקת העומסים של הסטודיו.<br><br>חשוב לציין- הסטודיו מעצב גרפית הוא אינו אחראי על ניסוח התקשור, פיתוח של קונספט וכד' אלא רק עיצוב ולכן ברמת התוכן והקופי חשוב לשלוח משהו מעובד כבר.</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
@@ -1295,7 +1309,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📍</span>איפה</td>
-          <td>מערכת LMS — <span class="tag-missing">חסר</span> שם המערכת + נתיב</td>
+          <td>מערכת LMS — <strong>בלוסום</strong> | <span class="tag-partial">URL + פרטי כניסה: לקבל מאפרת/הילה מנבר</span></td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
@@ -1330,7 +1344,7 @@ function pwcheck(){
     <div class="role-detail">
       <div class="role-detail-header" style="background:var(--s3L);color:var(--s3)">
         🏛️ תיאום תאריכים מול הלשכה
-        <span class="tag-missing">חסר</span>
+        <span class="tag-complete">מתועד</span>
       </div>
       <table class="dim-table">
         <tr>
@@ -1341,19 +1355,19 @@ function pwcheck(){
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
           <td>
             כל פעילות הכוללת את כלל העובדים <strong>חייבת לעבור אישור הלשכה</strong> כדי לוודא נחיצות, עומסים, אוכלוסיות רלוונטיות.<br>
-            <span class="tag-missing">חסר</span> פרוטוקול מדויק + כללים לא-כתובים
+            אור צלשר — מנהלת הלשכה. פרוטוקול: כל פעילות כלל-ארגונית/למידה — אישור עקרוני עדי קודם.
           </td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
-          <td><span class="tag-missing">חסר</span> שמות אנשי הלשכה + עם מי מתאמים</td>
+          <td><strong>אור צלשר</strong> — מנהלת הלשכה</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
           <td>
             <div class="info-box info-warn" style="margin:0">
               <div class="info-box-icon">🔴</div>
-              <div>זהו ידע <strong>קריטי שבעל פה</strong> — הכללים הלא-כתובים בתיאום עם הלשכה הם מהחשובים ביותר להעביר. מה לא לעשות? מה הרגישויות?</div>
+              <div>תהליך תיאום ודגשים חשובים:<br>כל פעילות שהיא לכלל עובדי החברה או נכללת תחת ההגדרה של למידה: כנס, הרצאה, קורס, פעילות חוצת חברה צריכה לעבור אישור עקרוני שלי.<br>הרציונל הוא וויסות עומסים, בחינת צרכים והתאמת הפתרון והאוכלוסייה הנדרשת והסתכלות רוחבית על המופעים הארגוניים.<br>בעבר כל גוף היה מתאם ישירות מול הלשכה התוצאה הייתה: ריבוי מופעים לעובדים ללא וויסות והתסכלות רוחבית, הרבה פעמים רצו לקבוע הרצאה/קורס וכד'  לא תמיד זה היה הפתרון הנכון או לחילופין זומנה חטיבה אחת כאשר התוכן נגע לאוכלוסייה רחבה יותר בארגון. לכן אנו מרכזות את הבקשות כדי להבטיח יעילות ארגונית, הסתכלות מקצועית וויסות עומסים.<br><br>תיאומים מול הלשכה עושים בשביל לשריין אחד או יותר מהבאים: חדר ישיבות, זמן מנכ"לית, אירוע רווחה שיש להפיץ לעובדים וכנס חברה. <br><br>אם מדובר בכנס חברה/אירוע רווחה זימון STD ייצא מהלשכה לכלל העובדים<br>מופעי למידה זימון לעובדים ייצא ממערכת הלמידה והזימון מהלשכה ייצא אלינו לטובת שיריון חדר ישיבות/זמן מנכ"לית וכד' <br><br>את התיאום אני עושה ברגע שמאושרת תוכנית הלמידה והרווחה לכל השנה וכמובן מעדכנת/מוסיפה תאריכים במידת הצורך.</div>
             </div>
           </td>
         </tr>
@@ -1375,13 +1389,12 @@ function pwcheck(){
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
           <td>
-            <strong>כל</strong> תהליך חוזים והתקשרויות — בצמוד עם <strong>שיר אקשטיין</strong>, מחלקת חוזים והתקשרויות, בליווי מלא.<br>
-            <span class="tag-missing">חסר</span> מה מכינים לפני פנייה לשיר? מה הסדר הנכון?
+            <strong>כל</strong> תהליך חוזים והתקשרויות — בצמוד עם <strong>שיר אקשטיין</strong>, בליווי מלא.<br><br>שיר היא ממונת החוזים אשר מלווה אותם בהליכי ההתקשרויות השונים.<br><br>ישנם כמה סוגים של התקשרות:<br>עד 10,000 ניתן להתקשר עם כל ספק<br>עד 50,000- 3 הצעת מחיר בכתב אישור ע"י סמנכ"לית מש"א<br>עד 600,000- פנייה תחרותית ל-3 ספקים לפחות הזכייה מורכבת ממרכיבי איכות וכמות בהתאם לפנייה ולצורך. מאוד דומה למכרז פומבי רק הליך קצר וממוקד יותר. לרוב משתמשים במערכות מידע, יועצים, שירותים שהם לטווח ארוך כי משך ההתקשרות הוא עד שמגיעים לתקרה הסכומית 600,000 ש"ח <br>מכרז פומבי- פנייה רחבה לכלל הספקים בשוק המפורסמת באתר החברה, בעיתונות ומיועדת לפעילויות רחבות אשר הן לכמה שנים בסכומים גדולים: מתנות, רווחה, נופש חברה <br><br>לשיר פונים עם הצורך ובעזרתה מאפיינים באיזו פנייה להשתמש. היא נכנסת לתמונה כגוף מלווה משפטית בפניות עד 600 ומכרזים. שאר ההתקשרויות הן ברמה מש"א בלבד. בסיוע של בלה חג'ג' שהיא אחראית החשבוניות שלנו ולמעשה אחראית על התשלומים בפועל לספקים.<br>בפניות הרלוונטיות היא אחראית על הצד המשפטי מול המציעים וגם ניסוח הפניות בהתאם לאפיון הצרכים.<br>כמו כן, היא מלווה את אותנו בוועדות המכרזים ובכלל לאורך כל ההתקשרות עד לזוכים.<br><br>לאחר שנבחרו זוכים בהתנהלות השוטפת הכוללת- הארכת התקשרות, הגדלת מסגרת, תשלום לספקים, הקמה של דרישות רכש במערכת הפריוריטי ובכלל כל ההתעסקות בתשלומים היא תחת בלה.
           </td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
-          <td><strong>שיר אקשטיין</strong> — מחלקת חוזים. <span class="tag-missing">חסר</span> מייל + טלפון</td>
+          <td><strong>שיר אקשטיין</strong> — מחלקת חוזים. <span class="tag-partial">לבקש מייל וטלפון מעדי</span></td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
@@ -1431,7 +1444,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
-          <td><span class="tag-missing">חסר</span> תדירות ישיבות + אופן המעקב לכל ספק</td>
+          <td>ניהול צמוד לפי צורך. <span class="tag-partial">להוסיף: תדירות ישיבות מסודרת לכל ספק</span></td>
         </tr>
       </table>
     </div>
@@ -1441,7 +1454,7 @@ function pwcheck(){
     <div class="role-detail">
       <div class="role-detail-header" style="background:var(--s3L);color:var(--s3)">
         💰 תקציב וסמכויות
-        <span class="tag-missing">חסר</span>
+        <span class="tag-complete">מתועד</span>
       </div>
       <table class="dim-table">
         <tr>
@@ -1450,15 +1463,15 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
-          <td><span class="tag-missing">חסר</span> כלי המעקב + מיקום הקובץ + מנגנון אישורי חריגות</td>
+          <td>את התקציב מנהלת מיכל מנור. <br>לאחר בניית תוכנית העבודה עוברים לאישור תקציבי בהתאם לתוכנית שאושרה. <br>לרוב מיכל ואני יושבות אל מול הצרכים ומגדירות יחד תקציב מבוקש <br>את התקציב מביאים לאישור אל מול אגף תקציבים ולפי התקציב הסופי המאושר מקבעים את תוכנית העבודה הלכה למעשה.<br><br>דגש חשוב- תקציב הנופש מאושר טרם התקציב הכללי זאת עקב לוחות הזמנים ביציאה למכרז. על מכרז נופש מתחילים לעבוד כבר באוגוסט לכל היאוחר ספטמבר.</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
-          <td><span class="tag-missing">חסר</span> מי מאשר חריגות? מי רואה את התקציב?</td>
+          <td><strong>מיכל מנור</strong> — מנהלת התקציב. התקציב מנוהל ע"י מיכל מנור באקסל שנשמר בתקייה המשותפת של מש"א</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
-          <td><span class="tag-missing">חסר</span> סמכות הוצאה עצמאית (עד כמה?) + מתי צריך אישור</td>
+          <td>כל סכום הוא בתיאום ואישור של סמנכ"לית מש"א<br>היא גם מאשרת כל חשבונית בפריוריטי</td>
         </tr>
       </table>
     </div>
@@ -1495,7 +1508,7 @@ function pwcheck(){
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
-          <td>עדי מכינה את התוכן. שולמית (שילובים) מעצבת. דוברות — לבקשות מיוחדות.</td>
+          <td>עדי מכינה את התוכן (ניסוח בלבד — הסטודיו אינו אחראי על ניסוח). שולמית מעצבת. את התפוצה מנהלים מערכות מידע מנהל את התפוצה. לרוב אנחנו נותנות לסטודיו מסגרת זמן של כשבוע לעבוד על הבקשה.<br>הכל כמובן תלוי בסוג הבקשה ובלוחות הזמנים של הפרויקט. לפעמים יש בקשות מהיום להיום אבל שוב הכל בתיאום עם הדוברות לגבי חלוקת העומסים של הסטודיו.<br><br>חשוב לציין- הסטודיו מעצב גרפית הוא אינו אחראי על ניסוח התקשור, פיתוח של קונספט וכד' אלא רק עיצוב ולכן ברמת התוכן והקופי חשוב לשלוח משהו מעובד כבר.</td>
         </tr>
         <tr>
           <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
@@ -1558,121 +1571,104 @@ function pwcheck(){
     <div class="sup-grid">
 
       <div class="sup-card" style="border-top:4px solid var(--s3)">
-        <div class="sup-card-head" style="background:var(--s3L);color:var(--s3)">
-          🏢 ניו ארא
-        </div>
+        <div class="sup-card-head" style="background:var(--s3L);color:var(--s3)">🏢 ניו ארא — יועצים ארגוניים</div>
         <div class="sup-card-body">
-          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">יועצים ארגוניים</span></div>
-          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">הערות</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">מרכז את הפעילות מול החברה, מייעד לכל פעילות את היועץ הרלוונטי</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="sup-val">קובי טלפון: 052-5333941 מייל: cobypr@n-era.co.il</span></div>
+          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="sup-val">מאז 01/26</span></div>
+          <div class="sup-row"><span class="sup-key">תקרת תשלום</span><span class="sup-val">עד שמגיעים לתקרת תשלום של 600,000</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-high">גבוהה</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">ניו ארא הם ספק חדש בתחום הייעוץ הארגוני- השירותים שהם יכולים לתת הם רק בתחום פיתוח מנהלים: ליווי מנהלים, קורסי פיתוח מנהלים, סדנאות למנהלים. <br><br>כיוון שיש מכרז ייעוץ ארגוני אשר מיכל מנור מנהלת חשוב להקפיד על שמירת התכולות בהתאם להתקשרות כי אחרת זה הפרה חוזית אל מול המכרז הקיים. יצאנו להתקשרות כדי לקבל מענה אך ורק על התחום הניהולי ששם נתקלנו בפער. אז ההתקשרות הזאת אני מנהלת ואני בקשר אל מול הספק ברמת המשימות, תשלום, מעקב חשבוניות, איכות התוצרים וכו'.<br><br>דגש חשוב- יש להסדיר איתם את נושא ושיטת החיובים. רוני מעודכנת וצריכה לסייע בפתרון מולם. <br><br>ממליצה להעביר את הניהול של ההתקשרות הספציפית לדניאל חסין כי היא מלווה את קורס הראגים.</span></div>
         </div>
       </div>
 
       <div class="sup-card" style="border-top:4px solid var(--s3)">
-        <div class="sup-card-head" style="background:var(--s3L);color:var(--s3)">
-          👩‍💼 כרמית הדס
-        </div>
+        <div class="sup-card-head" style="background:var(--s3L);color:var(--s3)">👩‍💼 כרמית הדס — יועצת ארגונית</div>
         <div class="sup-card-body">
-          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">יועצת ארגונית</span></div>
-          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">הערות</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">יועצת ארגונית מבי אפקטיב</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="sup-val">כרמית הדס טלפון: 054-3332053 מייל: carmit@beffective.co.il</span></div>
+          <div class="sup-row"><span class="sup-key">מרכזת מטעמנו</span><span class="sup-val">אביב אברהם (בהיעדר עדי)</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-high">גבוהה</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">כרמית שייכת לבי אפקטיב שזכו במכרז הכללי של הייעוץ הארגוני.<br><br>היא עובדת בכמה חטיבות בנתיבי איילון בכל מיני תחומים<br><br>הקשר שלנו מולה הוא בהקשר לפיתוח מנהלים- היא אחראית על קורס מנהלי תחומים וגם על תוכנית ההמשך של מנהלי התחומים. את הפעילות מולה מרכזת אביב אבהרם בהיעדרי</span></div>
         </div>
       </div>
 
       <div class="sup-card" style="border-top:4px solid var(--s1)">
-        <div class="sup-card-head" style="background:var(--s1L);color:var(--s1)">
-          🎭 שטרר הפקות
-        </div>
+        <div class="sup-card-head" style="background:var(--s1L);color:var(--s1)">🎭 שטרר הפקות — ספק רווחה</div>
         <div class="sup-card-body">
-          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">ספק רווחה — הפקות ואירועים</span></div>
-          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">הערות</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">כלל אירועי הרווחה</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="sup-val">יוסי שרבט טלפון: 054-8022730 מייל: yossi.sharbat8@gmail.com</span></div>
+          <div class="sup-row"><span class="sup-key">חוזה מ</span><span class="sup-val">01/24</span></div>
+          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="sup-val">01/29</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-high">גבוהה</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">שטרר הפקות הם ספק רווחה שעובד איתנו ב-7 השנים האחרונות<br>הם עובדים רוחבית עם כל מיני גורמים ארגוניים.<br>הם אחראיים על מגוון פעילויות ביניהן: אירועי רווחה של מש"א, כנסי חברה, טקסים רשמיים של הדוברות, כנס AI ON TRACK אירוע שנתי של טכנולוגיות ושירותים נוספים.<br><br>העבודה השוטפת היא מול יוסי הוא נותן את השירותים קצה לקצה. יודע ומכיר את העבודה ואותנו ונותן שירות מעולה.<br>נכון לעכשיו עד שנסגור את הספק רווחה הנוסף הוא הספק היחיד ורק אליו ניתן לפנות.<br><br>הפנייה אליו היא ישירות עם משימה מוגדרת שתקציבה לא עולה על 500,000 ש"ח .<br><br> באופן כללי</span></div>
         </div>
       </div>
 
       <div class="sup-card" style="border-top:4px solid var(--s2)">
-        <div class="sup-card-head" style="background:var(--s2L);color:var(--s2)">
-          💻 אימפרוב איט
-        </div>
+        <div class="sup-card-head" style="background:var(--s2L);color:var(--s2)">💻 אימפרוב איט — ספק למידה (בלוסום)</div>
         <div class="sup-card-body">
-          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">ספק למידה — LMS</span></div>
-          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">הערות</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">הדרכות, תוצרי למידה, אסטרטגיית למידה, מערכת בלוסום</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="sup-val">אפרת גביש טלפון: 052-2678727 מייל: efrat@improve-it.co.il</span></div>
+          <div class="sup-row"><span class="sup-key">חוזה</span><span class="sup-val">2026</span></div>
+          <div class="sup-row"><span class="sup-key">תקרה</span><span class="sup-val">עד מימוש תקרה של 600,000 ש"ח</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-high">גבוהה</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">הערות כלליות:<br>ספק חדש מי שמרכזת מולינו פעילות היא אפרת גביש <br>המומחה תוכן של הבלוסום הוא אימרי והפעילות מולו היא דרך אפרת היא מנתבת את הפעילות <br>אימרי מכיר את המערכת מצוין וניתן להשתמש בו כדי לקדם דברים בתוך המערכת במידת הצורך<br><br>ספק חדש אשר נותן מענה בעולמות הלמידה באופן רוחבי:<br>תוצרי למידה: לומדות, סרטונים, קרא וחתום וכד'<br>תהליכי הכשרה ואונבורדינג: ביסוס אסטרטגיה, בניית המסלול כולל תוצרים והטמעה במערכת למידה. <br>תמיכה במערכת הלמידה הארגונית</span></div>
         </div>
       </div>
 
       <div class="sup-card" style="border-top:4px solid var(--yellow)">
-        <div class="sup-card-head" style="background:var(--yellowL);color:var(--yellow)">
-          🧧 קורקט — מתנות
-        </div>
+        <div class="sup-card-head" style="background:var(--yellowL);color:var(--yellow)">🏨 ארבל הפקות — ספק נופש</div>
         <div class="sup-card-body">
-          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">מתנות פסח / ראש השנה</span></div>
-          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="sup-val">⚠️ פוקע <strong>פברואר 2027</strong></span></div>
-          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="sup-val" style="color:var(--red);font-weight:700">פברואר 2027</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="sup-val">ארבל הפקות איש קשר ארז טלפון: 055-8832225 מייל: office3@arbelpro.co.il</span></div>
+          <div class="sup-row"><span class="sup-key">סטטוס</span><span class="sup-val">כרגע מלון ותאריכים</span></div>
           <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-high">גבוהה</span></div>
-          <div class="sup-row"><span class="sup-key">הערות</span><span class="missing-val">🔴 חסר</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">הנופש הנוכחי צפוי להתרחב השנה במאי 12-14/5 בכפר גלעדי<br>נכון לכרגע עבודה במתכונת מסוימת ממתינים לראות את התפתחויות המצב הביטחוני כדי להבין פנינו לאן<br><br>בכל אופן דייקנו תכולות מול הספק וממתינים לקונספט חדש</span></div>
         </div>
       </div>
 
       <div class="sup-card" style="border-top:4px solid var(--teal)">
-        <div class="sup-card-head" style="background:var(--tealL);color:var(--teal)">
-          🎁 BUYME
-        </div>
+        <div class="sup-card-head" style="background:var(--tealL);color:var(--teal)">🎁 BUYME — מתנות דיגיטליות</div>
         <div class="sup-card-body">
           <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">מתנות דיגיטליות — ניהול משתמשים</span></div>
-          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">מייל/טלפון</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">חוזה/מכרז</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">פקיעה</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">לין מכירה את המערכת — לתאם עימה</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר מטעמינו</span><span class="sup-val">לין (מכירה את המערכת)</span></div>
+          <div class="sup-row"><span class="sup-key">אחראית גם</span><span class="sup-val">אביב אברהם — חבר מביא חבר</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">יום הולדת — שליחה אוטומטית. שאר האירועים — ידני.</span></div>
+        </div>
+      </div>
+
+      <div class="sup-card" style="border-top:4px solid var(--yellow)">
+        <div class="sup-card-head" style="background:var(--yellowL);color:var(--yellow)">🧧 קורקט — מתנות חג</div>
+        <div class="sup-card-body">
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">מתנות פסח / ראש השנה</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="sup-val">צור | tzurh@correct-gifts.com | 052-8841421</span></div>
+          <div class="sup-row"><span class="sup-key">פקיעת חוזה</span><span class="sup-val" style="color:var(--red);font-weight:700">⚠️ פברואר 2027 — יציאה למכרז מאי/יוני 2026!</span></div>
+          <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-high">גבוהה</span></div>
         </div>
       </div>
 
       <div class="sup-card" style="border-top:4px solid var(--purple)">
-        <div class="sup-card-head" style="background:var(--purpleL);color:var(--purple)">
-          🎨 סטודיו שילובים
-        </div>
+        <div class="sup-card-head" style="background:var(--purpleL);color:var(--purple)">🎨 סטודיו שילובים — עיצוב</div>
         <div class="sup-card-body">
-          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">עיצוב גרפי לכל תקשורי הרווחה וההדרכה</span></div>
-          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="sup-val"><strong>שולמית</strong></span></div>
-          <div class="sup-row"><span class="sup-key">מייל</span><span class="sup-val"><a href="mailto:shulamit@shiluvimcr.co.il">shulamit@shiluvimcr.co.il</a></span></div>
+          <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">עיצוב גרפי בלבד — ניסוח וקונספט באחריות עדי</span></div>
+          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="sup-val">שולמית | shulamit@shiluvimcr.co.il</span></div>
+          <div class="sup-row"><span class="sup-key">זמן תגובה</span><span class="sup-val">~שבוע (לפי עומסים ותיאום עם דוברות)</span></div>
           <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-mid">בינונית</span></div>
-          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">⚠️ הסטודיו מנוהל ע"י דוברות — לבקשות מיוחדות/לו"ז צפוף: לערב דוברות קודם</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">⚠️ הסטודיו מנוהל ע"י דוברות — לבקשות מיוחדות: לערב דוברות קודם</span></div>
         </div>
       </div>
 
       <div class="sup-card" style="border-top:4px solid var(--s2)">
-        <div class="sup-card-head" style="background:var(--s2L);color:var(--s2)">
-          🎒 אבן נייר ומספריים — קייטנה
-        </div>
+        <div class="sup-card-head" style="background:var(--s2L);color:var(--s2)">🎒 אבן נייר ומספריים — קייטנה</div>
         <div class="sup-card-body">
           <div class="sup-row"><span class="sup-key">שירות</span><span class="sup-val">קייטנת ילדי עובדים (אוגוסט)</span></div>
-          <div class="sup-row"><span class="sup-key">איש קשר</span><span class="missing-val">🔴 חסר</span></div>
-          <div class="sup-row"><span class="sup-key">מסגרת</span><span class="sup-val">מועסקים דרך חברות הפקה — במכרז</span></div>
+          <div class="sup-row"><span class="sup-key">מסגרת</span><span class="sup-val">יוסי שרבט טלפון: 054-8022730 מייל: yossi.sharbat8@gmail.com (שטרר) — מזמינים דרכם</span></div>
           <div class="sup-row"><span class="sup-key">קריטיות</span><span class="crit-mid">בינונית</span></div>
-          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">✅ מצוינים — המלצת עדי להמשיך איתם. לדאוג לקייטרינג חיצוני (האוכל שלהם לא ברמה)</span></div>
+          <div class="sup-row"><span class="sup-key">הערות</span><span class="sup-val">✅ מצוינים. לדאוג לקייטרינג חיצוני בנוסף (האוכל שלהם לא ברמה)</span></div>
         </div>
       </div>
-  </div>
+
+    </div>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -1697,70 +1693,84 @@ function pwcheck(){
 
     <div class="cal-grid">
       <div class="cal-month">
-        <div class="cal-month-head" style="background:var(--s3L);color:var(--s3)">ינואר</div>
+        <div class="cal-month-head" style="background:var(--s2L);color:var(--s2)">ינואר</div>
         <div class="cal-month-body">
-          <div class="cal-event"><div class="cal-dot" style="background:var(--s3)"></div>פתיחת מכרז נופש (לפי לו"ז)</div>
-          <div class="cal-event"><div class="cal-dot" style="background:var(--s2)"></div>בניית תוכנית רווחה + למידה שנתית</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s2)"></div>פרסום תוכנית למידה שנתית והצגה להנהלה בישיבת הנהלה</div>
         </div>
       </div>
       <div class="cal-month">
-        <div class="cal-month-head" style="background:var(--s3L);color:var(--s3)">פברואר</div>
+        <div class="cal-month-head" style="background:var(--redL);color:var(--red)">פברואר</div>
         <div class="cal-month-body">
-          <div class="cal-event"><div class="cal-dot" style="background:var(--red)"></div><span style="color:var(--red);font-weight:700">תזכורת: מכרז קורקט (2027)</span></div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--red)"></div>יום המשפחה- מתנה/ציון</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--red)"></div>כנס תוכניות עבודה</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--red)"></div>⚠️ תזכורת: יציאה למכרז מתנות (לפי q26)</div>
         </div>
       </div>
       <div class="cal-month">
-        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">מרץ</div>
-        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+        <div class="cal-month-head" style="background:var(--s1L);color:var(--s1)">מרץ</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>פורים- פעילות במשרדים/מסיבה בהתאם לתוכנית רווחה</div>
+        </div>
       </div>
       <div class="cal-month">
         <div class="cal-month-head" style="background:var(--yellowL);color:var(--yellow)">אפריל</div>
         <div class="cal-month-body">
-          <div class="cal-event"><div class="cal-dot" style="background:var(--yellow)"></div>מתנות פסח (הכנה מראש)</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--yellow)"></div>מתנות פסח</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--yellow)"></div>יום הזיכרון לשואה ולגבורה- לרוב תקשור באחריות מיכל מנור</div>
         </div>
       </div>
       <div class="cal-month">
-        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">מאי</div>
-        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+        <div class="cal-month-head" style="background:var(--s1L);color:var(--s1)">מאי</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>יום הזיכרון לחללי מערכות ישראל ונפגעי פעולות האיבה- טקס/פעילות- אחריות צוותית</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>יום העצמאות- מתנה/פעילות בהתאם לתוכנית רווחה</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>תחילת איתור צרכים</div>
+        </div>
       </div>
       <div class="cal-month">
-        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">יוני</div>
-        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+        <div class="cal-month-head" style="background:var(--s2L);color:var(--s2)">יוני</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s2)"></div>שבועות- מתנה/פעילות בהתאם לתוכנית רווחה</div>
+        </div>
       </div>
       <div class="cal-month">
-        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">יולי</div>
-        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+        <div class="cal-month-head" style="background:var(--s1L);color:var(--s1)">יולי</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>אירוע כיתה א'</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>תחילת בניית תוכנית למידה שנתית</div>
+        </div>
       </div>
       <div class="cal-month">
         <div class="cal-month-head" style="background:var(--s1L);color:var(--s1)">אוגוסט</div>
         <div class="cal-month-body">
-          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>הכנות לאירוע כיתה א׳</div>
-          <div class="cal-event"><div class="cal-dot" style="background:var(--yellow)"></div>הכנות מתנות ר"ה</div>
-          <div class="cal-event"><div class="cal-dot" style="background:var(--s2)"></div><strong>קייטנת ילדי עובדים</strong> (שבוע אחרון)</div>
-          <div class="cal-event"><div class="cal-dot" style="background:var(--muted)"></div>סקר קייטנה (~חודשיים מראש)</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>אירוע קיץ משפחות</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>קייטנת ילדי עובדים</div>
         </div>
       </div>
       <div class="cal-month">
         <div class="cal-month-head" style="background:var(--s1L);color:var(--s1)">ספטמבר</div>
         <div class="cal-month-body">
-          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>אירוע כיתה א׳ (לפי לו"ז)</div>
-          <div class="cal-event"><div class="cal-dot" style="background:var(--yellow)"></div>מתנות ראש השנה</div>
-          <div class="cal-event"><div class="cal-dot" style="background:var(--s3)"></div>נופש חברה (לפי לו"ז)</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>מתנות ראש השנה</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>כנס חברה</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s1)"></div>יציאה למכרז נופש</div>
         </div>
       </div>
       <div class="cal-month">
-        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">אוקטובר</div>
-        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+        <div class="cal-month-head" style="background:var(--s3L);color:var(--s3)">אוקטובר</div>
+        <div class="cal-month-body">
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s3)"></div>סגירת תוכנית למידה ותוכנית רווחה שנתית ואישורה מול מנכ"לית החברה</div>
+        </div>
       </div>
       <div class="cal-month">
-        <div class="cal-month-head" style="background:var(--surf2);color:var(--muted)">נובמבר</div>
-        <div class="cal-month-body"><div class="cal-empty">טרם תועד</div></div>
+        <div class="cal-month-head" style="background:var(--s5L);color:var(--s5)">נובמבר</div>
+        <div class="cal-month-body">
+          <div class="cal-empty">טרם תועד</div>
+        </div>
       </div>
       <div class="cal-month">
         <div class="cal-month-head" style="background:var(--s2L);color:var(--s2)">דצמבר</div>
         <div class="cal-month-body">
-          <div class="cal-event"><div class="cal-dot" style="background:var(--s2)"></div>תוכנית למידה שנתית (לפי לו"ז)</div>
-          <div class="cal-event"><div class="cal-dot" style="background:var(--yellow)"></div>🕎 הדלקת נרות חנוכה (לרוב נר ראשון)</div>
+          <div class="cal-event"><div class="cal-dot" style="background:var(--s2)"></div>🕎 הדלקת נרות חנוכה (נר ראשון, תיאום עם לשכה)</div>
         </div>
       </div>
     </div>
@@ -1781,9 +1791,9 @@ function pwcheck(){
         <td>הקמה/גריעה בכל כניסה/יציאה</td>
       </tr>
       <tr>
-        <td><span class="missing-val">🔴 חסר</span></td>
-        <td>פגישות קבועות (recurring)</td>
-        <td>יש להשלים עם עדי</td>
+        <td><span class="freq-badge" style="background:var(--s2L);color:var(--s2)">רבעוני / חודשיים</span></td>
+        <td>מועדון משפטי, מועדון כלכלי, מועדון הנדסי, תוכנית ניהול מתקדם</td>
+        <td>כל רבעון: מועדון משפטי ומועדון כלכלי<br>תוכנית ניהול מתקדם- ראשי אגפים <br><br>אחת לחודשיים: מועדון הנדסי <br><br>פעם בשנה- קורס ניהול פרויקטים</td>
       </tr>
     </table>
   </div>
@@ -1804,9 +1814,9 @@ function pwcheck(){
   </div>
   <div class="sec-body" id="body-contacts">
 
-    <div class="info-box info-note" style="margin-top:16px">
-      <div class="info-box-icon">📌</div>
-      <div>מספר ממשקים עודכנו מהאקסל — שדות ב-🔴 עדיין ממתינים להשלמה עם עדי.</div>
+    <div class="info-box info-tip" style="margin-top:16px">
+      <div class="info-box-icon">✅</div>
+      <div>ממשקי הליבה תועדו במלואם מתשובות עדי.</div>
     </div>
 
     <table class="contacts-table">
@@ -1856,32 +1866,89 @@ function pwcheck(){
         <td>לתאם מראש — הן אחראיות על הלוגיסטיקה במרחבים</td>
       </tr>
       <tr>
-        <td><span class="missing-val">🔴 חסר</span></td>
-        <td>מנהל/ת ישיר/ה</td>
-        <td>דיווח שוטף</td>
-        <td><span class="missing-val">חסר</span></td>
-        <td>מה מדווחים? בתדירות?</td>
+        <td><strong>רוני</strong></td>
+        <td>סמנכ"לית משאבי אנוש</td>
+        <td>דיווח שוטף, אישור חריגות, שיתוף בהחלטות</td>
+        <td><span class="freq-badge" style="background:var(--greenL);color:var(--green)">שבועי + שוטף</span></td>
+        <td>פ.ע שבועי קבוע. מעדכנת בכל שינוי — לא להפתיע. נעזרים בה לאישורי מנכ"לית.</td>
       </tr>
       <tr>
-        <td><span class="missing-val">🔴 חסר</span></td>
-        <td>בעלי תוכן לומדות</td>
-        <td>בטיחות/נהיגה/סייבר</td>
+        <td><strong>בעלי תוכן</strong></td>
+        <td>בטיחות / נהיגה / סייבר</td>
+        <td>שיתוף בגאנט הפצת לומדות + קבלת דוחות ביצועים</td>
         <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">לפי גאנט</span></td>
-        <td>לפי מחזור הפצת הלומדות</td>
+        <td>לומדות: קוד אתי, הטרדה מינית, בטיחות, נהיגה, סייבר</td>
+      </tr>
+      <tr>
+        <td><strong>הילה מנבר</strong></td>
+        <td>מערכות מידע</td>
+        <td>מנהלת פרויקט בלוסום מצד IT</td>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">לפי צורך</span></td>
+        <td>שותפה טכנית מרכזית לכל עניין מערכת הלמידה</td>
+      </tr>
+      <tr>
+        <td><strong>דניאל חסין</strong></td>
+        <td>ממלאת מקום בקורסי מנהלים</td>
+        <td>ממלאת מקום עדי בקורס ראשי אגפים בהיעדרה</td>
+        <td><span class="freq-badge" style="background:var(--yellowL);color:var(--yellow)">לפי צורך</span></td>
+        <td>חשוב לתדרך אותה לפני כל היעדרות!</td>
+      </tr>
+      <tr>
+        <td><strong>מיכל מנור</strong></td>
+        <td>ניהול תקציב</td>
+        <td>בניית ומעקב תקציב רווחה + הדרכה</td>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">לפי צורך</span></td>
+        <td>Excel בתיקייה משותפת מש"א. גם מנהלת מכרז ייעוץ ארגוני.</td>
       </tr>
     </table>
 
     <div class="sub-heading">📋 פגישות קבועות</div>
-    <div class="info-box info-miss">
-      <div class="info-box-icon">🔴</div>
-      <div>פרטי הפגישות הקבועות <strong>טרם תועדו</strong> — יש לשאול עדי: אילו פגישות recurring יש? יום/שעה/מה להגיע מוכנה?</div>
-    </div>
+    <table class="contacts-table">
+      <tr><th>פגישה</th><th>תדירות</th><th>מה להגיע מוכנה</th></tr>
+      <tr>
+        <td>פ.ע עם רוני</td>
+        <td><span class="freq-badge" style="background:var(--greenL);color:var(--green)">שבועי</span></td>
+        <td>עדכונים שוטפים, נושאים פתוחים, אישורים</td>
+      </tr>
+      <tr>
+        <td>ישיבת הנהלה — פרסום תוכנית למידה</td>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">שנתי (ינואר)</span></td>
+        <td>מצגת תוכנית למידה שנתית</td>
+      </tr>
+      <tr>
+        <td>ישיבת איתור צרכים עם מנהלים</td>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">שנתי (מאי)</span></td>
+        <td>שאלות לדיוק יעדים + צרכי הדרכה</td>
+      </tr>
+      <tr>
+        <td>ישיבה עם רחל חדד (מועדון משפטי)</td>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">שנתי</span></td>
+        <td>דיוק תכנים ומתווה המועדון לשנה הבאה</td>
+      </tr>
+    </table>
 
-    <div class="sub-heading">🏛️ ועדות ופורומים</div>
-    <div class="info-box info-miss">
-      <div class="info-box-icon">🔴</div>
-      <div>פרטי ועדות ופורומים <strong>טרם תועדו</strong> — האם יש ועדות מכרזים? פורומים ארגוניים?</div>
-    </div>
+    <div class="sub-heading">🏛️ פורומים מקצועיים</div>
+    <table class="contacts-table">
+      <tr><th>פורום</th><th>מוביל</th><th>תדירות</th><th>תפעול ותפקיד עדי</th></tr>
+      <tr>
+        <td><strong>מועדון משפטי</strong></td>
+        <td>רחל חדד בן ברוך (יועמ"ש)</td>
+        <td><span class="freq-badge" style="background:var(--purpleL);color:var(--purple)">רבעוני</span></td>
+        <td>תיאום תאריכים + שריון חדרים. יוליה איווניוק מנהלת תפעול (כיבוד, מרצים). יש סביבה ב-LMS — ליוליה הרשאות ניהול.</td>
+      </tr>
+      <tr>
+        <td><strong>מועדון כלכלי</strong></td>
+        <td>סמנכ"ל כספים דור</td>
+        <td><span class="freq-badge" style="background:var(--purpleL);color:var(--purple)">רבעוני</span></td>
+        <td>חדש השנה! תפעול יועבר לשני סנדרוסי. משתתפים קבועים — לא לשנות ללא אישור!</td>
+      </tr>
+      <tr>
+        <td><strong>מועדון הנדסי</strong> ⚠️ רגיש</td>
+        <td>ערן דוד (מהנדס ראשי)</td>
+        <td><span class="freq-badge" style="background:var(--blueL);color:var(--blue)">חודשיים</span></td>
+        <td>ליווי צמוד! 7 מפגשים בשנה. לעבור על מצגות ולוודא איכות מרצים. המהנדסים התאכזבו בעבר — חשוב להביא בשורה.</td>
+      </tr>
+    </table>
 
   </div>
 </div>
@@ -1923,21 +1990,101 @@ function pwcheck(){
       </div>
     </div>
 
+    <div class="gray-card">
+      <div class="gray-card-title">👤 ניהול קשרים פנימיים — צוות HRBP</div>
+      <div class="gray-card-body">עובדת בשיתוף פעולה ושותפות מלאה עם הבנות בצוות בדגש על ה- HRBP אין דבר שלא עובר דרכן, מעדכנת אותן בכל הידוע לי לגבי העובדים והן מעדכנות אותי.<br>הן חלק בלתי נפרד מהעבודה היומיומית שלי ואני מקבלת את רוב ההחלטות שלי בשיתוף איתן.<br>כמו כן, לפגישות איתור צרכי הדרכה ממליצה בחום שיצטרפו אל מי שתחליף אותי, לפחות בפגישות עם הסמנכ"לים כדי לסייע בהיכרות והבנה של התמונה הכללית. <br><br>בנוסף עבודה רצופה וצמודה מול לשכת מנכ"לית בכל הנוגע לתיאום הדרכות/אירועים/כנסים, אישורי מנכ"לית בעניין פעילויות שונות<br><br>ממשק צמוד מול חוזים והתקשרויות בכל הנוגע לעבודה מול ספקים</div>
+    </div>
+
+    <div class="gray-card">
+      <div class="gray-card-title">🏛️ ממשק עם רוני (מנהלת ישירה)</div>
+      <div class="gray-card-body">כפופה לרוני סמנכ"לית מש"א<br>פ.ע שבועי <br>עבודה צמודה בשוטף <br>מעדכנת אותה בכל שינוי/התרחשות כדי שתהיה מעודכנת ולא תהיה מופתעת<br><br>העבודה שלי די עצמאית במקומות בהם יש לי קושי/אתגר/חסם/אישור מנכ"לית נעזרת ברוני</div>
+    </div>
+
+    <div class="gray-card">
+      <div class="gray-card-title">🤔 קבלת החלטות בתחומים אפורים</div>
+      <div class="gray-card-body">קבלת ההחלטות היא בשיתוף של רוני, ושל הצוות במידה ואני לא בטוחה לגבי ההחלטה הנכונה<br>באופן כללי העבודה אצלנו מאוד צוותית ומשתפת</div>
+    </div>
+
+    <div class="gray-card">
+      <div class="gray-card-title">🎯 צביון התפקיד</div>
+      <div class="gray-card-body">אני מאוד עצמאית בתפקיד שלי ובניתי אותו לפי התפיסה המקצועית שלי<br>לרוב אני יוזמת ומאוד פרואקטיבית כדי לקדם תהליכי למידה ופיתוח מקצועי ולנסות לחדש לאירגון כל הזמן</div>
+    </div>
+
     <div class="gray-card" style="border:2px dashed var(--s7);background:var(--s7L)">
-      <div class="gray-card-title" style="color:var(--s7)">🔴 ממתין להשלמה — שאלות פתוחות קריטיות</div>
+      <div class="gray-card-title" style="color:var(--s7)">🔴 עדיין ממתין להשלמה</div>
       <div class="gray-card-body">
         <ul>
-          <li>מה למדת מניסיון שלא כתוב בשום נוהל?</li>
-          <li>הטעויות הנפוצות שמחליפה צריכה להימנע מהן</li>
-          <li>הכללים הלא-כתובים בתיאום עם הלשכה</li>
-          <li>איך מקבלים החלטות כשהמדיניות לא ברורה?</li>
-          <li>מצבים הדורשים רגישות מיוחדת</li>
-          <li>מה ״צביון התפקיד״?</li>
-          <li>מה הדבר הכי חשוב שהמחליפה צריכה לדעת?</li>
+          <li>טעויות שמחליפה צריכה להימנע מהן (q40)</li>
+          <li>בקשות שגורמות לצאת מהגדרת התפקיד (q41)</li>
+          <li>מצבים הדורשים רגישות מיוחדת (q43)</li>
+          <li>הדבר הכי חשוב שהמחליפה צריכה לדעת (q45)</li>
+          <li>משהו שיצרת וחשוב להמשיך לטפח (q46)</li>
         </ul>
       </div>
     </div>
 
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+  8.5 תהליך 6 GRID
+═══════════════════════════════════════════ -->
+<div class="sec-card" style="border:1px solid var(--border);border-right:4px solid var(--green)" id="sec-grid">
+  <div class="sec-header" onclick="toggle('grid')">
+    <div class="sec-icon" style="background:var(--greenL);color:var(--green)">📊</div>
+    <div class="sec-title-wrap">
+      <div class="sec-title" style="color:var(--green)">תהליך 6 GRID — מיפוי כישרונות</div>
+      <div class="sec-desc">תהליך אסטרטגי לזיהוי ופיתוח עובדים | נובמבר 2024</div>
+    </div>
+    <span class="sec-badge" style="background:var(--greenL);color:var(--green)">אושר ✓</span>
+    <span class="sec-chevron">▼</span>
+  </div>
+  <div class="sec-body" id="body-grid">
+    <div class="info-box info-tip" style="margin-top:16px">
+      <div class="info-box-icon">💡</div>
+      <div>תהליך מיפוי שבוצע בנובמבר 2024 ואושר ע"י מנכ"לית החברה. עדי ממליצה לתקף שוב <strong>סוף 2026 / תחילת 2027</strong>.</div>
+    </div>
+    <div class="role-detail" style="margin-top:20px">
+      <div class="role-detail-header" style="background:var(--greenL);color:var(--green)">
+        📊 מהו תהליך 6 GRID?
+        <span class="tag-complete">מתועד</span>
+      </div>
+      <table class="dim-table">
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📋</span>מה</td>
+          <td>מיפוי עובדים בוותק של שנה — לזיהוי מי האוכלוסייה שרוצים להתמקד בה, לפתח ולקדם. מטרה: איתור "מקצוענים" שצריכים טיפול פרטני.</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">⚙️</span>איך</td>
+          <td>
+            <ol style="padding-right:18px;margin-top:6px">
+              <li>מיפוי וסיווג עובדים לפי מטריצת ה-6 GRID</li>
+              <li>אישור תוצאות ע"י מנכ"לית החברה</li>
+              <li>בחינה שוטפת של הרשימות עם צוות HRBP</li>
+              <li>פגישות עם סמנכ"לים לפירוט צעדים לכל עובד בחטיבה</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">👤</span>מי</td>
+          <td>עדי + צוות HRBP + סמנכ"לים</td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">📅</span>מתי</td>
+          <td>בוצע: <strong>נובמבר 2024</strong> | המלצה לתיקוף חוזר: <strong>סוף 2026 / תחילת 2027</strong></td>
+        </tr>
+        <tr>
+          <td class="dim-label"><span class="dim-icon">💡</span>הערות</td>
+          <td>
+            <div class="info-box info-warn" style="margin:0">
+              <div class="info-box-icon">⚠️</div>
+              <div>יש עובדים באוכלוסיית ה"מקצוענים" שדורשים <strong>טיפול פרטני ומעקב שוטף</strong>. בישיבה האחרונה סוכם לפגוש סמנכ"לים ולפרוט צעדים ביחד לכל עובד בחטיבה.</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
 

@@ -1713,14 +1713,8 @@ function autoSave() {
 }
 
 // ── LOAD ──
-function loadForm() {
-  var data = null;
-  try {
-    var raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) data = JSON.parse(raw);
-  } catch(e) {}
+function applyData(data) {
   if (!data) return;
-
   var keys = Object.keys(data);
   for (var i = 0; i < keys.length; i++) {
     var el = document.getElementById(keys[i]);
@@ -1741,6 +1735,59 @@ function loadForm() {
     var idx = level === 'low' ? 0 : level === 'mid' ? 1 : 2;
     if (btns[idx]) btns[idx].classList.add('selected-' + level);
   }
+  updateProgress();
+}
+
+function loadForm() {
+  // Step 1: load from localStorage immediately (fast)
+  try {
+    var raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) applyData(JSON.parse(raw));
+  } catch(e) {}
+
+  // Step 2: fetch latest from GitHub (authoritative source)
+  loadFromGitHub();
+}
+
+function loadFromGitHub() {
+  var url = 'https://api.github.com/repos/' + GH_USER + '/' + GH_REPO + '/contents/' + GH_FILE;
+  var bar = document.getElementById('progress-text-bar');
+  if (bar) bar.textContent = '🔄 טוען נתונים...';
+
+  // Reading from public repo — no token needed
+  var headers = { 'Accept': 'application/vnd.github.v3+json' };
+  // Add token if available (higher rate limit)
+  var token = GH_TOKEN;
+  if (!token) { try { token = localStorage.getItem('gh_token') || ''; } catch(e) {} }
+  if (token) headers['Authorization'] = 'token ' + token;
+
+  fetch(url, { headers: headers })
+  .then(function(r) {
+    if (r.status === 404) return null; // file not yet created
+    if (!r.ok) throw new Error('status ' + r.status);
+    return r.json();
+  })
+  .then(function(file) {
+    if (!file || !file.content) return;
+    // GitHub returns base64 content
+    var decoded = decodeURIComponent(
+      atob(file.content.split('\n').join(''))
+        .split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join('')
+    );
+    var data = JSON.parse(decoded);
+    // Save to localStorage as cache
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+    // Apply to form
+    applyData(data);
+    if (bar) bar.textContent = '✅ נטען מ-GitHub — כל השינויים מסונכרנים';
+    showToast('✅ נטען מ-GitHub!');
+  })
+  .catch(function(e) {
+    console.warn('GitHub load failed:', e);
+    if (bar) bar.textContent = '✅ נשמר אוטומטית (לא מחובר ל-GitHub)';
+  });
 }
 
 // ── EXPORT JSON ──

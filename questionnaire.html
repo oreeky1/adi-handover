@@ -29,6 +29,7 @@
     --section5: #7B6E3E;
     --section6: #3A8A8A;
     --section7: #8A4A4A;
+    --section8: #6A5ACD;
     --shadow: 0 2px 12px rgba(44,36,22,0.08);
     --shadow-lg: 0 8px 32px rgba(44,36,22,0.14);
     --radius: 12px;
@@ -265,6 +266,8 @@
   .s6 .section-title { color: var(--section6); }
   .s7 .section-icon { background: #EDD0D0; color: var(--section7); }
   .s7 .section-title { color: var(--section7); }
+  .s8 .section-icon { background: #E0DCFA; color: var(--section8); }
+  .s8 .section-title { color: var(--section8); }
 
   /* ===== QUESTIONS ===== */
   .q-group { margin-top: 24px; }
@@ -540,6 +543,72 @@
     font-weight: 600;
     margin-right: 6px;
   }
+
+  /* ===== PRIORITY SYSTEM ===== */
+  .prio-banner {
+    background: linear-gradient(135deg, #2C2416 0%, #5C3D1E 100%);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .prio-banner h3 { font-size: 16px; margin-bottom: 14px; color: #F2C98A; }
+  .prio-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .prio-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+  }
+  .prio-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .prio-dot.p1 { background: #E74C3C; }
+  .prio-dot.p2 { background: #E67E22; }
+  .prio-dot.p3 { background: #F1C40F; }
+  .prio-dot.p4 { background: #95A5A6; }
+  .prio-badge {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 1px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+  }
+  .prio-badge.p1 { background: #FAD7D3; border: 1px solid #E74C3C; color: #922B21; }
+  .prio-badge.p2 { background: #FDEBD0; border: 1px solid #E67E22; color: #935116; }
+  .prio-badge.p3 { background: #FEF9E7; border: 1px solid #F1C40F; color: #7D6608; }
+  .prio-badge.p4 { background: #EAECEE; border: 1px solid #95A5A6; color: #566573; }
+
+  /* lomda owner card */
+  .lomda-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  @media (max-width: 600px) { .lomda-grid { grid-template-columns: 1fr; } }
+  .lomda-card {
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .lomda-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--section2);
+    margin-bottom: 8px;
+  }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -592,8 +661,8 @@ function pwcheck(){
   <h1>מה שאת יודעת — שיישמר</h1>
   <p>שאלון זה נועד להנגיש את הידע שצברת ב-4 שנים לתוך תיק חפיפה מקצועי שיעזור למחליפה שלך להצליח</p>
   <div class="hero-meta">
-    <span>7 נושאים</span>
-    <span>~96 שאלות</span>
+    <span>8 נושאים</span>
+    <span>~100 שאלות</span>
     <span>נשמר אוטומטית</span>
     <span>ניתן להדפסה</span>
   </div>
@@ -615,6 +684,15 @@ function pwcheck(){
     <div class="instructions-text">
       <h3>💾 השמירה אוטומטית!</h3>
       <p>הנתונים נשמרים אוטומטית בדפדפן שלך בכל הקלדה. לחצי <strong>"שמור"</strong> לאישור ידני. לגיבוי הנתונים למחשב — לחצי <strong>"גיבוי JSON"</strong>.</p>
+    </div>
+  </div>
+  <div class="prio-banner" style="margin-top:16px">
+    <h3>🎯 סדר עדיפויות למילוי — התחילי מ-P1!</h3>
+    <div class="prio-legend">
+      <div class="prio-row"><div class="prio-dot p1"></div><span class="prio-badge p1">P1</span><strong>השלמת תיק החפיפה</strong> — שאלות שחסרות לתיק הנוכחי. הכי דחוף!</div>
+      <div class="prio-row"><div class="prio-dot p2"></div><span class="prio-badge p2">P2</span><strong>טבלת תאריכים ליומן</strong> — מה לעשות, מתי, הסבר קצר (ייכנס ללוח שנה מזוקק)</div>
+      <div class="prio-row"><div class="prio-dot p3"></div><span class="prio-badge p3">P3</span><strong>מסמך ייעודי לרוני</strong> — הערכות אסטרטגית, חלוקת עבודה, סיכונים (לא ייכלל בתיק)</div>
+      <div class="prio-row"><div class="prio-dot p4"></div><span class="prio-badge p4">P4</span><strong>הערות כלליות וסיכום</strong> — ערך מוסף, עקרונות, סיכום חופשי</div>
     </div>
   </div>
 </div>
@@ -649,7 +727,7 @@ function pwcheck(){
       <div class="tip-box">הנתונים הבסיסיים כבר ידועים — השאלות כאן מתמקדות במה שלא כתוב בשום מקום.</div>
 
       <div class="q-group">
-        <div class="q-group-title">🎒 אירוע כיתה א׳</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🎒 אירוע כיתה א׳</div>
         <div class="q-item">
           <label><span class="q-num">1</span> מתי בשנה מתרחש האירוע? באיזה חודש מתחילים להכין?
             <span class="q-hint">לדוגמה: ספטמבר, הכנה מאוגוסט</span>
@@ -689,7 +767,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">🏖️ נופש חברה</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🏖️ נופש חברה</div>
         <div class="q-item">
           <label><span class="q-num">5</span> מתי פותחים בחירת ספק? כמה זמן לוקח תהליך המכרז לנופש?</label>
           <input type="text" id="q5" placeholder="לדוגמה: ינואר עד מרץ, נופש בספטמבר..." value="מכרז נופש חברה לוקח כ- 3 חודשים. לכן יש לעבוד עליו סביב אוקטובר על מנת לצאת במאי  הגורם המעכב הוא לרוב התקציב אך בשיח עם אגף תקציבים ניתן להגיע להבנות לגבי תקציב הנופש ולהתקדם בנושא מי שמלווה אותנו זה חוזים והתקשרויות- המכרז כבר די בנוי למעט שינויים והפקות לקחים שאנו עושים משנה לשנה אך שלד ובסיס כבר יש והתהליך בנוי ועובד">
@@ -714,7 +792,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">🎁 מתנות ו-BUYME</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🎁 מתנות ו-BUYME</div>
         <div class="q-item">
           <label><span class="q-num">8</span> מהי מדיניות ה-BUYME? אילו אירועים מקבלים מתנה? מה הסכומים?</label>
           <textarea id="q8" placeholder="לידה: X ש״ח, חגים: Y ש״ח, תמריץ: Z ש״ח...">מתנות ביימי מקבלים על האירועים הבאים:
@@ -752,7 +830,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">🕎 הדלקת נרות חנוכה</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🕎 הדלקת נרות חנוכה</div>
         <div class="tip-box">הנושא תועד — אשרי/הוסיפי פרטים חסרים בלבד.</div>
         <div class="q-item">
           <label><span class="q-num">47</span> מי אנשי הקשר במזכירות מרחב חיפה ות"א?</label>
@@ -767,7 +845,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">🎒 קייטנת ילדי עובדים</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🎒 קייטנת ילדי עובדים</div>
         <div class="tip-box">תועד בסיסית — נדרש פירוט.</div>
         <div class="q-item">
           <label><span class="q-num">49</span> פרטי איש קשר — אבן נייר ומספריים?</label>
@@ -789,7 +867,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">📋 תוכנית רווחה שנתית</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 📋 תוכנית רווחה שנתית</div>
         <div class="q-item">
           <label><span class="q-num">52</span> מתי בשנה בונים את תוכנית הרווחה השנתית?</label>
           <input type="text" id="q52" placeholder="חודש? האם זה מקביל לתקציב?" value="תוכנית רווחה שנתית נבנית במקביל לתוכנית העבודה של החטיבה. היא מאושרת סופית לאחר שמאשרים את התקציב באזור חודש נובמבר">
@@ -812,13 +890,13 @@ function pwcheck(){
         <div class="section-title">פיתוח ארגוני והדרכה</div>
         <div class="section-subtitle">LMS, קורסים, לומדות, תוכנית שנתית, אוריינטציה, כנסים</div>
       </div>
-      <span class="section-counter" id="cnt-s2">0/27 שדות</span>
+      <span class="section-counter" id="cnt-s2">0/34 שדות</span>
       <span class="section-chevron">▼</span>
     </div>
     <div class="section-body">
 
       <div class="q-group">
-        <div class="q-group-title">🖥️ מערכת LMS</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🖥️ מערכת LMS</div>
         <div class="q-item">
           <label><span class="q-num">13</span> מה שם מערכת ה-LMS? איך נכנסים אליה? <span class="required">*</span>
             <span class="q-hint">שם + לינק + פרטי גישה (באיזה משתמש?)</span>
@@ -844,7 +922,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">🎓 קורסי פיתוח מנהלים</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🎓 קורסי פיתוח מנהלים</div>
         <div class="q-item">
           <label><span class="q-num">16</span> מי המנחה הנוכחית? מה מבנה הקורס הנוכחי?</label>
           <input type="text" id="q16" placeholder="שם המנחה + מספר מפגשים + תדירות..." value="ישנם 2 קורסי מנהלים- מנהלי תחומים וראשי אגפים">
@@ -878,7 +956,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">📦 לומדות ובקשות פרטניות</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 📦 לומדות ובקשות פרטניות</div>
         <div class="q-item">
           <label><span class="q-num">19</span> אילו לומדות פעילות כרגע? מה הגאנט השנתי שלהן?</label>
           <textarea id="q19" placeholder="שם לומדה → חודש מועדף להפצה...">לומדות פעילות:
@@ -887,6 +965,54 @@ function pwcheck(){
 בטיחות כללית
 נהיגה נכונה- חורף וקיץ
 סייבר</textarea>
+        </div>
+
+        <div class="q-item">
+          <label><span class="q-num">97</span> בעלי תוכן (Owners) לכל לומדה — מי הגורם המקצועי האחראי? <span class="required">*</span>
+            <span class="q-hint">ה-Owner הוא הגורם שאחראי על התוכן המקצועי: מוציא דוחות ביצועים, שולח תזכורות לעובדים, מתקף/משנה את הלומדה, ומולו עובדים על כל שינוי בלומדה. חובה למלא!</span>
+          </label>
+        </div>
+
+        <div class="lomda-grid">
+          <div class="lomda-card">
+            <div class="lomda-card-title">📘 קוד אתי</div>
+            <label style="font-size:12px;font-weight:500">שם ה-Owner + תפקיד:</label>
+            <input type="text" id="lomda1_owner" placeholder="שם + תפקיד + טלפון/מייל...">
+            <label style="font-size:12px;font-weight:500;margin-top:8px">הערות:</label>
+            <textarea id="lomda1_notes" style="min-height:60px" placeholder="תדירות הפצה, דגשים, מה חשוב לדעת..."></textarea>
+          </div>
+          <div class="lomda-card">
+            <div class="lomda-card-title">📘 הטרדה מינית</div>
+            <label style="font-size:12px;font-weight:500">שם ה-Owner + תפקיד:</label>
+            <input type="text" id="lomda2_owner" placeholder="שם + תפקיד + טלפון/מייל...">
+            <label style="font-size:12px;font-weight:500;margin-top:8px">הערות:</label>
+            <textarea id="lomda2_notes" style="min-height:60px" placeholder="תדירות הפצה, דגשים, מה חשוב לדעת..."></textarea>
+          </div>
+          <div class="lomda-card">
+            <div class="lomda-card-title">📘 בטיחות כללית</div>
+            <label style="font-size:12px;font-weight:500">שם ה-Owner + תפקיד:</label>
+            <input type="text" id="lomda3_owner" placeholder="שם + תפקיד + טלפון/מייל...">
+            <label style="font-size:12px;font-weight:500;margin-top:8px">הערות:</label>
+            <textarea id="lomda3_notes" style="min-height:60px" placeholder="תדירות הפצה, דגשים, מה חשוב לדעת..."></textarea>
+          </div>
+          <div class="lomda-card">
+            <div class="lomda-card-title">📘 נהיגה נכונה — חורף וקיץ</div>
+            <label style="font-size:12px;font-weight:500">שם ה-Owner + תפקיד:</label>
+            <input type="text" id="lomda4_owner" placeholder="שם + תפקיד + טלפון/מייל...">
+            <label style="font-size:12px;font-weight:500;margin-top:8px">הערות:</label>
+            <textarea id="lomda4_notes" style="min-height:60px" placeholder="תדירות הפצה, דגשים, מה חשוב לדעת..."></textarea>
+          </div>
+          <div class="lomda-card" style="grid-column: 1 / -1;">
+            <div class="lomda-card-title">📘 סייבר</div>
+            <label style="font-size:12px;font-weight:500">שם ה-Owner + תפקיד:</label>
+            <input type="text" id="lomda5_owner" placeholder="שם + תפקיד + טלפון/מייל...">
+            <label style="font-size:12px;font-weight:500;margin-top:8px">הערות:</label>
+            <textarea id="lomda5_notes" style="min-height:60px" placeholder="תדירות הפצה, דגשים, מה חשוב לדעת..."></textarea>
+          </div>
+        </div>
+        <div class="q-item" style="margin-top:16px">
+          <label><span class="q-num">98</span> יש לומדות נוספות בתכנון או שצפויות להתווסף?</label>
+          <textarea id="q98" placeholder="שם לומדה + Owner צפוי + לוח זמנים..."></textarea>
         </div>
         <div class="q-item">
           <label><span class="q-num">20</span> בקשות פרטניות (קורסים/לימודים) — מה קריטריון האישור? מי מחליט?
@@ -926,128 +1052,111 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">🎯 תהליך בחירת משתתפים לקורסים</div>
-        <div class="tip-box">תהליך רוחבי שחוזר על עצמו בכל קורס ניהולי — קריטי לתעד כי תלוי בהיכרות עמוקה עם הארגון.</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🏗️ קורס ניהול פרויקטים</div>
+        <div class="tip-box">מוזכר בלוח השנה כ"פעם בשנה" אבל חסר תיעוד מלא. נדרש: מבנה, מנחה, בחירת משתתפים, לוגיסטיקה.</div>
+
         <div class="q-item">
-          <label><span class="q-num">71</span> מי מחליט מי משתתף בקורסי פיתוח מנהלים? מה תהליך הבחירה? <span class="required">*</span>
-            <span class="q-hint">פרטי שלב-אחר-שלב: מי מציע שמות? מי מאשר? מה הקריטריונים?</span>
+          <label><span class="q-num">71</span> מה מבנה קורס ניהול פרויקטים? מי מנחה? כמה מפגשים? תדירות? <span class="required">*</span>
+            <span class="q-hint">כמו שתיארת את קורסי הניהול — אותה רמת פירוט</span>
           </label>
-          <textarea id="q71" class="tall" placeholder="1. מי יוזם את הרשימה הראשונית?&#10;2. מה הקריטריונים (ותק? תפקיד? פוטנציאל?)&#10;3. מי מאשר סופית?&#10;4. האם יש קשר ל-6 GRID?"></textarea>
+          <textarea id="q71" class="tall" placeholder="מנחה: ...&#10;מספר מפגשים: ...&#10;מבנה (ימים מלאים / חצאי ימים): ...&#10;מיקום: ...&#10;סביבה ב-LMS: ..."></textarea>
         </div>
+
         <div class="q-item">
-          <label><span class="q-num">72</span> מהן הרגישויות הפוליטיות בבחירת משתתפים?
-            <span class="q-hint">זהו ידע שבעל פה קריטי — מנהלים שדוחפים את האנשים שלהם, איזון בין חטיבות, עובדים שנפלו בין הכיסאות...</span>
+          <label><span class="q-num">72</span> תהליך בחירת משתתפים לקורס ניהול פרויקטים — מי מחליט? מה הקריטריונים? <span class="required">*</span>
+            <span class="q-hint">זה ידע שבעל פה קריטי — מי נבחר, למה, ומי מאשר</span>
           </label>
-          <textarea id="q72" class="tall" placeholder="• יש סמנכ&quot;לים שמקדמים את אנשיהם...&#10;• איך מאזנים בין חטיבות?&#10;• מה עושים כשמנהל מתעקש?&#10;• מה הקשר לאוכלוסיות ב-6 GRID?"></textarea>
+          <textarea id="q72" class="tall" placeholder="קריטריונים לבחירה: ...&#10;מי מעורב בהחלטה: ...&#10;סדר אישורים: ...&#10;רגישויות: ..."></textarea>
         </div>
+
         <div class="q-item">
-          <label><span class="q-num">73</span> האם תהליך הבחירה שונה בין קורס לקורס? פרטי:
-            <span class="q-hint">למשל: קורס ראשי אגפים vs קורס מנהלי תחומים vs ניהול פרויקטים — האם אותם קריטריונים?</span>
-          </label>
-          <textarea id="q73" placeholder="קורס ראשי אגפים: ...&#10;קורס מנהלי תחומים: ...&#10;קורס ניהול פרויקטים: ..."></textarea>
+          <label><span class="q-num">73</span> לוח זמנים ותפעול — מתי הקורס מתקיים בשנה? מה צריך לתאם מראש?</label>
+          <textarea id="q73" placeholder="חודש מועדף: ...&#10;תיאום לשכה: ...&#10;כיבוד / תשלומים: ...&#10;מה כבר מתוכנן ל-2026: ..."></textarea>
         </div>
       </div>
 
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">📐 קורס ניהול פרויקטים</div>
-        <div class="tip-box">מוזכר בלוח השנה כ"פעם בשנה" — חסר תיעוד מלא.</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 👥 תהליך בחירת משתתפים — כל הקורסים</div>
+        <div class="tip-box">תהליך בחירת המשתתפים הוא ידע שבעל פה שקריטי לתעד. הוא תקף לכל קורסי הפיתוח — גם ניהול מתקדם, גם מנהלי תחומים, גם ניהול פרויקטים.</div>
+
         <div class="q-item">
-          <label><span class="q-num">74</span> מי מנחה את קורס ניהול פרויקטים? מה מבנה הקורס? <span class="required">*</span>
-            <span class="q-hint">שם מנחה, מספר מפגשים, תדירות, מיקום</span>
+          <label><span class="q-num">74</span> על סמך מה בוחרים משתתפים לקורסי ניהול? האם יש קשר ל-6 GRID? <span class="required">*</span>
+            <span class="q-hint">מה הקריטריונים: ותק? דרגה? המלצת מנהל? ביצועים? פוטנציאל?</span>
           </label>
-          <textarea id="q74" placeholder="מנחה: ...&#10;מספר מפגשים: ...&#10;ימים מלאים / חצאי ימים: ...&#10;מיקום: במשרד / חוץ..."></textarea>
+          <textarea id="q74" class="tall" placeholder="קריטריונים: ...&#10;האם מבוסס על 6 GRID: ...&#10;האם שונה בין קורס ראשי אגפים לבין מנהלי תחומים: ..."></textarea>
         </div>
+
         <div class="q-item">
-          <label><span class="q-num">75</span> מי קהל היעד? כמה משתתפים? איך בוחרים אותם?
-            <span class="q-hint">תהליך הבחירה — ראי גם שאלה 71</span>
+          <label><span class="q-num">75</span> מי מעורב בהחלטה? מה סדר האישורים? <span class="required">*</span></label>
+          <textarea id="q75" placeholder="1. מי מציע שמות: ...&#10;2. מי מאשר: ...&#10;3. האם עובר סמנכ&quot;לים: ...&#10;4. אישור סופי: ..."></textarea>
+        </div>
+
+        <div class="q-item">
+          <label><span class="q-num">76</span> רגישויות פוליטיות — מה כשסמנכ"ל דוחף לצרף מישהו? מה כששני מנהלים רוצים אותו מקום?
+            <span class="q-hint">מצבי עימות/רגישות שקרו בעבר ואיך טיפלת בהם</span>
           </label>
-          <textarea id="q75" placeholder="אוכלוסיית יעד: ...&#10;מספר משתתפים: ...&#10;תהליך בחירה: ..."></textarea>
-        </div>
-        <div class="q-item">
-          <label><span class="q-num">76</span> מה לוח הזמנים? מתי בשנה מתחיל? מתי מסתיים? מה הסטטוס ל-2026?</label>
-          <input type="text" id="q76" placeholder="חודשי קורס + סטטוס נוכחי...">
-        </div>
-        <div class="q-item">
-          <label><span class="q-num">77</span> מה הלוגיסטיקה? (LMS, וואטסאפ, חדרי ישיבות, תשלומים, כיבוד)
-            <span class="q-hint">מהם כל ה"חלקים הנעים" שצריך לנהל?</span>
-          </label>
-          <textarea id="q77" placeholder="סביבה ב-LMS: כן/לא&#10;קבוצת ווצאפ: ...&#10;חדרים: ...&#10;תשלומים: ..."></textarea>
+          <textarea id="q76" class="tall" placeholder="מצב שקרה: ...&#10;איך טיפלתי: ...&#10;מה חשוב לדעת: ..."></textarea>
         </div>
       </div>
 
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">🏖️ "קורס בים" — דורש הבהרה</div>
-        <div class="tip-box" style="background:#FAD7D3;border-color:#C0392B;color:#8B1A10">⚠️ עלה בהכתבה — נדרש הבהרה: האם מדובר בקורס BIM (Building Information Modeling)? פעילות גיבוש בים? משהו אחר? נא לפרט.</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🧭 יום אוריינטציה / הכשרה בכניסה לתפקיד</div>
+        <div class="tip-box">מתועד באקסל תחת "הכשרה בכניסה לתפקיד" אבל חסר פירוט. זה חלק ליבתי מהתפקיד — נדרש תיעוד מלא.</div>
+
         <div class="q-item">
-          <label><span class="q-num">78</span> מהו "קורס בים"? פרטי: שם הקורס, מטרה, קהל יעד, ספק/מנחה</label>
-          <textarea id="q78" class="tall" placeholder="שם הקורס: ...&#10;מהות: ...&#10;קהל יעד: ...&#10;ספק/מנחה: ...&#10;תדירות: ..."></textarea>
+          <label><span class="q-num">77</span> מה כולל יום אוריינטציה לעובד חדש? מה סדר היום? כמה זמן? <span class="required">*</span>
+            <span class="q-hint">תארי יום שלם — מרגע שהעובד מגיע. מי פוגש אותו? מה עושים?</span>
+          </label>
+          <textarea id="q77" class="tall" placeholder="מבנה יום האוריינטציה: ...&#10;משך: ...&#10;מי משתתף: ...&#10;מה כולל: ..."></textarea>
+        </div>
+
+        <div class="q-item">
+          <label><span class="q-num">78</span> מי מעביר כל חלק ביום האוריינטציה? אילו חומרים מלווים? <span class="required">*</span></label>
+          <textarea id="q78" placeholder="חלק 1: ... מעביר/ה: ...&#10;חלק 2: ... מעביר/ה: ...&#10;חומרים: ... איפה שמורים: ..."></textarea>
+        </div>
+
+        <div class="q-item">
+          <label><span class="q-num">79</span> תדירות — כל כמה זמן יש אוריינטציה? מה כשיש עובד בודד?</label>
+          <textarea id="q79" placeholder="האם מחכים לקבוצה: ...&#10;מה קורה כשמגיע עובד אחד: ...&#10;כל כמה זמן: ..."></textarea>
+        </div>
+
+        <div class="q-item">
+          <label><span class="q-num">80</span> מה נבנה ב-LMS לעניין הכשרה בכניסה לתפקיד? מה הסטטוס? <span class="required">*</span>
+            <span class="q-hint">באקסל כתוב "בניית תבנית ויישום במערכת הלמידה" — מה הסטטוס?</span>
+          </label>
+          <textarea id="q80" placeholder="מה קיים במערכת: ...&#10;מה עוד צריך לבנות: ...&#10;מי בנה: ...&#10;סטטוס: ..."></textarea>
         </div>
       </div>
 
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">🚪 יום אוריינטציה / הכשרה בכניסה לתפקיד</div>
-        <div class="tip-box">באקסל מופיע "הכשרה בכניסה לתפקיד" — בשלבי בנייה ב-LMS. חסר תיעוד מלא של התהליך.</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🏛️ כנסים ואירועים מקצועיים</div>
+        <div class="tip-box">כנסים שמוזכרים בהכתבה ולא מתועדים: כנס מהנדסים (כאירוע שנתי נפרד מהמועדון), כנס באוקטובר, וקורס שצריך בירור.</div>
+
         <div class="q-item">
-          <label><span class="q-num">79</span> מה כולל יום אוריינטציה לעובד חדש? פרטי את כל השלבים <span class="required">*</span>
-            <span class="q-hint">מרגע שהעובד מתקבל — מה קורה? מי אחראי? מה הסדר?</span>
+          <label><span class="q-num">81</span> כנס מהנדסים — האם יש כנס שנתי נפרד מהמועדון ההנדסי החודשי? <span class="required">*</span>
+            <span class="q-hint">המועדון ההנדסי (7 מפגשים עם ערן דוד) מתועד. האם יש גם כנס גדול?</span>
           </label>
-          <textarea id="q79" class="tall" placeholder="1. לפני יום ראשון: ...&#10;2. ביום הראשון: ...&#10;3. בשבוע הראשון: ...&#10;4. בחודש הראשון: ..."></textarea>
+          <textarea id="q81" placeholder="כנס שנתי: כן / לא&#10;אם כן — מה כולל? מתי? מי אוכלוסיית יעד?&#10;מה הקשר למועדון ההנדסי?&#10;מה ה-&quot;רישום&quot; שהוזכר — דרך LMS? מייל?"></textarea>
         </div>
+
         <div class="q-item">
-          <label><span class="q-num">80</span> מי מעורב בתהליך? מה התפקיד של כל גורם?
-            <span class="q-hint">משאבי אנוש, מנהל ישיר, מערכות מידע, הדרכה...</span>
+          <label><span class="q-num">82</span> כנס באוקטובר עם אורלי — מי אורלי? מה הכנס? מה כבר סוכם? <span class="required">*</span>
+            <span class="q-hint">הוזכר בהכתבה שהתחלת לדבר עליו עם רוני — חשוב לתעד!</span>
           </label>
-          <textarea id="q80" placeholder="מש&quot;א: ...&#10;מנהל ישיר: ...&#10;מערכות מידע: ...&#10;הדרכה (LMS): ..."></textarea>
+          <textarea id="q82" class="tall" placeholder="מי אורלי (שם + תפקיד): ...&#10;מה הכנס: ...&#10;אוכלוסיית יעד: ...&#10;מה סוכם עד כה: ...&#10;מה צריך לסגור לפני שאני יוצאת: ..."></textarea>
         </div>
+
         <div class="q-item">
-          <label><span class="q-num">81</span> מה הסטטוס הנוכחי של בניית ההכשרה ב-LMS? מה מוכן ומה לא?</label>
-          <textarea id="q81" placeholder="מה כבר נבנה: ...&#10;מה בתהליך: ...&#10;מה חסר: ...&#10;ספקים מעורבים (אימפרוב איט?): ..."></textarea>
-        </div>
-        <div class="q-item">
-          <label><span class="q-num">82</span> מה החזון/התפיסה שבנית להכשרה בכניסה לתפקיד?
-            <span class="q-hint">זה ידע שבעל פה — מה הכיוון שאת רוצה שימשיכו?</span>
+          <label><span class="q-num">83</span> "קורס בים" — בירור: מה זה? BIM? פעילות ים? קורס אחר? <span class="required">*</span>
+            <span class="q-hint">הוזכר בהכתבה ולא ברור — צריך בירור ואז תיעוד מלא</span>
           </label>
-          <textarea id="q82" class="tall" placeholder="מה המטרה? איזו חוויה צריך העובד החדש לקבל? מה העקרונות המנחים?"></textarea>
-        </div>
-      </div>
-
-      <div class="separator"></div>
-
-      <div class="q-group">
-        <div class="q-group-title">🏗️ כנס מהנדסים — רישום ותהליך</div>
-        <div class="tip-box">נפרד מהמועדון ההנדסי! רישום לכנס מרוכז ב-LMS (מופיע בשאלה 14). חסר תיעוד של התהליך המלא.</div>
-        <div class="q-item">
-          <label><span class="q-num">83</span> מה כנס המהנדסים? מתי מתרחש? מה ההבדל מהמועדון ההנדסי? <span class="required">*</span></label>
-          <textarea id="q83" placeholder="מטרה: ...&#10;תדירות: ...&#10;מספר משתתפים: ...&#10;הבדל מהמועדון ההנדסי: ..."></textarea>
-        </div>
-        <div class="q-item">
-          <label><span class="q-num">84</span> איך עובד הרישום דרך ה-LMS? מי מנהל? מי מאשר?</label>
-          <textarea id="q84" placeholder="תהליך רישום שלב-אחר-שלב: ...&#10;מי רואה את הרשימה? ...&#10;מה קורה אם יש יותר מדי נרשמים?"></textarea>
-        </div>
-        <div class="q-item">
-          <label><span class="q-num">85</span> מי אחראי על הלוגיסטיקה? (מרצים, מקום, כיבוד, טכנולוגיה)</label>
-          <textarea id="q85" placeholder="מרצים: ...&#10;מיקום: ...&#10;כיבוד: ...&#10;ליווי טכני: ..."></textarea>
-        </div>
-      </div>
-
-      <div class="separator"></div>
-
-      <div class="q-group">
-        <div class="q-group-title">🎤 כנס עם אורלי — אוקטובר 2026</div>
-        <div class="tip-box" style="background:#FAD7D3;border-color:#C0392B;color:#8B1A10">⚠️ עלה בהכתבה — עדי התחילה לדבר על כנס עם אורלי באוקטובר. נדרש תיעוד מלא.</div>
-        <div class="q-item">
-          <label><span class="q-num">86</span> מי אורלי? מה הכנס? מה המטרה? <span class="required">*</span></label>
-          <textarea id="q86" placeholder="שם מלא + תפקיד: ...&#10;מהות הכנס: ...&#10;קהל יעד: ...&#10;מה כבר סוכם עם רוני? ..."></textarea>
-        </div>
-        <div class="q-item">
-          <label><span class="q-num">87</span> מה הסטטוס? מה כבר נעשה ומה נותר?</label>
-          <textarea id="q87" placeholder="מה סוכם: ...&#10;מה בתהליך: ...&#10;מה צריך המחליפה לעשות: ...&#10;גזירות זמנים: ..."></textarea>
+          <textarea id="q83" class="tall" placeholder="שם הקורס/הפעילות: ...&#10;מנחה: ...&#10;אוכלוסיית יעד: ...&#10;מבנה: ...&#10;לוח זמנים: ...&#10;תפעול ולוגיסטיקה: ..."></textarea>
         </div>
       </div>
 
@@ -1068,7 +1177,7 @@ function pwcheck(){
     <div class="section-body">
 
       <div class="q-group">
-        <div class="q-group-title">📅 תיאום מול לשכה</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 📅 תיאום מול לשכה</div>
         <div class="q-item">
           <label><span class="q-num">23</span> מי בלשכה? מה הפרוטוקול המדויק לתיאום פעילויות? <span class="required">*</span></label>
           <input type="text" id="q23" placeholder="שם + תפקיד + דרך תיאום..." value="מנהלת הלשכה- אור צלשר">
@@ -1094,7 +1203,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">📑 חוזים והתקשרויות</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 📑 חוזים והתקשרויות</div>
         <div class="q-item">
           <label><span class="q-num">25</span> שיר אקשטיין — איך עובדים איתה? מה צריך לעשות לפני שפונים אליה?</label>
           <textarea id="q25" placeholder="מה מכינים מראש? מה הסדר הנכון לפניה?">שיר היא ממונת החוזים אשר מלווה אותם בהליכי ההתקשרויות השונים.
@@ -1134,7 +1243,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">💰 תקציב וסמכויות</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 💰 תקציב וסמכויות</div>
         <div class="q-item">
           <label><span class="q-num">27</span> מה תקציב הרווחה השנתי? מה תקציב ההדרכה? מי מאשר חריגות?
             <span class="q-hint">אם אי אפשר לכתוב — לפחות כיתבי את מנגנון האישור</span>
@@ -1164,7 +1273,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">📢 הפצת תקשורים וסטודיו שילובים</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 📢 הפצת תקשורים וסטודיו שילובים</div>
         <div class="tip-box">מידע ידוע: שולמית — shulamit@shiluvimcr.co.il. לבקשות מיוחדות: לערב דוברות.</div>
         <div class="q-item">
           <label><span class="q-num">54</span> איך מזמינים עבודה מסטודיו שילובים? מה לוחות הזמנים המקובלים?
@@ -1407,7 +1516,7 @@ function pwcheck(){
       <div class="section-icon">📅</div>
       <div class="section-title-wrap">
         <div class="section-title">לוח שנה שנתי</div>
-        <div class="section-subtitle">אילו פעילויות מתרחשות מתי?</div>
+        <div class="section-subtitle"><span class="prio-badge p2">P2</span> אילו פעילויות מתרחשות מתי?</div>
       </div>
       <span class="section-counter" id="cnt-s5">0/12 שדות</span>
       <span class="section-chevron">▼</span>
@@ -1551,7 +1660,7 @@ function pwcheck(){
         <div class="section-title">הידע הבלתי כתוב — תחום האפור</div>
         <div class="section-subtitle">שיקול דעת, מיומנויות רכות, הגיון בריא</div>
       </div>
-      <span class="section-counter" id="cnt-s7">0/23 שדות</span>
+      <span class="section-counter" id="cnt-s7">0/36 שדות</span>
       <span class="section-chevron">▼</span>
     </div>
     <div class="section-body">
@@ -1601,7 +1710,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">📊 פורומים מקצועיים ו-6 GRID — חדש!</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 📊 פורומים מקצועיים ו-6 GRID</div>
         <div class="tip-box">תחומים שעלו מהתוספות שלך — נדרש פירוט לתיק החפיפה.</div>
 
         <div class="q-item">
@@ -1635,7 +1744,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">🔐 גישות ומערכות — פרטים חסרים</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🔐 גישות ומערכות — פרטים חסרים</div>
 
         <div class="q-item">
           <label><span class="q-num">61</span> בלוסום — כתובת URL לכניסה? <span class="required">*</span></label>
@@ -1661,7 +1770,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">🧠 תחום האפור — שאלות שנשארו פתוחות</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 🧠 תחום האפור — שאלות שנשארו פתוחות</div>
         <div class="tip-box">הכי חשוב! כתבי בחופשיות ובגוף ראשון.</div>
 
         <div class="q-item">
@@ -1697,80 +1806,130 @@ function pwcheck(){
         </div>
       </div>
 
-      <div class="separator"></div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 8: הערכות מעבר ושימור ידע ===== -->
+  <div class="section s8" id="s8">
+    <div class="section-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="section-icon">🔮</div>
+      <div class="section-title-wrap">
+        <div class="section-title">הערכות מעבר — תכנון תקופת ההיעדרות</div>
+        <div class="section-subtitle">פריסת תכולות, חלוקת אחריות, סיכונים ושימור ידע</div>
+      </div>
+      <span class="section-counter" id="cnt-s8">0/13 שדות</span>
+      <span class="section-chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="tip-box">חלק זה נועד לוודא שהתכולות שלך מכוסות בזמן היעדרותך. <strong>ענייני בכנות</strong> — גם כשקשה. התשובות כאן יקבעו את איכות ההיערכות.</div>
 
       <div class="q-group">
-        <div class="q-group-title">🗺️ הערכות אסטרטגית לתקופת ההיעדרות</div>
-        <div class="tip-box" style="background:#EEF7FF;border-color:#5B6FA8;color:#2A4A7A">💡 סקשן זה נועד לתעד את ההסתכלות הרוחבית שלך על כלל התכולות — מה צריך להיות מוכן, מי צריך לדעת מה, ומה הסיכונים. זה הידע הכי קריטי שאי אפשר לשחזר אחרי שתצאי.</div>
+        <div class="q-group-title"><span class="prio-badge p3">P3</span> 📅 פריסת תכולות — 5 החודשים הקרובים</div>
 
         <div class="q-item">
-          <label><span class="q-num">88</span> פרסי את 5 החודשים הקרובים — מה התכולות העיקריות בכל חודש? <span class="required">*</span>
-            <span class="q-hint">חשבי מאי–אוקטובר: מה יושב בכל חודש ומה קריטי?</span>
+          <label><span class="q-num">84</span> מאי–יוני — מה יושב מבחינת תכולות? מה קריטי? <span class="required">*</span>
+            <span class="q-hint">רשמי כל משימה, אירוע, מועד, או תהליך שיושב בחודשים אלו</span>
           </label>
-          <textarea id="q88" class="tall" placeholder="מאי: ...&#10;יוני: ...&#10;יולי: ...&#10;אוגוסט: ...&#10;ספטמבר: ...&#10;אוקטובר: ..."></textarea>
+          <textarea id="q84" class="tall" placeholder="מאי: ...&#10;יוני: ...&#10;מה קריטי: ...&#10;מה ניתן לדחות: ..."></textarea>
         </div>
 
         <div class="q-item">
-          <label><span class="q-num">89</span> בכל תחום — מי מהצוות יכולה ללוות את המחליפה? מה הפער?
-            <span class="q-hint">פרטי לכל תחום: רווחה, מכרזים, פיתוח מנהלים, איתור צרכים, כנסים — מי הכי מתאימה?</span>
-          </label>
-          <textarea id="q89" class="tall" placeholder="רווחה ואירועים: ... יכולה ללוות כי...&#10;מכרזים: ... יכולה ללוות כי...&#10;פיתוח מנהלים: ...&#10;איתור צרכי הדרכה: ...&#10;כנסים וטקסים: ..."></textarea>
+          <label><span class="q-num">85</span> יולי–אוגוסט — מה יושב? מה צריך הכנה מראש? <span class="required">*</span></label>
+          <textarea id="q85" class="tall" placeholder="יולי: ...&#10;אוגוסט: ...&#10;מה דורש הכנה כבר עכשיו: ..."></textarea>
         </div>
 
         <div class="q-item">
-          <label><span class="q-num">90</span> מה "נקודות הכשל" — הדברים שהכי עלולים להיתקע בהיעדרך?
-            <span class="q-hint">חשבי על: ספק חדש שלא מכירים, מכרז שאין מי שמכיר, אירוע שדורש היכרות ארגונית...</span>
-          </label>
-          <textarea id="q90" class="tall" placeholder="1. הסיכון: ... הסיבה: ... הפתרון המומלץ: ...&#10;2. הסיכון: ...&#10;3. הסיכון: ..."></textarea>
-        </div>
-
-        <div class="q-item">
-          <label><span class="q-num">91</span> אילו דברים רצית לסגור לפני היציאה ולא תספיקי? מה ההמלצה?
-            <span class="q-hint">לדוגמה: איתור צרכי הדרכה, כנס אוקטובר, סגירת מכרז...</span>
-          </label>
-          <textarea id="q91" class="tall" placeholder="1. מה רציתי: ... מה הסטטוס: ... מה ממליצה: ...&#10;2. ..."></textarea>
-        </div>
-
-        <div class="q-item">
-          <label><span class="q-num">92</span> מה ההמלצה שלך לרוני לגבי חלוקת העבודה בצוות בהיעדרך?
-            <span class="q-hint">מי צריכה לקחת מה? מה חשוב שרוני תבין? מה ההנחתות לצוות?</span>
-          </label>
-          <textarea id="q92" class="tall" placeholder="אביב — תתרכז ב: ...&#10;דניאל — תתרכז ב: ...&#10;לין — תמשיך עם: ...&#10;מה רוני צריכה להבין: ..."></textarea>
-        </div>
-
-        <div class="q-item">
-          <label><span class="q-num">93</span> תיאום ציפיות עם המחליפה — מה הייתי אומרת לה ביום הראשון?
-            <span class="q-hint">לאיזו מציאות היא נכנסת? מה הדברים שחשוב שתבין מיד?</span>
-          </label>
-          <textarea id="q93" class="tall" placeholder="1. את נכנסת לתקופה שעיקרה...&#10;2. הדברים הכי חשובים בחודשים הקרובים הם...&#10;3. תמיד תוכלי לפנות ל... כשיש ספק"></textarea>
+          <label><span class="q-num">86</span> ספטמבר–אוקטובר — מתנות ר"ה, כנס חברה, כנס אוקטובר. מה הסטטוס? <span class="required">*</span></label>
+          <textarea id="q86" class="tall" placeholder="ספטמבר: ...&#10;אוקטובר: ...&#10;סטטוס הכנות: ..."></textarea>
         </div>
       </div>
 
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title">💎 מה בנית מאפס — ערך מוסף ייחודי</div>
-        <div class="tip-box">התפקיד נבנה על ידך ב-4 שנים. לתועלת המחליפה ולתיעוד ארגוני — חשוב לציין מה לא היה קיים קודם.</div>
+        <div class="q-group-title"><span class="prio-badge p3">P3</span> 👥 חלוקת אחריות בצוות</div>
 
         <div class="q-item">
-          <label><span class="q-num">94</span> אילו תהליכים, כלים, או תפיסות בנית מאפס בתפקיד? <span class="required">*</span>
-            <span class="q-hint">מה שלא היה קיים לפני שהתחלת ועכשיו חלק אינטגרלי מהארגון</span>
+          <label><span class="q-num">87</span> מי מהצוות יכולה ללוות את המחליפה — ובמה ספציפית? <span class="required">*</span>
+            <span class="q-hint">פרטי: אביב — באילו תחומים? דניאל — באילו? לין? רוני? מי עוד?</span>
           </label>
-          <textarea id="q94" class="tall" placeholder="1. לפני: לא הייתה תוכנית רווחה מובנית → מה בניתי: ...&#10;2. לפני: לא היה LMS → מה הטמעתי: ...&#10;3. ...&#10;4. ..."></textarea>
+          <textarea id="q87" class="tall" placeholder="אביב: יכולה ללוות ב... כי...&#10;דניאל: יכולה ללוות ב... כי...&#10;לין: ...&#10;מי עוד: ..."></textarea>
         </div>
 
         <div class="q-item">
-          <label><span class="q-num">95</span> מה העקרונות המנחים שבנית ושחשוב שימשיכו גם בהיעדרך?
-            <span class="q-hint">תפיסת למידה, סטנדרטים, גישה לניהול ספקים, עקרונות תקשור...</span>
+          <label><span class="q-num">88</span> מה צריך להנחית על הצוות כבר עכשיו? מה הם לא יודעים שיצטרכו לעשות? <span class="required">*</span>
+            <span class="q-hint">אם לא מכינים אותן עכשיו — מה יתפוצץ?</span>
           </label>
-          <textarea id="q95" class="tall" placeholder="1. עיקרון: ... למה חשוב: ...&#10;2. עיקרון: ..."></textarea>
+          <textarea id="q88" class="tall" placeholder="1. ... צריכה לדעת ש...&#10;2. ... צריכה להיערך ל...&#10;3. מה שאף אחת לא יודעת עדיין: ..."></textarea>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title"><span class="prio-badge p3">P3</span> ⚠️ מוקדי סיכון</div>
+
+        <div class="q-item">
+          <label><span class="q-num">89</span> מכרז מתנות פרט — מה הסטטוס? מה צריך לעשות? מה פעולות מקדימות? <span class="required">*</span>
+            <span class="q-hint">את אמרת שהמכרז עומד להסתיים ואין ברירה אלא לצאת לחדש — מה בדיוק?</span>
+          </label>
+          <textarea id="q89" class="tall" placeholder="סטטוס נוכחי: ...&#10;תאריך פקיעה: ...&#10;מה צריך לעשות: ...&#10;מי מלווה (חוזים והתקשרויות): ...&#10;מוקשים: ..."></textarea>
         </div>
 
         <div class="q-item">
-          <label><span class="q-num">96</span> מה "הבשורה" שהבאת לתפקיד — מה היה ההבדל לפני ואחרי?
-            <span class="q-hint">חשבי על תגובות שקיבלת, שינויים שהורגשו, מה אנשים אומרים...</span>
+          <label><span class="q-num">90</span> ספק רווחה חדש — מה ידוע? מי הוא? מה ההכנה הנדרשת? <span class="required">*</span>
+            <span class="q-hint">ציינת שספק חדש שלא מכירים יעשה אירוע בקיץ — פרטי</span>
           </label>
-          <textarea id="q96" class="tall" placeholder="לפני: ... אחרי: ...&#10;תגובות שקיבלתי: ...&#10;מה השתנה בפועל: ..."></textarea>
+          <textarea id="q90" placeholder="מה ידוע: ...&#10;מי הספק: ...&#10;איזה אירוע: ...&#10;מה ההכנה: ...&#10;מי מפקח: ..."></textarea>
+        </div>
+
+        <div class="q-item">
+          <label><span class="q-num">91</span> איתור צרכי הדרכה — האם תספיקי? אם לא — מה צריך להכין למי שתעשה במקומך? <span class="required">*</span>
+            <span class="q-hint">את ציינת שחשבת לעשות את זה ואולי לא תספיקי</span>
+          </label>
+          <textarea id="q91" class="tall" placeholder="האם אספיק: כן / לא / חלקית&#10;אם לא — מה צריך להכין: ...&#10;מי יכולה לעשות: ...&#10;מה הסיכון שמישהי שלא מכירה תעשה: ..."></textarea>
+        </div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="q-group">
+        <div class="q-group-title"><span class="prio-badge p4">P4</span> 🏗️ מה בנית — ולמה זה חשוב</div>
+        <div class="tip-box">המטרה כאן היא לתעד את <strong>ההקשר</strong> — מה היה לפני, מה את שינית, ולמה זה משנה. זה יעזור למחליפה להבין את העומק ולמקבלי ההחלטות להבין את הערך.</div>
+
+        <div class="q-item">
+          <label><span class="q-num">92</span> אילו תהליכים / כלים / מסגרות לא היו קיימים לפני שהתחלת? <span class="required">*</span>
+            <span class="q-hint">תחשבי על 4 השנים — מה בנית מאפס?</span>
+          </label>
+          <textarea id="q92" class="tall" placeholder="1. ... — לא היה קיים. מה היה לפני: ...&#10;2. ... — בניתי כי: ...&#10;3. ... — לפני כן עשו את זה ב: ..."></textarea>
+        </div>
+
+        <div class="q-item">
+          <label><span class="q-num">93</span> מה השינוי המשמעותי ביותר שהכנסת? מה היה המצב לפני?
+            <span class="q-hint">תוכנית למידה? LMS? מועדונים מקצועיים? 6 GRID? הכשרה בכניסה? תפיסת רווחה?</span>
+          </label>
+          <textarea id="q93" class="tall" placeholder="לפני שהגעתי: ...&#10;מה שיניתי: ...&#10;למה זה משנה: ..."></textarea>
+        </div>
+
+        <div class="q-item">
+          <label><span class="q-num">94</span> מה העקרונות המנחים שבנית שחשוב לשמר — גם כשאת לא נמצאת? <span class="required">*</span>
+            <span class="q-hint">הכללים הלא כתובים שלך: איכות, מקצועיות, שיתוף, שקיפות...</span>
+          </label>
+          <textarea id="q94" class="tall" placeholder="1. תמיד לעשות... כי...&#10;2. לעולם לא... כי...&#10;3. העיקרון שהכי חשוב לי: ..."></textarea>
+        </div>
+
+        <div class="q-item">
+          <label><span class="q-num">95</span> מה את ממליצה שהנהלה תדע על התפקיד — דברים שלא תמיד רואים מבחוץ?
+            <span class="q-hint">מה שהייתי רוצה שרוני / המנכ"לית ידעו על מה שהתפקיד באמת דורש</span>
+          </label>
+          <textarea id="q95" class="tall" placeholder="מה שלא רואים מבחוץ: ...&#10;מה שדורש שיקול דעת עמוק: ...&#10;מה שהייתי ממליצה שידעו: ..."></textarea>
+        </div>
+
+        <div class="q-item">
+          <label><span class="q-num">96</span> תיאום ציפיות למחליפה — מה הייתי ממליצה לומר לה לפני שהיא מתחילה?
+            <span class="q-hint">את הצעת לרוני לעשות שיחת תיאום ציפיות — מה היית רוצה שייאמר?</span>
+          </label>
+          <textarea id="q96" class="tall" placeholder="מה חשוב שתדע מראש: ...&#10;למה להתכונן: ...&#10;מה לא לצפות: ..."></textarea>
         </div>
       </div>
 
@@ -2033,11 +2192,12 @@ function updateProgress() {
   if (txt) txt.textContent = filled + ' מתוך ' + total + ' שדות (' + pct + '%)';
 
   updateCounter('s1', ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q47','q48','q49','q50','q51','q52','q53'], 19);
-  updateCounter('s2', ['q13','q14','q15','q16','q17','q18','q19','q20','q21','q22','q71','q72','q73','q74','q75','q76','q77','q78','q79','q80','q81','q82','q83','q84','q85','q86','q87'], 27);
+  updateCounter('s2', ['q13','q14','q15','q16','q17','q18','q19','q20','q21','q22','q71','q72','q73','q74','q75','q76','q77','q78','q79','q80','q81','q82','q83','q98','lomda1_owner','lomda1_notes','lomda2_owner','lomda2_notes','lomda3_owner','lomda3_notes','lomda4_owner','lomda4_notes','lomda5_owner','lomda5_notes'], 34);
   updateCounter('s3', ['q23','q24','q25','q26','q27','q28','q29','q30','q54','q55'], 10);
   updateCounter('s5', ['cal1','cal2','cal3','cal4','cal5','cal6','cal7','cal8','cal9','cal10','cal11','cal12'], 12);
   updateCounter('s6', ['q33','q34','q35','q36','q37','q38'], 6);
-  updateCounter('s7', ['q39','q40','q41','q42','q43','q44','q45','q46','q65','q66','q67','q68','q69','q70','q88','q89','q90','q91','q92','q93','q94','q95','q96'], 23);
+  updateCounter('s7', ['q39','q40','q41','q42','q43','q44','q45','q46','q56','q57','q58','q59','q60','q61','q62','q63','q64','q65','q66','q67','q68','q69','q70','q84','q85','q86','q87','q88','q89','q90','q91','q92','q93','q94','q95','q96'], 36);
+  updateCounter('s8', ['q84','q85','q86','q87','q88','q89','q90','q91','q92','q93','q94','q95','q96'], 13);
 }
 
 function updateCounter(sid, ids, total) {

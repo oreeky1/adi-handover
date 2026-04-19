@@ -545,6 +545,57 @@
   }
 
   /* ===== PRIORITY SYSTEM ===== */
+
+  .gaps-banner {
+    background: linear-gradient(135deg, #FFF5E8, #FFE8D6);
+    border: 1px solid #E89155;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 16px;
+  }
+  .gaps-banner h3 { font-size: 16px; margin-bottom: 12px; color: #B84511; }
+  .gaps-banner p { font-size: 13px; color: #5A3510; margin-bottom: 10px; }
+  .gaps-banner ul { list-style: none; padding: 0; margin: 0; }
+  .gaps-banner li {
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 8px;
+    font-size: 13px;
+    color: #2B1A08;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .gaps-banner li strong { color: #5A3510; font-weight: 700; }
+  .gaps-banner li .gap-count { color: #8A5A2B; font-size: 12px; margin-right: 4px; }
+
+  .group-status-badge {
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .group-status-badge.status-empty {
+    background: #FAD7D3;
+    color: #922B21;
+    border: 1px solid #E74C3C;
+  }
+  .group-status-badge.status-partial {
+    background: #FDEBD0;
+    color: #935116;
+    border: 1px solid #E67E22;
+  }
+  .group-status-badge.status-complete {
+    background: #D5F5E3;
+    color: #1E8449;
+    border: 1px solid #27AE60;
+  }
+
   .prio-banner {
     background: linear-gradient(135deg, #2C2416 0%, #5C3D1E 100%);
     border-radius: var(--radius);
@@ -691,9 +742,21 @@ function pwcheck(){
     <div class="prio-legend">
       <div class="prio-row"><div class="prio-dot p1"></div><span class="prio-badge p1">P1</span><strong>השלמת תיק החפיפה</strong> — שאלות שחסרות לתיק הנוכחי. הכי דחוף!</div>
       <div class="prio-row"><div class="prio-dot p2"></div><span class="prio-badge p2">P2</span><strong>טבלת תאריכים ליומן</strong> — מה לעשות, מתי, הסבר קצר (ייכנס ללוח שנה מזוקק)</div>
-      <div class="prio-row"><div class="prio-dot p3"></div><span class="prio-badge p3">P3</span><strong>מסמך ייעודי לרוני</strong> — הערכות אסטרטגית, חלוקת עבודה, סיכונים (לא ייכלל בתיק)</div>
+      <div class="prio-row"><div class="prio-dot p3"></div><span class="prio-badge p3">P3</span><strong>מסמך ייעודי לרוני</strong> — הערכות אסטרטגית כללית (הוסטו ממנה פריסת תכולות, חלוקת אחריות ומוקדי סיכון ל-P1)</div>
       <div class="prio-row"><div class="prio-dot p4"></div><span class="prio-badge p4">P4</span><strong>הערות כלליות וסיכום</strong> — ערך מוסף, עקרונות, סיכום חופשי</div>
     </div>
+  </div>
+  <div class="gaps-banner" style="margin-top:16px">
+    <h3>📋 פערים פתוחים בתיק החפיפה שלך</h3>
+    <p>אלו התחומים שהתיק עדיין חסר — בסדר עדיפות יורד. כל שורה מפנה אותך לקבוצת שאלות בשאלון:</p>
+    <ul>
+      <li>🔴 <div><strong>רגישויות בבחירת משתתפים לקורסי מנהלים</strong> <span class="gap-count">(3 שאלות בקבוצה "תהליך בחירת משתתפים")</span><br><span style="font-size:12px;color:#6B4020">ידע בעל-פה שאין לו תחליף — המחליפה לא יכולה לדעת בלעדייך.</span></div></li>
+      <li>🔴 <div><strong>פריסת משימות חודש-חודש לתקופת החופשה</strong> <span class="gap-count">(3 שאלות ב"פריסת תכולות — 5 החודשים הקרובים")</span><br><span style="font-size:12px;color:#6B4020">בסיס העבודה של המחליפה. בלי זה — אין איך לתכנן.</span></div></li>
+      <li>🔴 <div><strong>חלוקת אחריות בין אביב, דניאל ולין בהיעדרך</strong> <span class="gap-count">(2 שאלות ב"חלוקת אחריות בצוות")</span><br><span style="font-size:12px;color:#6B4020">מי מטפל במה כשאני לא זמינה — חובה לסגור.</span></div></li>
+      <li>🟡 <div><strong>סטטוס מכרזים פעילים</strong> <span class="gap-count">(3 שאלות ב"מוקדי סיכון")</span><br><span style="font-size:12px;color:#6B4020">ספקי מתנות, חברת הפקות, תאריכי פקיעה — מה פעיל ומה בסיכון.</span></div></li>
+      <li>🟡 <div><strong>תחום האפור — טעויות, רגישויות, ערך שבנית</strong> <span class="gap-count">(שאלות בסעיף "תחום האפור")</span><br><span style="font-size:12px;color:#6B4020">מה שלא כתוב בשום מקום אחר — שיקול דעת, עקרונות עבודה, מוקשים.</span></div></li>
+      <li>🟢 <div><strong>בקשות פרטניות נוספות</strong> <span class="gap-count">(4 שאלות בסקשן "פיתוח ארגוני")</span><br><span style="font-size:12px;color:#6B4020">פרטים משלימים, פחות דחוף.</span></div></li>
+    </ul>
   </div>
 </div>
 
@@ -1824,7 +1887,7 @@ function pwcheck(){
       <div class="tip-box">חלק זה נועד לוודא שהתכולות שלך מכוסות בזמן היעדרותך. <strong>ענייני בכנות</strong> — גם כשקשה. התשובות כאן יקבעו את איכות ההיערכות.</div>
 
       <div class="q-group">
-        <div class="q-group-title"><span class="prio-badge p3">P3</span> 📅 פריסת תכולות — 5 החודשים הקרובים</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 📅 פריסת תכולות — 5 החודשים הקרובים</div>
 
         <div class="q-item">
           <label><span class="q-num">84</span> מאי–יוני — מה יושב מבחינת תכולות? מה קריטי? <span class="required">*</span>
@@ -1847,7 +1910,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title"><span class="prio-badge p3">P3</span> 👥 חלוקת אחריות בצוות</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> 👥 חלוקת אחריות בצוות</div>
 
         <div class="q-item">
           <label><span class="q-num">87</span> מי מהצוות יכולה ללוות את המחליפה — ובמה ספציפית? <span class="required">*</span>
@@ -1867,7 +1930,7 @@ function pwcheck(){
       <div class="separator"></div>
 
       <div class="q-group">
-        <div class="q-group-title"><span class="prio-badge p3">P3</span> ⚠️ מוקדי סיכון</div>
+        <div class="q-group-title"><span class="prio-badge p1">P1</span> ⚠️ מוקדי סיכון</div>
 
         <div class="q-item">
           <label><span class="q-num">89</span> מכרז מתנות פרט — מה הסטטוס? מה צריך לעשות? מה פעולות מקדימות? <span class="required">*</span>
@@ -2194,10 +2257,14 @@ function updateProgress() {
   updateCounter('s1', ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q47','q48','q49','q50','q51','q52','q53'], 19);
   updateCounter('s2', ['q13','q14','q15','q16','q17','q18','q19','q20','q21','q22','q71','q72','q73','q74','q75','q76','q77','q78','q79','q80','q81','q82','q83','q98','lomda1_owner','lomda1_notes','lomda2_owner','lomda2_notes','lomda3_owner','lomda3_notes','lomda4_owner','lomda4_notes','lomda5_owner','lomda5_notes'], 34);
   updateCounter('s3', ['q23','q24','q25','q26','q27','q28','q29','q30','q54','q55'], 10);
-  updateCounter('s5', ['cal1','cal2','cal3','cal4','cal5','cal6','cal7','cal8','cal9','cal10','cal11','cal12'], 12);
+  updateCounter('s4', ['sup1_service','sup1_contact','sup1_contract','sup1_expiry','sup1_crit','sup1_notes','sup2_service','sup2_contact','sup2_contract','sup2_expiry','sup2_crit','sup2_notes','sup3_service','sup3_contact','sup3_contract','sup3_expiry','sup3_crit','sup3_notes','sup4_service','sup4_contact','sup4_contract','sup4_expiry','sup4_crit','sup4_notes','sup5_service','sup5_contact','sup5_notes','q31'], 28);
+  updateCounter('s5', ['cal1','cal2','cal3','cal4','cal5','cal6','cal7','cal8','cal9','cal10','cal11','cal12','q32'], 13);
   updateCounter('s6', ['q33','q34','q35','q36','q37','q38'], 6);
   updateCounter('s7', ['q39','q40','q41','q42','q43','q44','q45','q46','q56','q57','q58','q59','q60','q61','q62','q63','q64','q65','q66','q67','q68','q69','q70','q84','q85','q86','q87','q88','q89','q90','q91','q92','q93','q94','q95','q96'], 36);
   updateCounter('s8', ['q84','q85','q86','q87','q88','q89','q90','q91','q92','q93','q94','q95','q96'], 13);
+
+  // Also update the per-group status badges (if the function exists)
+  if (typeof updateGroupStatusBadges === 'function') updateGroupStatusBadges();
 }
 
 function updateCounter(sid, ids, total) {
@@ -2266,6 +2333,49 @@ function setToken(){
 (function(){
   try{var t=localStorage.getItem('gh_token');if(t)GH_TOKEN=t;}catch(e){}
 })();
+
+
+// ═══════════════════════════════════════════════════════
+// Group status badges — dynamic (empty/partial/complete)
+// ═══════════════════════════════════════════════════════
+function updateGroupStatusBadges() {
+  document.querySelectorAll('.q-group').forEach(function(group) {
+    var title = group.querySelector('.q-group-title');
+    if (!title) return;
+    var inputs = group.querySelectorAll('input[type="text"], input[type="date"], textarea, select');
+    if (inputs.length === 0) return;
+    var filled = 0;
+    inputs.forEach(function(inp) {
+      if (inp.value && inp.value.trim()) filled++;
+    });
+    var badge = title.querySelector('.group-status-badge');
+    if (!badge) {
+      badge = document.createElement('span');
+      badge.className = 'group-status-badge';
+      title.appendChild(badge);
+    }
+    badge.className = 'group-status-badge';
+    if (filled === 0) {
+      badge.classList.add('status-empty');
+      badge.textContent = '🔴 ריק';
+    } else if (filled < inputs.length) {
+      badge.classList.add('status-partial');
+      badge.textContent = '🟡 ' + filled + '/' + inputs.length;
+    } else {
+      badge.classList.add('status-complete');
+      badge.textContent = '🟢 ' + filled + '/' + inputs.length;
+    }
+  });
+}
+
+// Run on load + on every input change
+window.addEventListener('load', function() { setTimeout(updateGroupStatusBadges, 50); });
+document.addEventListener('input', function(e) {
+  if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT')) {
+    updateGroupStatusBadges();
+  }
+});
+
 </script>
 </body>
 </html>
